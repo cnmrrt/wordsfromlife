@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" as="image" href="/static/img/authors/abraham-lincoln.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/albert-camus.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/albert-einstein.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/alexander-graham-bell.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/alexander-pushkin.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/amelia-barr.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/anton-chekhov.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/aristotle.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/arthur-schopenhauer.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/baruch-spinoza.jpeg">
+    <link rel="stylesheet" href="/_next/static/chunks/app_globals_71f961d1.css"
+        data-precedence="next_static/chunks/app_globals_71f961d1.css">
+    <link rel="preload" as="script" fetchpriority="low"
+        href="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_57d40746._.js">
+    <script src="/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_a9cb0712.js"
+        async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_compiled_5150ccfd._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_b0daae9a._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_%40swc_helpers_cjs_b3dc30d6._.js" async=""></script>
+    <script src="/_next/static/chunks/_a0ff3932._.js" async=""></script>
+    <script src="/_next/static/chunks/turbopack-_cdba956c._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_8db7fb1f._.js" async=""></script>
+    <script src="/_next/static/chunks/app_favicon_ico_mjs_e98bdb63._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_client_5b53406e._.js" async=""></script>
+    <script src="/_next/static/chunks/app_layout_tsx_0a548d63._.js" async=""></script>
+    <script src="/_next/static/chunks/node_modules_next_dist_client_components_builtin_global-error_0c8ae71e.js"
+        async=""></script>
+    <script src="/_next/static/chunks/node_modules_29f81195._.js" async=""></script>
+    <script src="/_next/static/chunks/app_page_tsx_0c8ae71e._.js" async=""></script>
+    <link rel="preload"
+        href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5581015881313741" as="script"
+        crossorigin="">
+    <link rel="preload" href="/static/js/macy.js" as="script">
+    <link rel="preload" href="https://www.googletagmanager.com/gtm.js?id=GTM-TKDV62Q" as="script">
+    <link rel="preload" as="image" href="/static/img/authors/benjamin-franklin.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/bernard-baruch.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/bob-marley.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/bruce-lee.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/buddha.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/charles-dickens.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/charlie-chaplin.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/domenico-fetti-archimedes.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/eleanor-roosevelt.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/ernest-hemingway.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/frank-sinatra.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/franz-kafka.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/friedrich-nietzsche.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/fyodor-dostoevsky.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/galileo-galilei.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/george-orwell.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/george-washington.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/helen-keller.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/henry-ford.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/hermann-hesse.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/immanuel-kant.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/isaac-newton.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/jack-london.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/jim-rohn.png">
+    <link rel="preload" as="image" href="/static/img/authors/john-f-kennedy.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/josef-stalin.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/julius-caesar.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/leo-tolstoy.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/leonardo-da-vinci.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/malcolm-x.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/mamatha-gandhi.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/marie-curie.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/mark-twain.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/martin-luther-king-jr.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/max-weber.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/maxim-gorky.jpg">
+    <link rel="preload" as="image"
+        href="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fmaya-angelou.jpeg?alt=media&amp;token=4da26ffc-92c6-449d-acd0-0a30bab4afb0">
+    <link rel="preload" as="image" href="/static/img/authors/michel-de-montaigne.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/napoleon-hill.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/nelson-mandela.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/nikola-tesla.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/pablo-neruda.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/pablo-picasso.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/plato.jpg">
+    <link rel="preload" as="image"
+        href="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fralph-waldo-emerson.jpg?alt=media&amp;token=bd74c08f-5956-4d6a-aa13-6b2911e64ade">
+    <link rel="preload" as="image" href="/static/img/authors/rene-descartes.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/robert-frost.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/salvador-dali.jpg">
+    <link rel="preload" as="image"
+        href="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fsigmund-freud.jpeg?alt=media&amp;token=13b12d29-6eb7-407c-9ad1-878b067854c5">
+    <link rel="preload" as="image" href="/static/img/authors/socrates.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/stephen-hawking.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/steve-jobs.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/thomas-edison.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/victor-hugo.jpeg">
+    <link rel="preload" as="image"
+        href="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fvincent-van-gogh.jpg?alt=media&amp;token=31e73af2-967b-4713-a761-49db8e80f39c">
+    <link rel="preload" as="image" href="/static/img/authors/voltaire.jpg">
+    <link rel="preload" as="image" href="/static/img/authors/walt-disney.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/walt-whitman.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/william-shakespeare.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/winston-churchill.jpeg">
+    <link rel="preload" as="image" href="/static/img/authors/wolfgang-amadeus-mozart.jpg">
+    <link rel="preload" as="image"
+        href="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fisaac-asimov.jpg?alt=media&amp;token=9d478d11-734c-4ce0-9f4b-b4fd0631b77f">
+    <link rel="preload" as="image" href="https://wordsfromlife.com/static/img/authors/mustafa-kemal-ataturk.jpeg">
+    <title>Words From Life</title>
+    <meta name="description" content="All words about life here, visit now!">
+    <meta name="google-adsense-account" content="ca-pub-5581015881313741">
+    <link rel="canonical" href="https://wordsfromlife.com/">
+    <meta name="yandex-verification" content="393187ce66b07320">
+    <meta property="og:title" content="Words From Life">
+    <meta property="og:description" content="All words about life here, visit now!">
+    <meta property="og:url" content="https://wordsfromlife.com/">
+    <meta property="og:site_name" content="Words From Life">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Words From Life">
+    <meta name="twitter:description" content="All words about life here, visit now!">
+    <link rel="icon" href="/favicon.ico?favicon.67e5bd8d.ico" sizes="60x60" type="image/x-icon">
+    <script src="/_next/static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js" nomodule=""></script>
+    <style>
+        @font-face {
+            font-family: '__nextjs-Geist';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist Mono';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-mono-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+
+        @font-face {
+            font-family: '__nextjs-Geist Mono';
+            font-style: normal;
+            font-weight: 400 600;
+            font-display: swap;
+            src: url(/__nextjs_font/geist-mono-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+    </style>
+    <script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_c8c997ce._.js"></script>
+    <script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_285433b7._.js"></script>
+    <meta http-equiv="origin-trial"
+        content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+    <meta http-equiv="origin-trial"
+        content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+    <meta http-equiv="origin-trial"
+        content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+        content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <meta http-equiv="origin-trial"
+        content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1255.0" data-gr-ext-installed="">
+    <div hidden=""><!--$--><!--/$--></div>
+    <ul id="navbar">
+        <li><strong><a href="/">Home</a></strong></li>
+        <li><strong><a href="/authors">Authors</a></strong></li>
+        <li><strong><a href="/words">Words</a></strong></li>
+        <li><strong><a href="/preverbs">Proverbs</a></strong></li>
+    </ul>
+    <main class="main" role="main">
+        <h1>Words From Life</h1>
+        <div class="home-container">
+            <section class="section">
+                <div id="macy-container" style="position: relative; height: 2873px;">
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: 0px;"><a
+                            href="/authors/abraham-lincoln-quotes"><img src="/static/img/authors/abraham-lincoln.jpeg"
+                                alt="Abraham Lincoln" width="600" height="339"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Abraham<!-- -->
+                                <!-- -->Lincoln</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/albert-camus-quotes"><img src="/static/img/authors/albert-camus.jpg"
+                                alt="Albert Camus" width="600" height="339"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Albert<!-- -->
+                                <!-- -->Camus</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/albert-einstein-quotes"><img src="/static/img/authors/albert-einstein.jpg"
+                                alt="Albert Einstein" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Albert<!-- -->
+                                <!-- -->Einstein</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(50% + 8px);">
+                        <a href="/authors/alexander-graham-bell-quotes"><img
+                                src="/static/img/authors/alexander-graham-bell.jpeg" alt="Alexander Graham Bell"
+                                width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Alexander Graham<!-- -->
+                                <!-- -->Bell</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/alexander-pushkin-quotes"><img
+                                src="/static/img/authors/alexander-pushkin.jpeg" alt="Alexander Pushkin" width="350"
+                                height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Alexander<!-- -->
+                                <!-- -->Pushkin</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/amelia-barr-quotes"><img src="/static/img/authors/amelia-barr.jpeg"
+                                alt="Amelia Barr" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Amelia<!-- -->
+                                <!-- -->Barr</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 142px; left: 0px;"><a
+                            href="/authors/anton-chekhov-quotes"><img src="/static/img/authors/anton-chekhov.jpeg"
+                                alt="Anton Chekhov" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Anton<!-- -->
+                                <!-- -->Chekhov</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 142px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/aristotle-quotes"><img src="/static/img/authors/aristotle.jpeg"
+                                alt="Aristotle " width="448" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Aristotle<!-- --> </span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 268px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/arthur-schopenhauer-quotes"><img
+                                src="/static/img/authors/arthur-schopenhauer.jpeg" alt="Arthur Schopenhauer" width="600"
+                                height="767"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Arthur<!-- -->
+                                <!-- -->Schopenhauer</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 329px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/baruch-spinoza-quotes"><img src="/static/img/authors/baruch-spinoza.jpeg"
+                                alt="Baruch Spinoza" width="600" height="729"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Baruch<!-- -->
+                                <!-- -->Spinoza</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 329px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/benjamin-franklin-quotes"><img
+                                src="/static/img/authors/benjamin-franklin.jpeg" alt="Benjamin Franklin" width="600"
+                                height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Benjamin<!-- -->
+                                <!-- -->Franklin</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 353px; left: calc(50% + 8px);">
+                        <a href="/authors/bernard-baruch-quotes"><img src="/static/img/authors/bernard-baruch.jpeg"
+                                alt="Bernard Baruch" width="600" height="747"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Bernard<!-- -->
+                                <!-- -->Baruch</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 410px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/bob-marley-quotes"><img src="/static/img/authors/bob-marley.jpeg"
+                                alt="Bob Marley" width="600" height="400"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Bob<!-- -->
+                                <!-- -->Marley</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 471px; left: 0px;"><a
+                            href="/authors/bruce-lee-quotes"><img src="/static/img/authors/bruce-lee.jpeg"
+                                alt="Bruce Lee" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Bruce<!-- -->
+                                <!-- -->Lee</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 471px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/buddha-quotes"><img src="/static/img/authors/buddha.jpeg" alt="Buddha "
+                                width="600" height="768"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Buddha<!-- --> </span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 526px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/charles-dickens-quotes"><img src="/static/img/authors/charles-dickens.jpeg"
+                                alt="Charles Dickens" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Charles<!-- -->
+                                <!-- -->Dickens</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 569px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/charlie-chaplin-quotes"><img src="/static/img/authors/charlie-chaplin.jpg"
+                                alt="Charlie Chaplin" width="600" height="750"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Charlie<!-- -->
+                                <!-- -->Chaplin</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 577px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/domenico-fetti-archimedes-quotes"><img
+                                src="/static/img/authors/domenico-fetti-archimedes.jpeg" alt="Domenico-Fetti Archimedes"
+                                width="600" height="800"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Domenico-Fetti<!-- -->
+                                <!-- -->Archimedes</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 606px; left: calc(50% + 8px);">
+                        <a href="/authors/eleanor-roosevelt-quotes"><img
+                                src="/static/img/authors/eleanor-roosevelt.jpeg" alt="Eleanor Roosevelt" width="494"
+                                height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Eleanor<!-- -->
+                                <!-- -->Roosevelt</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 613px; left: 0px;"><a
+                            href="/authors/ernest-hemingway-quotes"><img src="/static/img/authors/ernest-hemingway.jpeg"
+                                alt="Ernest Hemingway" width="600" height="730"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Ernest<!-- -->
+                                <!-- -->Hemingway</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 668px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/frank-sinatra-quotes"><img src="/static/img/authors/frank-sinatra.jpeg"
+                                alt="Frank Sinatra" width="455" height="599"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Frank<!-- -->
+                                <!-- -->Sinatra</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 730px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/franz-kafka-quotes"><img src="/static/img/authors/franz-kafka.jpeg"
+                                alt="Franz Kafka" width="350" height="587"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Franz<!-- -->
+                                <!-- -->Kafka</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 823px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/friedrich-nietzsche-quotes"><img
+                                src="/static/img/authors/friedrich-nietzsche.jpeg" alt="Friedrich Nietzsche" width="350"
+                                height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Friedrich<!-- -->
+                                <!-- -->Nietzsche</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 854px; left: calc(50% + 8px);">
+                        <a href="/authors/fyodor-dostoevsky-quotes"><img
+                                src="/static/img/authors/fyodor-dostoevsky.jpeg" alt="Fyodor Dostoevsky" width="350"
+                                height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Fyodor<!-- -->
+                                <!-- -->Dostoevsky</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 861px; left: 0px;"><a
+                            href="/authors/galileo-galilei-quotes"><img src="/static/img/authors/galileo-galilei.jpeg"
+                                alt="Galieo Galilei" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Galieo<!-- -->
+                                <!-- -->Galilei</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 868px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/george-orwell-quotes"><img src="/static/img/authors/george-orwell.jpeg"
+                                alt="George Orwell" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">George<!-- -->
+                                <!-- -->Orwell</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 933px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/george-washington-quotes"><img
+                                src="/static/img/authors/george-washington.jpeg" alt="George Washington" width="494"
+                                height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">George<!-- -->
+                                <!-- -->Washington</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1003px; left: 0px;"><a
+                            href="/authors/helen-keller-quotes"><img src="/static/img/authors/helen-keller.jpeg"
+                                alt="Helen Keller" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Helen<!-- -->
+                                <!-- -->Keller</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1053px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/henry-ford-quotes"><img src="/static/img/authors/henry-ford.jpeg"
+                                alt="Henry Ford" width="600" height="339"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Henry<!-- -->
+                                <!-- -->Ford</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1145px; left: 0px;"><a
+                            href="/authors/hermann-hesse-quotes"><img src="/static/img/authors/hermann-hesse.jpeg"
+                                alt="Hermann Hesse" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Hermann<!-- -->
+                                <!-- -->Hesse</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1152px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/immanuel-kant-quotes"><img src="/static/img/authors/immanuel-kant.jpeg"
+                                alt="Immanuel Kant" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Immanuel<!-- -->
+                                <!-- -->Kant</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1181px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/isaac-newton-quotes"><img src="/static/img/authors/isaac-newton.jpeg"
+                                alt="Isaac Newton" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Isaac<!-- -->
+                                <!-- -->Newton</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1183px; left: calc(50% + 8px);">
+                        <a href="/authors/jack-london-quotes"><img src="/static/img/authors/jack-london.jpg"
+                                alt="Jack London" width="600" height="789"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Jack<!-- -->
+                                <!-- -->London</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1195px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/jim-rohn-quotes"><img src="/static/img/authors/jim-rohn.png" alt="Jim Rohn"
+                                width="456" height="645"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Jim<!-- -->
+                                <!-- -->Rohn</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1197px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/john-f-kennedy-quotes"><img src="/static/img/authors/john-f-kennedy.jpeg"
+                                alt="John Fitzgerald Kennedy"><span
+                                style="display:block;text-align:center;padding:.2rem 0">John Fitzgerald<!-- -->
+                                <!-- -->Kennedy</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1287px; left: 0px;"><a
+                            href="/authors/josef-stalin-quotes"><img src="/static/img/authors/josef-stalin.jpeg"
+                                alt="Josef Stalin" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Josef<!-- -->
+                                <!-- -->Stalin</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1323px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/julius-caesar-quotes"><img src="/static/img/authors/julius-caesar.jpeg"
+                                alt="Julius Caesar" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Julius<!-- -->
+                                <!-- -->Caesar</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1429px; left: 0px;"><a
+                            href="/authors/leo-tolstoy-quotes"><img src="/static/img/authors/leo-tolstoy.jpeg"
+                                alt="Leo Tolstoy" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Leo<!-- -->
+                                <!-- -->Tolstoy</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1447px; left: calc(50% + 8px);">
+                        <a href="/authors/leonardo-da-vinci-quotes"><img
+                                src="/static/img/authors/leonardo-da-vinci.jpeg" alt="Leonardo da Vinci" width="539"
+                                height="360"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Leonardo<!-- --> <!-- -->da
+                                Vinci</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1475px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/malcolm-x-quotes"><img src="/static/img/authors/malcolm-x.jpg"
+                                alt="Malcolm X " width="600" height="827"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Malcolm X<!-- --> </span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1479px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/mamatha-gandhi-quotes"><img src="/static/img/authors/mamatha-gandhi.jpeg"
+                                alt="Mamatha Gandhi" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Mamatha<!-- -->
+                                <!-- -->Gandhi</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1481px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/marie-curie-quotes"><img src="/static/img/authors/marie-curie.jpg"
+                                alt="Marie Curie" width="600" height="815"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Marie<!-- -->
+                                <!-- -->Curie</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1606px; left: calc(50% + 8px);">
+                        <a href="/authors/mark-twain-quotes"><img src="/static/img/authors/mark-twain.jpeg"
+                                alt="Mark Twain" width="600" height="400"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Mark<!-- -->
+                                <!-- -->Twain</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1621px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/martin-luther-king-jr-quotes"><img
+                                src="/static/img/authors/martin-luther-king-jr.jpg" alt="Martin Luther King Jr"
+                                width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Martin Luther<!-- -->
+                                <!-- -->King Jr</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1652px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/max-weber-quotes"><img src="/static/img/authors/max-weber.jpeg"
+                                alt="Max Weber" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Max<!-- -->
+                                <!-- -->Weber</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1750px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/maxim-gorky-quotes"><img src="/static/img/authors/maxim-gorky.jpg"
+                                alt="Maxim Gorky" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Maxim<!-- -->
+                                <!-- -->Gorky</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1752px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/maya-angelou-quotes"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fmaya-angelou.jpeg?alt=media&amp;token=4da26ffc-92c6-449d-acd0-0a30bab4afb0"
+                                alt="Maya Angelou" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Maya<!-- -->
+                                <!-- -->Angelou</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1758px; left: 0px;"><a
+                            href="/authors/michel-de-montaigne-quotes"><img
+                                src="/static/img/authors/michel-de-montaigne.jpeg" alt="Michel de Montaigne" width="600"
+                                height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Michel<!-- --> <!-- -->de
+                                Montaigne</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1763px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/muhammad-ali-quotes"><img src="/static/img/authors/martin-luther-king-jr.jpg"
+                                alt="Muhammad Ali" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Muhammad<!-- -->
+                                <!-- -->Ali</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1765px; left: calc(50% + 8px);">
+                        <a href="/authors/napoleon-hill-quotes"><img src="/static/img/authors/napoleon-hill.jpeg"
+                                alt="Napoleon Hill" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Napoleon<!-- -->
+                                <!-- -->Hill</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1894px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/nelson-mandela-quotes"><img src="/static/img/authors/nelson-mandela.jpg"
+                                alt="Nelson Mandela" width="600" height="830"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Nelson<!-- -->
+                                <!-- -->Mandela</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1900px; left: 0px;"><a
+                            href="/authors/nikola-tesla-quotes"><img src="/static/img/authors/nikola-tesla.jpg"
+                                alt="Nikola Tesla" width="600" height="339"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Nikola<!-- -->
+                                <!-- -->Tesla</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1905px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/pablo-neruda-quotes"><img src="/static/img/authors/pablo-neruda.jpeg"
+                                alt="Pablo Neruda" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Pablo<!-- -->
+                                <!-- -->Neruda</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1907px; left: calc(50% + 8px);">
+                        <a href="/authors/pablo-picasso-quotes"><img src="/static/img/authors/pablo-picasso.jpg"
+                                alt="Pablo Picasso" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Pablo<!-- -->
+                                <!-- -->Picasso</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 1981px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/plato-quotes"><img src="/static/img/authors/plato.jpg" alt="Plato "
+                                width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Plato<!-- --> </span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2042px; left: 0px;"><a
+                            href="/authors/ralph-waldo-emerson-quotes"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fralph-waldo-emerson.jpg?alt=media&amp;token=bd74c08f-5956-4d6a-aa13-6b2911e64ade"
+                                alt="Ralph Waldo Emerson" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Ralph Waldo<!-- -->
+                                <!-- -->Emerson</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2047px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/rene-descartes-quotes"><img src="/static/img/authors/rene-descartes.jpeg"
+                                alt="René Descartes" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">René<!-- -->
+                                <!-- -->Descartes</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2049px; left: calc(50% + 8px);">
+                        <a href="/authors/robert-frost-quotes"><img src="/static/img/authors/robert-frost.jpg"
+                                alt="Robert Frost" width="410" height="580"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Robert<!-- -->
+                                <!-- -->Frost</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2079px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/salvador-dali-quotes"><img src="/static/img/authors/salvador-dali.jpg"
+                                alt="Salvador Dali" width="600" height="387"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Salvador<!-- -->
+                                <!-- -->Dali</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2123px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/sigmund-freud-quotes"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fsigmund-freud.jpeg?alt=media&amp;token=13b12d29-6eb7-407c-9ad1-878b067854c5"
+                                alt="Sigmund Freud" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Sigmund<!-- -->
+                                <!-- -->Freud</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2169px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/socrates-quotes"><img src="/static/img/authors/socrates.jpeg" alt="Socrates "
+                                width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Socrates<!-- --> </span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2189px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/stephen-hawking-quotes"><img src="/static/img/authors/stephen-hawking.jpeg"
+                                alt="Stephen Hawking" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Stephen<!-- -->
+                                <!-- -->Hawking</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2234px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/steve-jobs-quotes"><img src="/static/img/authors/steve-jobs.jpg"
+                                alt="Steve Jobs" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Steve<!-- -->
+                                <!-- -->Jobs</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2265px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/thomas-edison-quotes"><img src="/static/img/authors/thomas-edison.jpg"
+                                alt="Thomas Edison" width="600" height="747"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Thomas<!-- -->
+                                <!-- -->Edison</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2311px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/authors/victor-hugo-quotes"><img src="/static/img/authors/victor-hugo.jpeg"
+                                alt="Victor Hugo" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Victor<!-- -->
+                                <!-- -->Hugo</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2329px; left: calc(50% + 8px);">
+                        <a href="/authors/vincent-van-gogh-quotes"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fvincent-van-gogh.jpg?alt=media&amp;token=31e73af2-967b-4713-a761-49db8e80f39c"
+                                alt="Vincent van Gogh" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Vincent<!-- --> <!-- -->van
+                                Gogh</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2331px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/voltaire-quotes"><img src="/static/img/authors/voltaire.jpg" alt="Voltaire "
+                                width="560" height="709"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Voltaire<!-- --> </span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2371px; left: 0px;"><a
+                            href="/authors/walt-disney-quotes"><img src="/static/img/authors/walt-disney.jpeg"
+                                alt="Walt Disney" width="600" height="338"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Walt<!-- -->
+                                <!-- -->Disney</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2376px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/authors/walt-whitman-quotes"><img src="/static/img/authors/walt-whitman.jpeg"
+                                alt="Walt Whitman" width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Walt<!-- -->
+                                <!-- -->Whitman</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2471px; left: calc(50% + 8px);">
+                        <a href="/authors/william-shakespeare-quotes"><img
+                                src="/static/img/authors/william-shakespeare.jpeg" alt="William Shakespeare" width="600"
+                                height="422"><span
+                                style="display:block;text-align:center;padding:.2rem 0">William<!-- -->
+                                <!-- -->Shakespeare</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2513px; left: 0px;"><a
+                            href="/authors/winston-churchill-quotes"><img
+                                src="/static/img/authors/winston-churchill.jpeg" alt="Winston Churchill" width="600"
+                                height="425"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Winston<!-- -->
+                                <!-- -->Churchill</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2518px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/authors/wolfgang-amadeus-mozart-quotes"><img
+                                src="/static/img/authors/wolfgang-amadeus-mozart.jpg" alt="Wolfgang Amadeus Mozart"
+                                width="350" height="600"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Wolfgang Amadeus<!-- -->
+                                <!-- -->Mozart</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2587px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/authors/isaac-asimov-quotes"><img
+                                src="https://firebasestorage.googleapis.com/v0/b/words-from-life-5cb26.appspot.com/o/authors%2Fisaac-asimov.jpg?alt=media&amp;token=9d478d11-734c-4ce0-9f4b-b4fd0631b77f"
+                                alt="Isaac Asimov" width="600" height="871"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Isaac<!-- -->
+                                <!-- -->Asimov</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 2636px; left: calc(50% + 8px);">
+                        <a href="/authors/mustafa-kemal-ataturk-quotes"><img
+                                src="https://wordsfromlife.com/static/img/authors/mustafa-kemal-ataturk.jpeg"
+                                alt="Mustafa Kemal Atatürk"><span
+                                style="display:block;text-align:center;padding:.2rem 0">Mustafa Kemal<!-- -->
+                                <!-- -->Atatürk</span></a></div>
+                </div>
+            </section>
+            <section class="section">
+                <h2 style="font-size:40px;text-align:center;margin:3rem 0 2rem 0">Words</h2>
+                <div id="word-container" style="position: relative; height: 1274px;">
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: 0px;"><a
+                            href="/words/allegory"><span>Allegory</span>
+                            <p>Allegory: A literary and artistic technique where characters and events symbolize deeper
+                                meanings, enriching narratives with layered insights.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/words/bucolic"><span>Bucolic</span>
+                            <p>Bucolic: Capturing the idyllic charm of rural life, it paints a picture of serene
+                                landscapes, peaceful pastures, and countryside tranquility.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/words/cinephile"><span>Cinephile</span>
+                            <p>Dive into the world of cinephilia: a haven for those passionate about films, their
+                                history, and the artistry behind the scenes. Explore what it truly means to be a
+                                cinephile.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(50% + 8px);">
+                        <a href="/words/ephemeral"><span>Ephemeral</span>
+                            <p>Ephemeral: fleeting moments and transient beauty, capturing the essence of things lasting
+                                only briefly.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/words/ethereal"><span>Ethereal</span>
+                            <p>Ethereal: Delicate, otherworldly beauty evoking the celestial; a realm of lightness,
+                                fragility, and sublime transcendence.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/memento"><span>Memento</span>
+                            <p>Memento: A keepsake with deep Latin roots, symbolizing both cherished memories and the
+                                poignant reminder of life's fleeting nature.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 226px; left: calc(50% + 8px);">
+                        <a href="/words/nostalgia"><span>Nostalgia</span>
+                            <p>Nostalgia: A poignant journey to the past, evoking deep emotions and memories, often seen
+                                through rose-tinted glasses.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 250px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/words/eternal"><span>Eternal</span>
+                            <p>Explore eternal a term denoting timelessness and infinity, often used to describe
+                                unending existence or sentiments that transcend temporal boundaries.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 274px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/words/petrichor"><span>Petrichor</span>
+                            <p>Petrichor: The earthy aroma arising after rain falls on dry soil, nature's refreshing
+                                scent from ancient Greek origins.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 274px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/zenith"><span>Zenith</span>
+                            <p>Zenith: the highest point or peak, whether in the sky, a career, or any endeavor. A
+                                symbol of excellence and achievement.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 298px; left: 0px;"><a
+                            href="/words/shrinkflation"><span>Shrinkflation</span>
+                            <p>Explore shrinkflation: a subtle yet impactful economic trend where product sizes decrease
+                                while prices stay the same or rise, often unnoticed by consumers.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 322px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/words/colorism"><span>Colorism</span>
+                            <p>What is Colorism? Discrimination based on skin tone explained. Learn how it affects
+                                individuals and societies.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 476px; left: calc(50% + 8px);">
+                        <a href="/words/essential"><span>Essential</span>
+                            <p>Essential: absolutely necessary or indispensable; fundamental to function or success.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 524px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/words/peripheral"><span>Peripheral</span>
+                            <p>Explore "peripheral": Its outer limits &amp; deeper meanings, from body parts to tech
+                                &amp; beyond.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 524px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/serendipity"><span>Serendipity</span>
+                            <p>Serendipity: happy, beneficial discoveries made by chance—and the delight of the
+                                unexpected.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 548px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/words/mediocrity"><span>Mediocrity</span>
+                            <p>Mediocrity: the state of being average—neither notably good nor notably bad.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 572px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/words/epiphany"><span>Epiphany</span>
+                            <p>Epiphany: a sudden, illuminating realization that shifts understanding—an “aha!” moment.
+                            </p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 620px; left: 0px;"><a
+                            href="/words/epistemology"><span>Epistemology</span>
+                            <p>Epistemology: The study of knowledge, its nature, origin, and limits. It explores
+                                questions related to belief, justification, and the nature of truth.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 678px; left: calc(50% + 8px);">
+                        <a href="/words/adversity"><span>Adversity</span>
+                            <p>Adversity: serious difficulty or hardship that tests resilience and strength.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 726px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/words/mellifluous"><span>Mellifluous</span>
+                            <p>Mellifluous: sweet, smooth, and musical in sound—literally “flowing like honey.”</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 726px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/words/vellichor"><span>Vellichor</span>
+                            <p>Vellichor: the wistful nostalgia felt in second-hand bookstores—the quiet magic of
+                                well-loved books.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 750px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/luminous"><span>Luminous</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 774px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/words/fortuity"><span>Fortuity</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 832px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/bibliophilia"><span>Bibliophilia</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 856px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/words/quarantine"><span>Quarantine</span>
+                            <p>The word Quarantine has a very rich history tied to medicine, trade, and even fear of the
+                                unknown.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 856px; left: calc(50% + 8px);">
+                        <a href="/words/salary"><span>Salary</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 894px; left: 0px;"><a
+                            href="/words/robot"><span>Robot</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 914px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/words/barbecue"><span>Barbecue</span>
+                            <p></p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 928px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/words/boycott"><span>Boycott</span>
+                            <p>The word “boycott” means to refuse to buy, use, or participate in something as a way to
+                                express protest, usually to bring about change by inflicting economic loss or showing
+                                moral disapproval.</p>
+                        </a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 938px; left: calc(50% + 8px);">
+                        <a href="/words/soccer"><span>Soccer</span>
+                            <p>Soccer is simply another name for association football (what most of the world calls
+                                “football”).</p>
+                        </a></div>
+                </div>
+            </section>
+            <section class="section">
+                <h2 style="font-size:40px;text-align:center;margin:3rem 0 2rem 0">Preverbs</h2>
+                <div id="preverbs-container" style="position: relative; height: 168px;">
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: 0px;"><a
+                            href="/preverbs/a-watched-pot-never-boils"><span>A Watched Pot Never Boils</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/preverbs/every-cloud-has-a-silver-lining"><span>Every cloud has a silver
+                                lining</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(33.3333% + 5.33333px);">
+                        <a href="/preverbs/the-pen-is-mightier-than-the-sword"><span>The pen is mightier than the
+                                sword.</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(50% + 8px);">
+                        <a href="/preverbs/the-early-bird-catches-the-worm"><span>The Early Bird Catches The
+                                Worm</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(66.6667% + 10.6667px);">
+                        <a href="/preverbs/you-cant-judge-a-book-by-its-cover"><span>You Can't Judge a Book by Its
+                                Cover</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 0px; left: calc(83.3333% + 13.3333px);">
+                        <a href="/preverbs/all-that-glitters-is-not-gold"><span>All That Glitters is Not Gold</span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 84px; left: 0px;"><a
+                            href="/preverbs/strike-while-the-iron-is-hot"><span>Strike While the Iron is Hot</span></a>
+                    </div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 84px; left: calc(16.6667% + 2.66667px);">
+                        <a href="/preverbs/you-reap-what-you-sow"><span>You Reap What You Sow</span></a></div>
+                    <div class="demo" data-macy-complete="1"
+                        style="width: calc(16.6667% - 13.3333px); position: absolute; top: 84px; left: calc(50% + 8px);">
+                        <a href="/preverbs/too-many-cooks-spoil-the-broth"><span>Too Many Cooks Spoil the
+                                Broth</span></a></div>
+                </div>
+            </section>
+        </div>
+    </main><!--$--><!--/$-->
+   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5581015881313741" async=""
+        crossorigin="anonymous" data-nscript="afterInteractive" data-checked-head="true"></script>
+    <script src="/static/js/macy.js" data-nscript="afterInteractive"></script>
+    <script id="_next-gtm-init" data-nscript="afterInteractive">
+    (function (w, l) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+    })(window, 'dataLayer');</script>
+    <script src="https://www.googletagmanager.com/gtm.js?id=GTM-TKDV62Q" id="_next-gtm" data-ntpc="GTM"
+        data-nscript="afterInteractive"></script><next-route-announcer style="position: absolute;"><template
+            shadowrootmode="open">
+            <div aria-live="assertive" id="__next-route-announcer__" role="alert"
+                style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;">
+            </div>
+        </template></next-route-announcer><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done"
+        style="display: none !important;" data-ad-status="unfilled">
+        <div id="aswift_0_host"
+            style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;">
+            <iframe id="aswift_0" name="aswift_0"
+                style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;"
+                sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true"
+                scrolling="no"
+                src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-5581015881313741&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1759433527&amp;plat=8%3A1048576%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;plas=366x732_l%7C366x854_r&amp;format=0x0&amp;url=http%3A%2F%2Flocalhost%3A3000%2F&amp;pra=5&amp;wgl=1&amp;aihb=0&amp;asro=0&amp;aifxl=29_18~30_19&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.5423&amp;aiactd=0.7&amp;aicct=0.7&amp;aicctd=0.5799&amp;ailct=0.5849&amp;ailctd=0.65&amp;aimart=4&amp;aimartd=4&amp;uach=WyJtYWNPUyIsIjE1LjUuMCIsImFybSIsIiIsIjE0MC4wLjAuMCIsbnVsbCwwLG51bGwsIjY0IixbWyJDaHJvbWl1bSIsIjE0MC4wLjAuMCJdLFsiTm90PUE_QnJhbmQiLCIyNC4wLjAuMCJdLFsiQnJhdmUiLCIxNDAuMC4wLjAiXV0sMF0.&amp;abgtt=6&amp;dt=1759433527790&amp;bpp=1&amp;bdt=278&amp;idt=27&amp;shv=r20251001&amp;mjsv=m202509290101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=8306772356644&amp;frm=20&amp;pv=2&amp;u_tz=180&amp;u_his=1&amp;u_h=1200&amp;u_w=1920&amp;u_ah=1200&amp;u_aw=1920&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1905&amp;bih=1085&amp;scr_x=0&amp;scr_y=0&amp;eid=31094918%2C31094978%2C95370627%2C95372358%2C31094934&amp;oid=2&amp;pvsid=5626379580055464&amp;tmod=489330126&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=1680%2C0%2C1680%2C0%2C1920%2C0%2C1920%2C1200%2C1920%2C1085&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;pgls=CAk.&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=40"
+                data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement"
+                data-load-complete="true"></iframe></div>
+    </ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0"
+        style="display: none;"></iframe>
+</body><iframe id="google_esf" name="google_esf"
+    src="https://googleads.g.doubleclick.net/pagead/html/r20251001/r20190131/zrt_lookup_fy2021.html"
+    style="display: none;"></iframe><grammarly-desktop-integration data-grammarly-shadow-root="true"><template
+        shadowrootmode="open">
+        <style>
+            div.grammarly-desktop-integration {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            div.grammarly-desktop-integration:before {
+                content: attr(data-content);
+            }
+        </style>
+        <div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration"
+            data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}">
+        </div>
+    </template></grammarly-desktop-integration>
+
+</html>
