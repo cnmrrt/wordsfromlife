@@ -20,6 +20,11 @@ const [words, authors, proverbs, turkishWords] = await Promise.all([
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+   router: {
+        options: {
+            strict: true // Rotaların katı bir şekilde eşleşmesini sağlar
+        }
+    },
 
   modules: [
     '@nuxt/eslint',
@@ -69,7 +74,8 @@ export default defineNuxtConfig({
         ...authors.map((author) => `/authors/${author.id}-quotes`),
         ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
         ...turkishWords.map((word) => `/tr/kelimeler/${word.id}`)
-      ]
+      ],
+      autoSubfolderIndex: false
     }
   },
 
