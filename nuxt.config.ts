@@ -10,6 +10,13 @@ async function loadJsonData<T>(path: string): Promise<T[]> {
   }
 }
 
+const [words, authors, proverbs, turkishWords] = await Promise.all([
+  loadJsonData<{ id: string }>('./public/static/data/words.json'),
+  loadJsonData<{ id: string }>('./public/static/data/author-quotes.json'),
+  loadJsonData<{ id: string }>('./public/static/data/preverbs.json'),
+  loadJsonData<{ id: string }>('./public/static/data/tr/kelimeler.json')
+])
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -39,53 +46,36 @@ export default defineNuxtConfig({
 
   sitemap: {
     autoLastmod: true,
-    urls: async () => {
-      const [words, authors, proverbs] = await Promise.all([
-        loadJsonData<any>('./public/static/data/words.json'),
-        loadJsonData<any>('./public/static/data/author-quotes.json'),
-        loadJsonData<any>('./public/static/data/preverbs.json')
-      ])
-
-      return [
-        { loc: '/', priority: 1.0 },
-        { loc: '/authors', priority: 0.8 },
-        { loc: '/words', priority: 0.8 },
-        { loc: '/preverbs', priority: 0.8 },
-        ...words.map((w) => ({ loc: `/words/${w.id}`, changefreq: 'weekly' })),
-        ...authors.map((a) => ({ loc: `/authors/${a.id}-quotes`, changefreq: 'monthly' })),
-        ...proverbs.map((p) => ({ loc: `/preverbs/${p.id}`, changefreq: 'monthly' }))
-      ]
-    }
+    urls: [
+      { loc: '/', priority: 1.0 },
+      { loc: '/authors', priority: 0.8 },
+      { loc: '/words', priority: 0.8 },
+      { loc: '/preverbs', priority: 0.8 },
+      ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
+      ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const }))
+    ]
   },
 
   nitro: {
     prerender: {
       // Set crawlLinks to true so Nuxt automatically discovers linked dynamic routes
       crawlLinks: true,
-      routes: async () => {
-        const [words, authors, proverbs, turkishWords] = await Promise.all([
-          loadJsonData<any>('./public/static/data/words.json'),
-          loadJsonData<any>('./public/static/data/author-quotes.json'),
-          loadJsonData<any>('./public/static/data/preverbs.json'),
-          loadJsonData<any>('./public/static/data/tr/kelimeler.json')
-        ])
-
-        return [
-          '/',
-          '/about',
-          '/authors',
-          '/authors/slug-backup',
-          '/words',
-          '/words/english-words-origin-french',
-          '/preverbs',
-          '/tr/kelimeler',
-          '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
-          ...words.map((w) => `/words/${w.id}`),
-          ...authors.map((a) => `/authors/${a.id}-quotes`),
-          ...proverbs.map((p) => `/preverbs/${p.id}`),
-          ...turkishWords.map((w) => `/tr/kelimeler/${w.id}`)
-        ]
-      }
+      routes: [
+        '/',
+        '/about',
+        '/authors',
+        '/authors/slug-backup',
+        '/words',
+        '/words/english-words-origin-french',
+        '/preverbs',
+        '/tr/kelimeler',
+        '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
+        ...words.map((word) => `/words/${word.id}`),
+        ...authors.map((author) => `/authors/${author.id}-quotes`),
+        ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
+        ...turkishWords.map((word) => `/tr/kelimeler/${word.id}`)
+      ]
     }
   },
 
