@@ -13,11 +13,6 @@
         <img :src="authorData.img" :alt="`${authorData.name} ${authorData.surname}`" :width="authorData.img_width"
           :height="authorData.img_height" />
       </div> -->
-      <ins class="adsbygoogle" style="display: inline-block; height: 90px" data-ad-client="ca-pub-5581015881313741"
-        data-ad-slot="1945579971"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
 
       <q v-for="(quote, index) in authorData.en_quotes" :key="index" v-html="useSiteHtml(quote)"></q>
       <span class="size text-right">{{ authorData.name }} {{ authorData.surname }}</span>

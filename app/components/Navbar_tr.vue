@@ -4,6 +4,11 @@
       <li><router-link to="/tr/kelimeler">Kelimeler</router-link></li>
     </ul>
   </nav>
+  <ins class="adsbygoogle" style="display: inline-block; height: 90px" data-ad-client="ca-pub-5581015881313741"
+        data-ad-slot="1945579971"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
 </template>
 
 <script>
