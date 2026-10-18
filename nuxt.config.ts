@@ -11,10 +11,10 @@ async function loadJsonData<T>(path: string): Promise<T[]> {
 }
 
 const [words, authors, proverbs, turkishWords] = await Promise.all([
-  loadJsonData<{ id: string }>('./public/static/data/words.json'),
-  loadJsonData<{ id: string }>('./public/static/data/author-quotes.json'),
-  loadJsonData<{ id: string }>('./public/static/data/preverbs.json'),
-  loadJsonData<{ id: string }>('./public/static/data/tr/kelimeler.json')
+  loadJsonData<{ id: string }>('wordsfromlife.com/static/data/words.json'),
+  loadJsonData<{ id: string }>('wordsfromlife.com/static/data/author-quotes.json'),
+  loadJsonData<{ id: string }>('wordsfromlife.com/static/data/preverbs.json'),
+  loadJsonData<{ id: string }>('wordsfromlife.com/static/data/tr/kelimeler.json')
 ])
 
 export default defineNuxtConfig({
