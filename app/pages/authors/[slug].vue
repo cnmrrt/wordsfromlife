@@ -96,8 +96,7 @@ if (authorData.value) {
   content: "";
   background: var(--bg-image);
   background-image: var(--bg-image);
-  background-position-x: initial;
-  background-position-y: initial;
+  background-position: center;
   background-size: initial;
   background-repeat: initial;
   background-attachment: initial;
