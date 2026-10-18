@@ -8,7 +8,7 @@ export function useSitePath(path: string | null | undefined): string {
 }
 
 export function usePublicDataPath(path: string): string {
-  return import.meta.server ? path : useSitePath(path)
+  return useSitePath(path)
 }
 
 export function useSiteHtml(html: string | null | undefined): string {
