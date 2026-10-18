@@ -10,7 +10,7 @@
           </li>
         </ul>
         <hr style="border-width: 1px 0px 0px; border-style: solid; border-left-color: currentcolor; border-right-color: currentcolor; color: rgb(211, 211, 211) !important; border-bottom-color: currentcolor; margin: 2rem 0px;">
-        <p><a href="https://wordsfromlife.com/tr/kelimeler/fransizca-kokenli-turkce-kelimeler">Fransızca Kökenli Türkçe Kelimeler</a></p>
+        <p><NuxtLink to="/tr/kelimeler/fransizca-kokenli-turkce-kelimeler">Fransızca Kökenli Türkçe Kelimeler</NuxtLink></p>
       </section>
     </div>
   </main>
@@ -25,7 +25,7 @@ const words = ref([])
 
 // Fetch words data (SSR-friendly)
 const { data: wordsData, pending, error } = await useFetch(
-  'https://wordsfromlife.com/static/data/tr/kelimeler.json'
+  usePublicDataPath('/static/data/tr/kelimeler.json')
 )
 
 if (wordsData.value) {

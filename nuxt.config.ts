@@ -1,6 +1,11 @@
 const words = await import('./public/static/data/words.json', { with: { type: 'json' } }).then((m) => m.default || m)
 const authors = await import('./public/static/data/author-quotes.json', { with: { type: 'json' } }).then((m) => m.default || m)
 const proverbs = await import('./public/static/data/preverbs.json', { with: { type: 'json' } }).then((m) => m.default || m)
+const turkishWords = await import('./public/static/data/tr/kelimeler.json', { with: { type: 'json' } }).then((m) => m.default || m)
+
+const wordItems = Array.isArray(words) ? words : []
+const authorItems = Array.isArray(authors) ? authors : []
+const proverbItems = Array.isArray(proverbs) ? proverbs : []
 
 export default defineNuxtConfig({
 
@@ -19,10 +24,6 @@ export default defineNuxtConfig({
     autoLastmod: true,
 
     urls: async () => {
-      const wordItems = Array.isArray(words) ? words : []
-      const authorItems = Array.isArray(authors) ? authors : []
-      const proverbItems = Array.isArray(proverbs) ? proverbs : []
-
       return [
         { loc: '/', priority: 1.0 },
         { loc: '/authors', priority: 0.8 },
@@ -31,6 +32,26 @@ export default defineNuxtConfig({
         ...wordItems.map((w: any) => ({ loc: `/words/${w.id}`, changefreq: 'weekly' })),
         ...authorItems.map((a: any) => ({ loc: `/authors/${a.id}-quotes`, changefreq: 'monthly' })),
         ...proverbItems.map((p: any) => ({ loc: `/preverbs/${p.id}`, changefreq: 'monthly' }))
+      ]
+    }
+  },
+
+  nitro: {
+    prerender: {
+      routes: [
+        '/',
+        '/about',
+        '/authors',
+        '/authors/slug-backup',
+        '/words',
+        '/words/english-words-origin-french',
+        '/preverbs',
+        '/tr/kelimeler',
+        '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
+        ...wordItems.map((word: { id: string }) => `/words/${word.id}`),
+        ...authorItems.map((author: { id: string }) => `/authors/${author.id}-quotes`),
+        ...proverbItems.map((proverb: { id: string }) => `/preverbs/${proverb.id}`),
+        ...turkishWords.map((word: { id: string }) => `/tr/kelimeler/${word.id}`)
       ]
     }
   },
@@ -50,6 +71,7 @@ export default defineNuxtConfig({
   ],
 
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       script: [
         {

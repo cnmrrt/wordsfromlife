@@ -10,7 +10,7 @@
           </li>
         </ul>
         <hr style="border-left: 0; border-right: 0; color: #d3d3d3 !important; border-bottom: 0; border-style: solid; border-top-width: 1px; margin: 2rem 0;">
-        <p><a href="https://wordsfromlife.com/words/english-words-origin-french">English Words of French Origin</a></p>
+        <p><NuxtLink to="/words/english-words-origin-french">English Words of French Origin</NuxtLink></p>
       </section>
     </div>
   </main>
@@ -25,7 +25,7 @@ const words = ref([])
 
 // Fetch words data (SSR-friendly)
 const { data: wordsData, pending, error } = await useFetch(
-  'https://wordsfromlife.com/static/data/words.json'
+  usePublicDataPath('/static/data/words.json')
 )
 
 if (wordsData.value) {

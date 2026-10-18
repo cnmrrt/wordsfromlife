@@ -7,14 +7,14 @@
 
       <div id="main-image" v-if="preverb.img">
         <img
-          :src="preverb.img"
+          :src="useSitePath(preverb.img)"
           :alt="preverb.preverb"
           :width="preverb.img_width"
           :height="preverb.img_height"
         />
       </div>
 
-      <div v-html="preverb.content"></div>
+      <div v-html="useSiteHtml(preverb.content)"></div>
       
     </main>
   </div>
@@ -33,7 +33,7 @@ const slug = route.params.slug
 
 // ✅ asyncData = loads before render (SSR + SSG)
 const { data: preverb } = await useAsyncData(`preverb-${slug}`, async () => {
-  const res = await $fetch('https://wordsfromlife.com/static/data/preverbs.json')
+  const res = await $fetch(usePublicDataPath('/static/data/preverbs.json'))
   return res.find(item => item.id?.toLowerCase() === slug.toLowerCase())
 })
 

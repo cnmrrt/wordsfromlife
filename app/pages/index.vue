@@ -14,13 +14,13 @@
           >
             <NuxtLink :to="`/authors/${item.id}-quotes`">
               <!--<img
-                :src="item.img"
+                :src="useSitePath(item.img)"
                 :alt="`${item.name} ${item.surname}`"
                 :width="item.img_width"
                 :height="item.img_height"
               />-->
               <img
-                :src="item.img"
+                :src="useSitePath(item.img)"
                 :alt="`${item.name} ${item.surname}`"
               />
               <span style="display: block; text-align: center; padding: .2rem 0">
@@ -89,15 +89,15 @@ useHead(() => {
 // Fetch data on SSR
 // -------------------
 const { data: authorsData } = await useAsyncData('authors', () =>
-  $fetch('https://wordsfromlife.com/static/data/author-quotes.json')
+  $fetch(usePublicDataPath('/static/data/author-quotes.json'))
 )
 
 const { data: wordsData } = await useAsyncData('words', () =>
-  $fetch('https://wordsfromlife.com/static/data/words.json')
+  $fetch(usePublicDataPath('/static/data/words.json'))
 )
 
 const { data: preverbsData } = await useAsyncData('preverbs', () =>
-  $fetch('https://wordsfromlife.com/static/data/preverbs.json')
+  $fetch(usePublicDataPath('/static/data/preverbs.json'))
 )
 
 let macyRef = ref(null)

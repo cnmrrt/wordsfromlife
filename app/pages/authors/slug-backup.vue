@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-md-9 mt-1 mx-auto text-center">
               <h1>{{ authorData.name }} {{ authorData.surname }} Quotes</h1>
-              <q v-for="(quote, index) in authorData.en_quotes" :key="index" v-html="quote"></q>
+              <q v-for="(quote, index) in authorData.en_quotes" :key="index" v-html="useSiteHtml(quote)"></q>
 
               <p class="size text-right">{{ authorData.name }} {{ authorData.surname }}</p>
               <p class="size text-right">{{ authorData.born }} - {{ authorData.dead }}</p>
@@ -71,9 +71,7 @@ const macyRef = ref(null)
 
 // Fetch author data server-side
 const { data: authorData, error } = await useAsyncData(`author-${slug}`, async () => {
-  const res = await fetch('https://wordsfromlife.com/static/data/author-quotes.json')
-  if (!res.ok) throw new Error('Failed to fetch authors')
-  const allAuthors = await res.json()
+  const allAuthors = await $fetch(usePublicDataPath('/static/data/author-quotes.json'))
   const author = allAuthors.find(a => `${a.id}-quotes`.toLowerCase() === slug.toLowerCase())
   if (!author) throw new Error('Author not found')
   return author

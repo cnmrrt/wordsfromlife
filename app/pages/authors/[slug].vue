@@ -5,7 +5,7 @@
     <p>{{ error.message }}</p>
   </div>
 
-  <div v-else-if="authorData" class="backgroundImage" :style="{ '--bg-image': `url(${authorData.img})` }">
+  <div v-else-if="authorData" class="backgroundImage" :style="{ '--bg-image': `url(${useSitePath(authorData.img)})` }">
     <main id="main-content" class="container position-relative mt-5">
       <h1>{{ authorData.name }} {{ authorData.surname }} Quotes</h1>
 
@@ -19,7 +19,7 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
 
-      <q v-for="(quote, index) in authorData.en_quotes" :key="index" v-html="quote"></q>
+      <q v-for="(quote, index) in authorData.en_quotes" :key="index" v-html="useSiteHtml(quote)"></q>
       <span class="size text-right">{{ authorData.name }} {{ authorData.surname }}</span>
       <span class="size text-right">{{ authorData.born }} - {{ authorData.dead }}</span>
 
@@ -47,9 +47,7 @@ const macyRef = ref(null);
 
 // Fetch author data server-side
 const { data: authorData, error } = await useAsyncData(`author-${slug}`, async () => {
-  const res = await fetch("https://wordsfromlife.com/static/data/author-quotes.json");
-  if (!res.ok) throw new Error("Failed to fetch authors");
-  const allAuthors = await res.json();
+  const allAuthors = await $fetch(usePublicDataPath('/static/data/author-quotes.json'));
   const author = allAuthors.find(
     (a) => `${a.id}-quotes`.toLowerCase() === slug.toLowerCase()
   );

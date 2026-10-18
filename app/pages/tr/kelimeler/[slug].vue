@@ -7,7 +7,7 @@
 
       <div id="main-image" v-if="word.img">
         <img
-          :src="word.img"
+          :src="useSitePath(word.img)"
           :alt="word.word"
           :width="word.img_width"
           :height="word.img_height"
@@ -15,7 +15,7 @@
       </div>
 
       <!-- renders immediately after SSR -->
-      <div v-html="word.content"></div>
+      <div v-html="useSiteHtml(word.content)"></div>
       
     </main>
   </div>
@@ -33,7 +33,7 @@ const route = useRoute()
 const slug = route.params.slug
 
 const { data: word } = await useAsyncData(`word-${slug}`, async () => {
-  const res = await $fetch('https://wordsfromlife.com/static/data/tr/kelimeler.json')
+  const res = await $fetch(usePublicDataPath('/static/data/tr/kelimeler.json'))
   return res.find(item => item.id?.toLowerCase() === slug.toLowerCase())
 })
 

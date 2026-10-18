@@ -13,7 +13,7 @@
           >
             <NuxtLink :to="`/authors/${item.id}-quotes`">
               <img
-                :src="item.img"
+                :src="useSitePath(item.img)"
                 :alt="`${item.name} ${item.surname}`"
                 :width="item.img_width"
                 :height="item.img_height"
@@ -47,7 +47,7 @@ useHead({
 const authorsData = ref([])
 
 // Fetch authors with SSR-friendly useFetch
-const { data: authors } = await useFetch('https://wordsfromlife.com/static/data/author-quotes.json')
+const { data: authors } = await useFetch(usePublicDataPath('/static/data/author-quotes.json'))
 authorsData.value = authors.value || []
 
 // Initialize Masonry only on client
