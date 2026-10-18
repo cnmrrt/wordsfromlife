@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /_nuxt/
+Sitemap: https://wordsfromlife.com/sitemap.xml
