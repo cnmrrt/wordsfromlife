@@ -15,7 +15,6 @@
         <p><NuxtLink to="/words/english-synonym-words">English Synonym Words</NuxtLink></p>
       </section>
     </div>
-    
   </main>
 </template>
 
