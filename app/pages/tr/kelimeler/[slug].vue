@@ -38,10 +38,8 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
 })
 
 
-const currentUrl = window.location.href;
-
 let pageTitle;
-if (currentUrl === 'https://wordsfromlife.com/tr/kelimeler/sittin-sene') {
+if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Sittin Sene Ne Demek? - Words From Life';
 } /*else if (currentUrl === 'https://example.com/def') {
   pageTitle = 'DEF';
