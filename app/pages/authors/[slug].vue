@@ -149,7 +149,7 @@ if (authorData.value) {
 }
 @media (max-width: 576px) {
   :global(body#author-page-body q) { 
-    font-size: 20px;
+    font-size: 20px !important;
   }
 }
 
