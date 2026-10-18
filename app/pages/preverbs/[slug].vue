@@ -27,6 +27,7 @@
 <script setup>
 import Navbar from '~/components/Navbar.vue'
 import { useRoute, useHead } from '#imports'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
 const slug = route.params.slug
@@ -39,54 +40,19 @@ const { data: preverb } = await useAsyncData(`preverb-${slug}`, async () => {
 
 useHead(() => {
   if (!preverb.value) return {}
-  const preverbUrl = `https://wordsfromlife.com/preverbs/${preverb.value.id}`
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://wordsfromlife.com/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Preverbs',
-        item: 'https://wordsfromlife.com/preverbs'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: preverb.value.preverb,
-        item: preverbUrl
-      }
+  const path = `/preverbs/${preverb.value.id}`
+  return createPageSeoHead({
+    title: preverb.value.preverb,
+    description: preverb.value.en_meta_desc || `Learn the meaning of the proverb ${preverb.value.preverb}.`,
+    path,
+    image: preverb.value.img,
+    type: 'article',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Proverbs', path: '/preverbs' },
+      { name: preverb.value.preverb, path }
     ]
-  }
-
-  return {
-    title: `${preverb.value.preverb}`,
-    meta: [
-      { name: 'description', content: preverb.value.en_meta_desc || '' },
-      { property: 'og:title', content: `${preverb.value.preverb}` },
-      { property: 'og:description', content: preverb.value.en_meta_desc || '' },
-      { property: 'og:image', content: preverb.value.img || '' },
-      { property: 'og:url', content: preverbUrl }
-    ],
-    link: [
-        {
-          rel: 'canonical',
-          href: preverbUrl
-        }
-      ],
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
-      }
-    ]
-  }
+  })
 })
 </script>
 

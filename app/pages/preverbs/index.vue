@@ -18,6 +18,7 @@
 import { ref, nextTick } from 'vue'
 import { useFetch } from '#imports'
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const words = ref([])
 
@@ -27,5 +28,13 @@ const { data: wordsData, pending, error } = await useFetch(
 )
 words.value = wordsData.value || []
 
-
+useHead(createPageSeoHead({
+  title: 'Proverbs',
+  description: 'Explore timeless proverbs and idioms, with meanings and context.',
+  path: '/preverbs',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Proverbs', path: '/preverbs' }
+  ]
+}))
 </script>

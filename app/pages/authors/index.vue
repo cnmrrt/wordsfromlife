@@ -31,18 +31,18 @@
 
 <script setup>
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 import { ref, nextTick, onMounted } from 'vue'
 
-useHead({
-    title: `Authors`,
-    meta: [
-      // { name: 'description', content: authorData.value.en_meta_desc || '' },
-      // { property: 'og:title', content: `${authorData.value.name} ${authorData.value.surname} Quotes` },
-      // { property: 'og:description', content: authorData.value.en_meta_desc || '' },
-      // { property: 'og:url', content: `https://wordsfromlife.com/authors/${authorData.value.id}-quotes` },
-      // { property: 'og:image', content: authorData.value.img }
-    ]
-  })
+useHead(createPageSeoHead({
+  title: 'Authors',
+  description: 'Explore inspiring quotes from renowned authors and thinkers.',
+  path: '/authors',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Authors', path: '/authors' }
+  ]
+}))
 
 const authorsData = ref([])
 

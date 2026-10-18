@@ -32,16 +32,17 @@
 
 <script setup>
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
-definePageMeta({
+useHead(createPageSeoHead({
   title: 'About - Words From Life',
-  meta: [
-    { name: 'description', content: 'Learn about Words From Life, our mission, and what we offer.' },
-    { property: 'og:title', content: 'About - Words From Life' },
-    { property: 'og:description', content: 'Learn about Words From Life, our mission, and what we offer.' },
-    { property: 'og:url', content: 'https://wordsfromlife.com/about' }
+  description: 'Learn about Words From Life, our mission, and what we offer.',
+  path: '/about',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' }
   ]
-})
+}))
 </script>
 
 <style scoped>

@@ -28,6 +28,7 @@
 <script setup>
 import Navbar_tr from '~/components/Navbar_tr.vue'
 import { useRoute, useHead } from '#imports'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
 const slug = route.params.slug
@@ -49,26 +50,20 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
 
 useHead(() => {
   if (!word.value) return {}
-  return {
-    htmlAttrs: {
-        lang: 'tr'
-    },
+  const path = `/tr/kelimeler/${word.value.id}`
+  return createPageSeoHead({
     title: pageTitle,
-    meta: [
-      { name: 'description', content: word.value.en_meta_desc || '' },
-      { property: 'og:type', content: `article` },
-      { property: 'og:title', content: pageTitle },
-      { property: 'og:description', content: word.value.en_meta_desc || '' },
-      { property: 'og:image', content: `https://wordsfromlife.com/tr/kelimeler/${word.value.img}` || '' },
-      { property: 'og:url', content: `https://wordsfromlife.com/tr/kelimeler/${word.value.id}` }
-    ],
-    link: [
-        {
-          rel: 'canonical',
-          href: `https://wordsfromlife.com/tr/kelimeler/${word.value.id}`
-        }
-      ]
-  }
+    description: word.value.en_meta_desc || `${word.value.word} kelimesinin anlamı ve kökeni.`,
+    path,
+    image: word.value.img,
+    type: 'article',
+    lang: 'tr',
+    breadcrumbs: [
+      { name: 'Ana Sayfa', path: '/' },
+      { name: 'Kelimeler', path: '/tr/kelimeler' },
+      { name: word.value.word, path }
+    ]
+  })
 })
 </script>
 

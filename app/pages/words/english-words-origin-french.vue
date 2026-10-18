@@ -44,8 +44,8 @@
 
 <script setup>
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 import { ref, computed } from 'vue'
-import { useHead } from '#imports'
 
 const searchQuery = ref('')
 
@@ -99,58 +99,17 @@ const filteredWords = computed(() => {
 })
 
 
-useHead({
-  
+useHead(createPageSeoHead({
   title: 'Popular English Words of French Origin',
-  meta: [
-    {
-      name: 'description',
-      content: 'A comprehensive table of popular English words derived from French, including culinary, legal, political, and daily vocabulary.'
-    },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: 'Popular English Words of French Origin' },
-    {
-      property: 'og:description',
-      content: 'A comprehensive table of popular English words derived from French, including culinary, legal, political, and daily vocabulary.'
-    },
-    { property: 'og:url', content: 'https://wordsfromlife.com/words/english-words-origin-french' }
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://wordsfromlife.com/words/english-words-origin-french'
-    }
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: 'https://wordsfromlife.com/'
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Words',
-            item: 'https://wordsfromlife.com/words'
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: 'English Words of French Origin',
-            item: 'https://wordsfromlife.com/words/english-words-origin-french'
-          }
-        ]
-      }).replace(/</g, '\\u003c')
-    }
+  description: 'A comprehensive table of popular English words derived from French, including culinary, legal, political, and daily vocabulary.',
+  path: '/words/english-words-origin-french',
+  type: 'article',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Words', path: '/words' },
+    { name: 'English Words of French Origin', path: '/words/english-words-origin-french' }
   ]
-})
+}))
 </script>
 
 <style scoped>

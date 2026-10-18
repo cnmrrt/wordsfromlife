@@ -20,6 +20,7 @@
 import { ref } from 'vue'
 import { useFetch } from '#imports'
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const words = ref([])
 
@@ -41,26 +42,13 @@ if (wordsData.value) {
   words.value = arr.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }))
 }
 
-useHead({
+useHead(createPageSeoHead({
   title: 'Words',
-  meta: [
-    {
-      name: 'description',
-      content: 'Words'
-    },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: 'Words' },
-    {
-      property: 'og:description',
-      content: 'Words'
-    },
-    { property: 'og:url', content: 'https://wordsfromlife.com/words' }
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://wordsfromlife.com/words'
-    }
+  description: 'Explore meaningful English words, their definitions, origins, and context.',
+  path: '/words',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Words', path: '/words' }
   ]
-})
+}))
 </script>

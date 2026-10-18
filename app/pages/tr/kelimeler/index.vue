@@ -20,6 +20,7 @@
 import { ref } from 'vue'
 import { useFetch } from '#imports'
 import Navbar_tr from '~/components/Navbar_tr.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const words = ref([])
 
@@ -41,29 +42,14 @@ if (wordsData.value) {
   words.value = arr.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }))
 }
 
-useHead({
-  htmlAttrs: {
-        lang: 'tr'
-    },
+useHead(createPageSeoHead({
   title: 'Kelimeler',
-  meta: [
-    {
-      name: 'description',
-      content: 'Kelimeler'
-    },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: 'Kelimeler' },
-    {
-      property: 'og:description',
-      content: 'Kelimeler'
-    },
-    { property: 'og:url', content: 'https://wordsfromlife.com/tr/kelimeler' }
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://wordsfromlife.com/tr/kelimeler'
-    }
+  description: 'Türkçe kelimelerin anlamlarını ve kökenlerini keşfedin.',
+  path: '/tr/kelimeler',
+  lang: 'tr',
+  breadcrumbs: [
+    { name: 'Ana Sayfa', path: '/' },
+    { name: 'Kelimeler', path: '/tr/kelimeler' }
   ]
-})
+}))
 </script>

@@ -61,28 +61,16 @@
 
 <script setup>
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 import { ref, onMounted, nextTick } from 'vue'
 
-
-useHead(() => {
-  return {
-    title: 'Words From Life - Quotes, Words, Idioms and Proverbs',
-    meta: [
-      { name: 'description', content: 'All inspirational and motivational quotes.' },
-      { property: 'og:title', content: 'Words From Life - Quotes, Words, Idioms and Proverbs' },
-      { property: 'og:description', content: 'All inspirational and motivational quotes.'},
-      // { property: 'og:image', content: preverb.value.img || '' },
-      { property: 'og:url', content: `https://wordsfromlife.com/` }
-    ],
-    link: [
-        {
-          rel: 'canonical',
-          href: `https://wordsfromlife.com/`
-        }
-      ]
-  }
-})
+useHead(createPageSeoHead({
+  title: 'Words From Life - Quotes, Words, Idioms and Proverbs',
+  description: 'All inspirational and motivational quotes.',
+  path: '/',
+  breadcrumbs: [{ name: 'Home', path: '/' }]
+}))
 
 
 // -------------------

@@ -28,6 +28,7 @@
 <script setup>
 import Navbar from '~/components/Navbar.vue'
 import { useRoute, useHead } from '#imports'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
 const slug = route.params.slug
@@ -39,55 +40,20 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
 
 useHead(() => {
   if (!word.value) return {}
-  const wordUrl = `https://wordsfromlife.com/words/${word.value.id}`
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://wordsfromlife.com/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Words',
-        item: 'https://wordsfromlife.com/words'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: word.value.word,
-        item: wordUrl
-      }
+  const title = `Meaning of ${word.value.word}`
+  const path = `/words/${word.value.id}`
+  return createPageSeoHead({
+    title,
+    description: word.value.en_meta_desc || `Learn the meaning and origin of ${word.value.word}.`,
+    path,
+    image: word.value.img,
+    type: 'article',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Words', path: '/words' },
+      { name: word.value.word, path }
     ]
-  }
-
-  return {
-    title: `Meaning of ${word.value.word}`,
-    meta: [
-      { name: 'description', content: word.value.en_meta_desc || '' },
-      { property: 'og:type', content: `article` },
-      { property: 'og:title', content: `Meaning of ${word.value.word}` },
-      { property: 'og:description', content: word.value.en_meta_desc || '' },
-      { property: 'og:image', content: `https://wordsfromlife.com/words/${word.value.img}` || '' },
-      { property: 'og:url', content: `https://wordsfromlife.com/words/${word.value.id}` }
-    ],
-    link: [
-        {
-          rel: 'canonical',
-          href: wordUrl
-        }
-      ],
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
-      }
-    ]
-  }
+  })
 })
 </script>
 

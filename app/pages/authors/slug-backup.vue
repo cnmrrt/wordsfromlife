@@ -62,9 +62,21 @@ import { ref, nextTick } from 'vue'
 import { useRoute, useHead } from '#imports'
 
 import Navbar from '~/components/Navbar.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
 const slug = route.params.slug
+
+useHead(createPageSeoHead({
+  title: 'Author Quotes - Words From Life',
+  description: 'Explore inspirational quotes from renowned authors and thinkers.',
+  path: '/authors/slug-backup',
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Authors', path: '/authors' },
+    { name: 'Author Quotes', path: '/authors/slug-backup' }
+  ]
+}))
 
 // Masonry instance ref
 const macyRef = ref(null)
@@ -77,56 +89,4 @@ const { data: authorData, error } = await useAsyncData(`author-${slug}`, async (
   return author
 })
 
-// Set SEO meta tags server-side
-if (authorData.value) {
-  const authorName = `${authorData.value.name} ${authorData.value.surname} Quotes`
-  const authorUrl = `https://wordsfromlife.com/authors/${authorData.value.id}-quotes`
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://wordsfromlife.com/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Authors',
-        item: 'https://wordsfromlife.com/authors'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: authorName,
-        item: authorUrl
-      }
-    ]
-  }
-
-  useHead({
-    title: authorName,
-    meta: [
-      { name: 'description', content: authorData.value.en_meta_desc || '' },
-      { property: 'og:title', content: authorName },
-      { property: 'og:description', content: authorData.value.en_meta_desc || '' },
-      { property: 'og:url', content: authorUrl },
-      { property: 'og:image', content: authorData.value.img }
-    ],
-    link: [
-      {
-        rel: 'canonical',
-        href: authorUrl
-      }
-    ],
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
-      }
-    ]
-  })
-}
 </script>

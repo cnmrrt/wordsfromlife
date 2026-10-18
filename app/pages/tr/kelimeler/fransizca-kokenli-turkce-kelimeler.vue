@@ -57,8 +57,8 @@
 
 <script setup>
 import Navbar_tr from '~/components/Navbar_tr.vue'
+import { createPageSeoHead } from '~/utils/pageSeo'
 import { ref, computed } from 'vue'
-import { useHead } from '#imports'
 
 const searchQuery = ref('')
 
@@ -112,31 +112,18 @@ const filteredWords = computed(() => {
   )
 })
 
-useHead({
+useHead(createPageSeoHead({
   title: 'Fransızca Kökenli Türkçe Kelimeler',
-  htmlAttrs: {
-    lang: 'tr'
-  },
-  meta: [
-    {
-      name: 'description',
-      content: 'Günlük hayatta sıkça kullandığımız Fransızca kökenli Türkçe kelimeler, Fransızca asılları ve Türkçe anlamları tablosu.'
-    },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: 'Fransızca Kökenli Türkçe Kelimeler' },
-    {
-      property: 'og:description',
-      content: 'Günlük hayatta sıkça kullandığımız Fransızca kökenli Türkçe kelimeler, Fransızca asılları ve Türkçe anlamları tablosu.'
-    },
-    { property: 'og:url', content: 'https://wordsfromlife.com/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' }
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: 'https://wordsfromlife.com/tr/kelimeler/fransizca-kokenli-turkce-kelimeler'
-    }
+  description: 'Günlük hayatta sıkça kullandığımız Fransızca kökenli Türkçe kelimeler, Fransızca asılları ve Türkçe anlamları tablosu.',
+  path: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
+  type: 'article',
+  lang: 'tr',
+  breadcrumbs: [
+    { name: 'Ana Sayfa', path: '/' },
+    { name: 'Kelimeler', path: '/tr/kelimeler' },
+    { name: 'Fransızca Kökenli Türkçe Kelimeler', path: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' }
   ]
-})
+}))
 </script>
 
 <style scoped>
