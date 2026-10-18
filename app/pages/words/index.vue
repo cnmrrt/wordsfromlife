@@ -11,9 +11,11 @@
         </ul>
         <hr style="border-left: 0; border-right: 0; color: #d3d3d3 !important; border-bottom: 0; border-style: solid; border-top-width: 1px; margin: 2rem 0;">
         <p><NuxtLink to="/words/english-words-origin-french">English Words of French Origin</NuxtLink></p>
+        <hr style="border-left: 0; border-right: 0; color: #d3d3d3 !important; border-bottom: 0; border-style: solid; border-top-width: 1px; margin: 2rem 0;">
+        <p><NuxtLink to="/words/english-synonym-words">English Synonym Words</NuxtLink></p>
       </section>
     </div>
-  </main>
+  </main>""
 </template>
 
 <script setup>
