@@ -48,7 +48,7 @@ const macyRef = ref(null);
 
 // Fetch author data server-side
 const { data: authorData, error } = await useAsyncData(`author-${slug}`, async () => {
-  const allAuthors = await $fetch(usePublicDataPath('/static/data/author-quotes.json'));
+  const allAuthors = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'));
   const author = allAuthors.find(
     (a) => `${a.id}-quotes`.toLowerCase() === slug.toLowerCase()
   );

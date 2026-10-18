@@ -34,7 +34,7 @@ const slug = route.params.slug
 
 // ✅ asyncData = loads before render (SSR + SSG)
 const { data: preverb } = await useAsyncData(`preverb-${slug}`, async () => {
-  const res = await $fetch(usePublicDataPath('/static/data/preverbs.json'))
+  const res = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/preverbs.json'))
   return res.find(item => item.id?.toLowerCase() === slug.toLowerCase())
 })
 
