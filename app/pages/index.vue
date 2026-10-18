@@ -77,15 +77,15 @@ useHead(createPageSeoHead({
 // Fetch data on SSR
 // -------------------
 const { data: authorsData } = await useAsyncData('authors', () =>
-  $fetch(usePublicDataPath('/static/data/author-quotes.json'))
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
 )
 
 const { data: wordsData } = await useAsyncData('words', () =>
-  $fetch(usePublicDataPath('/static/data/words.json'))
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/words.json'))
 )
 
 const { data: preverbsData } = await useAsyncData('preverbs', () =>
-  $fetch(usePublicDataPath('/static/data/preverbs.json'))
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/preverbs.json'))
 )
 
 let macyRef = ref(null)

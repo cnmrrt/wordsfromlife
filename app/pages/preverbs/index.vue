@@ -24,7 +24,7 @@ const words = ref([])
 
 // Fetch words data (SSR-friendly)
 const { data: wordsData, pending, error } = await useFetch(
-  usePublicDataPath('/static/data/preverbs.json')
+  usePublicDataPath('https://wordsfromlife.com/static/data/preverbs.json')
 )
 words.value = wordsData.value || []
 

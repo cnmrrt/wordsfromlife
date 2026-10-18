@@ -47,7 +47,7 @@ useHead(createPageSeoHead({
 const authorsData = ref([])
 
 // Fetch authors with SSR-friendly useFetch
-const { data: authors } = await useFetch(usePublicDataPath('/static/data/author-quotes.json'))
+const { data: authors } = await useFetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
 authorsData.value = authors.value || []
 
 // Initialize Masonry only on client
