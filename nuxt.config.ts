@@ -1,20 +1,21 @@
-import fs from 'node:fs'
-import path from 'node:path'
-
-// Robust helper to read JSON files safely relative to project root
-function loadJsonData(relativePath: string) {
+// Helper function to dynamically import JSON data safely
+async function loadJsonData<T>(path: string): Promise<T[]> {
   try {
-    const fullPath = path.resolve(process.cwd(), relativePath)
-    if (fs.existsSync(fullPath)) {
-      const content = fs.readFileSync(fullPath, 'utf-8')
-      const data = JSON.parse(content)
-      return Array.isArray(data) ? data : []
-    }
+    const module = await import(path, { with: { type: 'json' } })
+    const data = module.default || module
+    return Array.isArray(data) ? data : []
   } catch (error) {
-    console.error(`Failed to load JSON from ${relativePath}:`, error)
+    console.error(`Failed to load JSON from ${path}:`, error)
+    return []
   }
-  return []
 }
+
+const [words, authors, proverbs, turkishWords] = await Promise.all([
+  loadJsonData<{ id: string }>('./public/static/data/words.json'),
+  loadJsonData<{ id: string }>('./public/static/data/author-quotes.json'),
+  loadJsonData<{ id: string }>('./public/static/data/preverbs.json'),
+  loadJsonData<{ id: string }>('./public/static/data/tr/kelimeler.json')
+])
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap'
   ],
 
-  // Configure global trailing slash removal
+  // Remove trailing slashes from generated NuxtLink URLs (except the root URL).
   experimental: {
     defaults: {
       nuxtLink: {
@@ -37,60 +38,43 @@ export default defineNuxtConfig({
     }
   },
 
-  router: {
-    options: {
-      trailingSlash: false
-    }
-  },
-
   sitemap: {
     autoLastmod: true,
-    urls: async () => {
-      const words = loadJsonData('public/static/data/words.json')
-      const authors = loadJsonData('public/static/data/author-quotes.json')
-      const proverbs = loadJsonData('public/static/data/preverbs.json')
-
-      return [
-        { loc: '/', priority: 1.0 },
-        { loc: '/authors', priority: 0.8 },
-        { loc: '/words', priority: 0.8 },
-        { loc: '/preverbs', priority: 0.8 },
-        ...words.map((w: any) => ({ loc: `/words/${w.id}`, changefreq: 'weekly' })),
-        ...authors.map((a: any) => ({ loc: `/authors/${a.id}-quotes`, changefreq: 'monthly' })),
-        ...proverbs.map((p: any) => ({ loc: `/preverbs/${p.id}`, changefreq: 'monthly' }))
-      ]
-    }
+    urls: [
+      { loc: '/', priority: 1.0 },
+      { loc: '/authors', priority: 0.8 },
+      { loc: '/words', priority: 0.8 },
+      { loc: '/preverbs', priority: 0.8 },
+      ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
+      ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const }))
+    ]
   },
 
   nitro: {
     prerender: {
+      // Set crawlLinks to true so Nuxt automatically discovers linked dynamic routes
       crawlLinks: true,
-      routes: () => {
-        const words = loadJsonData('public/static/data/words.json')
-        const authors = loadJsonData('public/static/data/author-quotes.json')
-        const proverbs = loadJsonData('public/static/data/preverbs.json')
-        const turkishWords = loadJsonData('public/static/data/tr/kelimeler.json')
-
-        return [
-          '/',
-          '/about',
-          '/authors',
-          '/authors/slug-backup',
-          '/words',
-          '/words/english-words-origin-french',
-          '/preverbs',
-          '/tr/kelimeler',
-          '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
-          ...words.map((w: any) => `/words/${w.id}`),
-          ...authors.map((a: any) => `/authors/${a.id}-quotes`),
-          ...proverbs.map((p: any) => `/preverbs/${p.id}`),
-          ...turkishWords.map((w: any) => `/tr/kelimeler/${w.id}`)
-        ]
-      }
+      routes: [
+        '/',
+        '/about',
+        '/authors',
+        '/authors/slug-backup',
+        '/words',
+        '/words/english-words-origin-french',
+        '/preverbs',
+        '/tr/kelimeler',
+        '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
+        ...words.map((word) => `/words/${word.id}`),
+        ...authors.map((author) => `/authors/${author.id}-quotes`),
+        ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
+        ...turkishWords.map((word) => `/tr/kelimeler/${word.id}`)
+      ]
     }
   },
 
   routeRules: {
+    // Single page 301 redirects
     '/authors/a/albert-camus-quotes': { redirect: { to: '/authors/albert-camus-quotes', statusCode: 301 } },
     '/author.php': { redirect: { to: '/', statusCode: 301 } }
   },
