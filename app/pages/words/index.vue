@@ -1,7 +1,7 @@
 <template>
     <Navbar />
   <main class="main" role="main">
-    <h1>Words</h1>
+    <h1>Words</h1> 
     <div class="home-container words-container">
       <section class="section" id="word-container">
         <ul>
