@@ -42,9 +42,7 @@
             <td class="word-cell">
               <strong>{{ item.word }}</strong>
             </td>
-            <td class="synonym-cell">
-              {{ item.synonyms }}
-            </td>
+            <td class="synonym-cell" v-html="item.synonyms"></td>
             <td class="meaning-cell" v-html="item.meaning"></td>
           </tr>
         </tbody>
@@ -69,7 +67,7 @@ const wordsData = [
   { id: "ample", word: "Ample", synonyms: "Abundant, Plentiful, Copious", meaning: "More than enough; large or accommodating" },
   { id: "apparent", word: "Apparent", synonyms: "Obvious, Evident, Manifest", meaning: "Clearly visible or understood; obvious" },
   { id: "artificial", word: "Artificial", synonyms: "Synthetic, Man-made, Simulated", meaning: "Made or produced by human beings rather than occurring naturally" },
-  { id: "assert", word: "Assert", synonyms: "Declare, State, Affirm", meaning: "To state a fact or belief confidently and forcefully" },
+  { id: "assert", word: "Assert", synonyms: "Declare, <a href=\"https://wordsfromlife.com/words/state\">State</a>, Affirm", meaning: "To state a fact or belief confidently and forcefully" },
   { id: "assist", word: "Assist", synonyms: "Help, Aid, Support", meaning: "To give help or assistance to someone" },
   { id: "authentic", word: "Authentic", synonyms: "Genuine, Real, Legitimate", meaning: "Of undisputed origin; genuine" },
   { id: "baffle", word: "Baffle", synonyms: "Puzzle, Perplex, Confuse", meaning: "To totally bewilder or perplex someone" },
@@ -117,7 +115,7 @@ const wordsData = [
   { id: "impeccable", word: "Impeccable", synonyms: "Flawless, Faultless, Perfect", meaning: "In accordance with the highest standards of propriety; faultless" },
   { id: "imperative", word: "Imperative", synonyms: "Essential, Crucial, Urgent", meaning: "Of vital importance; crucial" },
   { id: "indicate", word: "Indicate", synonyms: "Signify, Denote, Show", meaning: "To point out or show something" },
-  { id: "indispensable", word: "Indispensable", synonyms: "Essential, Necessary, Vital", meaning: "Absolutely necessary; <a href=\"https://example.com/words/essential\">essential</a>" },
+  { id: "indispensable", word: "Indispensable", synonyms: "<a href=\"https://wordsfromlife.com/words/essential\">Essential</a>, Necessary, Vital", meaning: "Absolutely necessary; essential" },
   { id: "inevitable", word: "Inevitable", synonyms: "Unavoidable, Certain, Inescapable", meaning: "Certain to happen; unavoidable" },
   { id: "infamous", word: "Infamous", synonyms: "Notorious, Disreputable, Ill-famed", meaning: "Well known for some bad quality or deed" },
   { id: "innovative", word: "Innovative", synonyms: "Inventive, Original, Novel", meaning: "Featuring new methods; advanced and original" },
