@@ -45,9 +45,7 @@
             <td class="synonym-cell">
               {{ item.synonyms }}
             </td>
-            <td class="meaning-cell" v-html>
-              {{ item.meaning }}
-            </td>
+            <td class="meaning-cell" v-html="item.meaning"></td>
           </tr>
         </tbody>
       </table>
