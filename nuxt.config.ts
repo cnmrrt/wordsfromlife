@@ -36,6 +36,7 @@ export default defineNuxtConfig({
 
   // Remove trailing slashes from generated NuxtLink URLs (except the root URL).
   experimental: {
+    payloadExtraction: false,
     defaults: {
       nuxtLink: {
         trailingSlash: 'remove'
