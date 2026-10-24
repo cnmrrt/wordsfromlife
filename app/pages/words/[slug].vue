@@ -4,7 +4,7 @@
   <div v-if="word" class="word-detail-container">
     <main class="word-detail-main">
       <h1>{{ word.word }}</h1>
-
+ 
       <div id="main-image" v-if="word.img">
         <img
           :src="useSitePath(word.img)"
