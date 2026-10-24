@@ -1,21 +1,11 @@
-// Helper function to dynamically import JSON data safely
-async function loadJsonData<T>(path: string): Promise<T[]> {
-  try {
-    const module = await import(path, { with: { type: 'json' } })
-    const data = module.default || module
-    return Array.isArray(data) ? data : []
-  } catch (error) {
-    console.error(`Failed to load JSON from ${path}:`, error)
-    return []
-  }
-}
+import { readFileSync } from 'node:fs'
 
-const [words, authors, proverbs, turkishWords] = await Promise.all([
-  loadJsonData<{ id: string }>('https://wordsfromlife.com/static/data/words.json'),
-  loadJsonData<{ id: string }>('https://wordsfromlife.com/static/data/author-quotes.json'),
-  loadJsonData<{ id: string }>('https://wordsfromlife.com/static/data/preverbs.json'),
-  loadJsonData<{ id: string }>('https://wordsfromlife.com/static/data/tr/kelimeler.json')
-])
+const words = JSON.parse(readFileSync(new URL('./public/static/data/words.json', import.meta.url), 'utf8')) as { id: string }[]
+const authors = JSON.parse(readFileSync(new URL('./public/static/data/author-quotes.json', import.meta.url), 'utf8')) as { id: string }[]
+const proverbs = JSON.parse(readFileSync(new URL('./public/static/data/preverbs.json', import.meta.url), 'utf8')) as { id: string }[]
+const turkishWords = JSON.parse(readFileSync(new URL('./public/static/data/tr/kelimeler.json', import.meta.url), 'utf8')) as { id: string }[]
+
+const siteUrl = 'https://wordsfromlife.com'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -34,6 +24,10 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap'
   ],
 
+  site: {
+    url: siteUrl
+  },
+
   // Remove trailing slashes from generated NuxtLink URLs (except the root URL).
   experimental: {
     payloadExtraction: false,
@@ -47,13 +41,17 @@ export default defineNuxtConfig({
   sitemap: {
     autoLastmod: true,
     urls: [
-      { loc: 'https://wordsfromlife.com/', priority: 1.0 },
-      { loc: 'https://wordsfromlife.com/authors', priority: 0.8 },
-      { loc: 'https://wordsfromlife.com/words', priority: 0.8 },
-      { loc: 'https://wordsfromlife.com/preverbs', priority: 0.8 },
-      ...words.map((word) => ({ loc: `https://wordsfromlife.com/words/${word.id}`, changefreq: 'weekly' as const })),
-      ...authors.map((author) => ({ loc: `https://wordsfromlife.com/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
-      ...proverbs.map((proverb) => ({ loc: `https://wordsfromlife.com/preverbs/${proverb.id}`, changefreq: 'monthly' as const }))
+      { loc: '/', priority: 1.0 },
+      { loc: '/about' },
+      { loc: '/authors', priority: 0.8 },
+      { loc: '/words', priority: 0.8 },
+      { loc: '/preverbs', priority: 0.8 },
+      { loc: '/tr/kelimeler' },
+      { loc: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' },
+      ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
+      ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const })),
+      ...turkishWords.map((word) => ({ loc: `/tr/kelimeler/${word.id}`, changefreq: 'monthly' as const }))
     ]
   },
 
@@ -65,7 +63,6 @@ export default defineNuxtConfig({
         'https://wordsfromlife.com/',
         '/about',
         '/authors',
-        '/authors/slug-backup',
         '/words',
         '/words/english-words-origin-french',
         '/preverbs',
