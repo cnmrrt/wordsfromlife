@@ -5,6 +5,7 @@
     <p>{{ error.message }}</p>
   </div>
 
+  
   <div v-else-if="authorData" class="backgroundImage" :style="{ '--bg-image': `url(${useSitePath(authorData.img)})` }">
     <main id="main-content" class="container position-relative mt-5">
       <h1>{{ authorData.name }} {{ authorData.surname }} Quotes</h1>
