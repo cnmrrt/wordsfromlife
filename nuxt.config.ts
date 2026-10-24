@@ -62,7 +62,7 @@ export default defineNuxtConfig({
       // Set crawlLinks to true so Nuxt automatically discovers linked dynamic routes
       crawlLinks: true,
       routes: [
-        '/',
+        'https://wordsfromlife.com/',
         '/about',
         '/authors',
         '/authors/slug-backup',
