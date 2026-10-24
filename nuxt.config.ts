@@ -47,13 +47,13 @@ export default defineNuxtConfig({
   sitemap: {
     autoLastmod: true,
     urls: [
-      { loc: '/', priority: 1.0 },
-      { loc: '/authors', priority: 0.8 },
-      { loc: '/words', priority: 0.8 },
-      { loc: '/preverbs', priority: 0.8 },
-      ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
-      ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
-      ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const }))
+      { loc: 'https://wordsfromlife.com/', priority: 1.0 },
+      { loc: 'https://wordsfromlife.com/authors', priority: 0.8 },
+      { loc: 'https://wordsfromlife.com/words', priority: 0.8 },
+      { loc: 'https://wordsfromlife.com/preverbs', priority: 0.8 },
+      ...words.map((word) => ({ loc: `https://wordsfromlife.com/words/${word.id}`, changefreq: 'weekly' as const })),
+      ...authors.map((author) => ({ loc: `https://wordsfromlife.com/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...proverbs.map((proverb) => ({ loc: `https://wordsfromlife.com/preverbs/${proverb.id}`, changefreq: 'monthly' as const }))
     ]
   },
 
