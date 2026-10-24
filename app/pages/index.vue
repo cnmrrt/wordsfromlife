@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <main class="main" role="main">
+  <main class="main" role="main"> 
     <h1>Words From Life</h1>
     <div class="home-container">
       <!-- Authors Section -->
