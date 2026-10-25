@@ -172,7 +172,7 @@ nav ul li a {
 }
 
 :global(body#author-page-body q a), :global(body#author-page-body p a) {
-  color: blue !important;
+  color: #6495ed !important;
   text-decoration: underline !important;
 }
 
