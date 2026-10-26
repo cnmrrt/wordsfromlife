@@ -70,8 +70,8 @@ if (author.value) {
 }
 
 :global(body#tr-author-page-body nav) {
-  background: none;
-  border: none;
+  background: none !important;
+  border: none !important;
 }
 
 :global(body#tr-author-page-body nav a) {
