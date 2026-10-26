@@ -29,7 +29,7 @@ const slug = route.params.slug
 const { data: author } = await useAsyncData(`tr-author-${slug}`, async () => {
   const allAuthors = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
   return allAuthors.find(item =>
-    `${item.id}-quotes`.toLowerCase() === slug.toLowerCase() &&
+    `${item.id}-sozleri`.toLowerCase() === slug.toLowerCase() &&
     Array.isArray(item.tr_quotes) &&
     item.tr_quotes.length > 0
   )
@@ -37,7 +37,7 @@ const { data: author } = await useAsyncData(`tr-author-${slug}`, async () => {
 
 if (author.value) {
   const authorName = `${author.value.name} ${author.value.surname}`.trim()
-  const path = `/tr/kisiler/${author.value.id}-quotes`
+  const path = `/tr/kisiler/${author.value.id}-sozleri`
 
   useHead(createPageSeoHead({
     title: `${authorName} Sözleri`,

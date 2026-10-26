@@ -52,7 +52,7 @@ export default defineNuxtConfig({
       { loc: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' },
       ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
       ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
-      ...authorsWithTurkishQuotes.map((author) => ({ loc: `/tr/kisiler/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...authorsWithTurkishQuotes.map((author) => ({ loc: `/tr/kisiler/${author.id}-sozleri`, changefreq: 'monthly' as const })),
       ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const })),
       ...turkishWords.map((word) => ({ loc: `/tr/kelimeler/${word.id}`, changefreq: 'monthly' as const }))
     ]
@@ -74,7 +74,7 @@ export default defineNuxtConfig({
         '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
         ...words.map((word) => `/words/${word.id}`),
         ...authors.map((author) => `/authors/${author.id}-quotes`),
-        ...authorsWithTurkishQuotes.map((author) => `/tr/kisiler/${author.id}-quotes`),
+        ...authorsWithTurkishQuotes.map((author) => `/tr/kisiler/${author.id}-sozleri`),
         ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
         ...turkishWords.map((word) => `/tr/kelimeler/${word.id}`)
       ],

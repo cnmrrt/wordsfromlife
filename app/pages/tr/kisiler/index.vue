@@ -10,7 +10,7 @@
             :key="author.id"
             class="author-card"
           >
-            <NuxtLink :to="`/tr/kisiler/${author.id}-quotes`">
+            <NuxtLink :to="`/tr/kisiler/${author.id}-sozleri`">
               <img
                 v-if="author.img"
                 :src="useSitePath(author.img)"

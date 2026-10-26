@@ -64,7 +64,7 @@ if (authorData.value) {
       ? {
           alternateLanguages: [
             { lang: 'en', path: `/authors/${authorData.value.id}-quotes` },
-            { lang: 'tr', path: `/tr/kisiler/${authorData.value.id}-quotes` },
+            { lang: 'tr', path: `/tr/kisiler/${authorData.value.id}-sozleri` },
             { lang: 'x-default', path: `/authors/${authorData.value.id}-quotes` }
           ]
         }
