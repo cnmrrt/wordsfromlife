@@ -2,7 +2,7 @@
   <div>
     <Navbar_tr />
     <main class="main" role="main">
-      <h1>Yazarlar</h1>
+      <h1>Kişiler</h1>
       <div class="authors-container">
         <div id="turkish-authors-masonry">
           <div
