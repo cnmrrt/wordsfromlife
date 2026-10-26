@@ -59,6 +59,16 @@ if (authorData.value) {
     title: authorName,
     description: authorData.value.en_meta_desc || `Inspirational quotes by ${authorName}.`,
     path: `/authors/${authorData.value.id}-quotes`,
+    lang: 'en',
+    ...(Array.isArray(authorData.value.tr_quotes) && authorData.value.tr_quotes.length > 0
+      ? {
+          alternateLanguages: [
+            { lang: 'en', path: `/authors/${authorData.value.id}-quotes` },
+            { lang: 'tr', path: `/tr/kisiler/${authorData.value.id}-quotes` },
+            { lang: 'x-default', path: `/authors/${authorData.value.id}-quotes` }
+          ]
+        }
+      : {}),
     image: authorData.value.img,
     type: 'article',
     breadcrumbs: [

@@ -2,6 +2,7 @@
   <nav id="navbar">
     <ul>
       <li><router-link to="/tr/kelimeler">Kelimeler</router-link></li>
+      <li><router-link to="/tr/kisiler">Kişiler</router-link></li>
     </ul>
   </nav>
   <ins class="adsbygoogle" style="display: inline-block;" data-ad-client="ca-pub-5581015881313741"

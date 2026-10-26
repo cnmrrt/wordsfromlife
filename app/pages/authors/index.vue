@@ -38,6 +38,12 @@ useHead(createPageSeoHead({
   title: 'Authors',
   description: 'Explore inspiring quotes from renowned authors and thinkers.',
   path: '/authors',
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/authors' },
+    { lang: 'tr', path: '/tr/kisiler' },
+    { lang: 'x-default', path: '/authors' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Authors', path: '/authors' }

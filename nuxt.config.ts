@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs'
 
 const words = JSON.parse(readFileSync(new URL('./public/static/data/words.json', import.meta.url), 'utf8')) as { id: string }[]
-const authors = JSON.parse(readFileSync(new URL('./public/static/data/author-quotes.json', import.meta.url), 'utf8')) as { id: string }[]
+const authors = JSON.parse(readFileSync(new URL('./public/static/data/author-quotes.json', import.meta.url), 'utf8')) as { id: string; tr_quotes?: unknown }[]
 const proverbs = JSON.parse(readFileSync(new URL('./public/static/data/preverbs.json', import.meta.url), 'utf8')) as { id: string }[]
 const turkishWords = JSON.parse(readFileSync(new URL('./public/static/data/tr/kelimeler.json', import.meta.url), 'utf8')) as { id: string }[]
+const authorsWithTurkishQuotes = authors.filter((author) => Array.isArray(author.tr_quotes) && author.tr_quotes.length > 0)
 
 const siteUrl = 'https://wordsfromlife.com'
 
@@ -47,9 +48,11 @@ export default defineNuxtConfig({
       { loc: '/words', priority: 0.8 },
       { loc: '/preverbs', priority: 0.8 },
       { loc: '/tr/kelimeler' },
+      { loc: '/tr/kisiler' },
       { loc: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' },
       ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
       ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
+      ...authorsWithTurkishQuotes.map((author) => ({ loc: `/tr/kisiler/${author.id}-quotes`, changefreq: 'monthly' as const })),
       ...proverbs.map((proverb) => ({ loc: `/preverbs/${proverb.id}`, changefreq: 'monthly' as const })),
       ...turkishWords.map((word) => ({ loc: `/tr/kelimeler/${word.id}`, changefreq: 'monthly' as const }))
     ]
@@ -67,9 +70,11 @@ export default defineNuxtConfig({
         '/words/english-words-origin-french',
         '/preverbs',
         '/tr/kelimeler',
+        '/tr/kisiler',
         '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
         ...words.map((word) => `/words/${word.id}`),
         ...authors.map((author) => `/authors/${author.id}-quotes`),
+        ...authorsWithTurkishQuotes.map((author) => `/tr/kisiler/${author.id}-quotes`),
         ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
         ...turkishWords.map((word) => `/tr/kelimeler/${word.id}`)
       ],

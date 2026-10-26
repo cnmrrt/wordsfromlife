@@ -6,11 +6,17 @@ type Breadcrumb = {
   path: string
 }
 
+type AlternateLanguage = {
+  lang: string
+  path: string
+}
+
 type PageSeoOptions = {
   title: string
   description: string
   path: string
   breadcrumbs: Breadcrumb[]
+  alternateLanguages?: AlternateLanguage[]
   image?: string
   type?: 'article' | 'website'
   lang?: string
@@ -22,6 +28,7 @@ export function createPageSeoHead({
   description,
   path,
   breadcrumbs,
+  alternateLanguages = [],
   image,
   type = 'website',
   lang,
@@ -52,7 +59,14 @@ export function createPageSeoHead({
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:image', content: new URL(image || defaultOgImage, siteOrigin).href }
     ],
-    link: [{ rel: 'canonical', href: canonicalUrl }],
+    link: [
+      { rel: 'canonical', href: canonicalUrl },
+      ...alternateLanguages.map(alternate => ({
+        rel: 'alternate',
+        hreflang: alternate.lang,
+        href: new URL(alternate.path, siteOrigin).href
+      }))
+    ],
     script: [
       {
         type: 'application/ld+json',
