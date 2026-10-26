@@ -4,23 +4,24 @@
     <main class="main" role="main">
       <h1>Yazarlar</h1>
       <div class="authors-container">
-        <section class="authors-grid">
-          <NuxtLink
+        <div id="turkish-authors-masonry">
+          <div
             v-for="author in authors"
             :key="author.id"
             class="author-card"
-            :to="`/tr/kisiler/${author.id}-quotes`"
           >
-            <img
-              v-if="author.img"
-              :src="useSitePath(author.img)"
-              :alt="`${author.name} ${author.surname}`.trim()"
-              :width="author.img_width"
-              :height="author.img_height"
-            >
-            <span>{{ author.name }} {{ author.surname }}</span>
-          </NuxtLink>
-        </section>
+            <NuxtLink :to="`/tr/kisiler/${author.id}-quotes`">
+              <img
+                v-if="author.img"
+                :src="useSitePath(author.img)"
+                :alt="`${author.name} ${author.surname}`.trim()"
+                :width="author.img_width"
+                :height="author.img_height"
+              >
+              <span>{{ author.name }} {{ author.surname }}</span>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </main>
   </div>
@@ -29,6 +30,7 @@
 <script setup>
 import Navbar_tr from '~/components/Navbar_tr.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const { data: authorsData } = await useFetch(
   usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json')
@@ -37,6 +39,25 @@ const { data: authorsData } = await useFetch(
 const authors = computed(() => (authorsData.value || [])
   .filter(author => Array.isArray(author.tr_quotes) && author.tr_quotes.length > 0)
   .sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`, 'tr')))
+
+const masonryInstance = ref(null)
+
+onMounted(async () => {
+  const Macy = (await import('macy')).default
+  await nextTick()
+  masonryInstance.value = Macy({
+    container: '#turkish-authors-masonry',
+    trueOrder: false,
+    waitForImages: false,
+    margin: 15,
+    columns: 6,
+    breakAt: { 1200: 4, 940: 3, 520: 2 }
+  })
+})
+
+onBeforeUnmount(() => {
+  masonryInstance.value?.destroy()
+})
 
 useHead(createPageSeoHead({
   title: 'Yazarlar',
@@ -66,19 +87,14 @@ useHead(createPageSeoHead({
   padding: 0 24px;
 }
 
-.authors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
+#turkish-authors-masonry {
   padding: 1rem 0 3rem;
 }
 
 .author-card {
-  overflow: hidden;
   border: 2px solid #eee;
+  margin: 10px;
   border-radius: 8px;
-  color: #222;
-  text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -87,10 +103,18 @@ useHead(createPageSeoHead({
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.author-card a {
+  display: block;
+  color: #222;
+  text-align: center;
+  text-decoration: none;
+}
+
 .author-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .author-card span {
