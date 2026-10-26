@@ -75,7 +75,7 @@ if (author.value) {
 }
 
 :global(body#tr-author-page-body nav a) {
-  color: #fff;
+  color: #fff !important;
 }
 
 .background-image::after {
