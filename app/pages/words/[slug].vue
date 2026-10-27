@@ -95,5 +95,5 @@ useHead(() => {
   line-height: 1.6;
   margin: 1rem 0;
 }
-h3 {margin-top: 2rem;}
+.word-detail-main h3 {margin-top: 2rem;}
 </style>
