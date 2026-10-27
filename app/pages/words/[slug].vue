@@ -79,6 +79,7 @@ useHead(() => {
   margin-bottom: 2rem;
   color: #333;
 }
+.word-detail-main a {text-decoration: underline !important; color: blue !important;}
 #main-image {
   display: flex;
   justify-content: center;
