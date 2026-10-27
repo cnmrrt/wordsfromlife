@@ -79,7 +79,7 @@ useHead(() => {
   margin-bottom: 2rem;
   color: #333;
 }
-.word-detail-main a {text-decoration: underline !important; color: blue !important;}
+:global(.word-detail-main a) {text-decoration: underline !important; color: blue !important;}
 #main-image {
   display: flex;
   justify-content: center;
@@ -95,5 +95,5 @@ useHead(() => {
   line-height: 1.6;
   margin: 1rem 0;
 }
-.word-detail-main h3 {margin-top: 2rem;}
+:global(.word-detail-main h3) {margin-top: 2rem;}
 </style>
