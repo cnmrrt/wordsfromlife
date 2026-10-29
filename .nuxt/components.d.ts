@@ -14,6 +14,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AdminRichTextEditor: typeof import("../app/components/AdminRichTextEditor.vue")['default']
 export const Navbar: typeof import("../app/components/Navbar.vue")['default']
 export const NavbarTr: typeof import("../app/components/Navbar_tr.vue")['default']
 export const ScriptGoogleMaps: typeof import("../node_modules/@nuxt/scripts/dist/runtime/components/GoogleMaps/ScriptGoogleMaps.vue")['default']
@@ -64,6 +65,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAdminRichTextEditor: LazyComponent<typeof import("../app/components/AdminRichTextEditor.vue")['default']>
 export const LazyNavbar: LazyComponent<typeof import("../app/components/Navbar.vue")['default']>
 export const LazyNavbarTr: LazyComponent<typeof import("../app/components/Navbar_tr.vue")['default']>
 export const LazyScriptGoogleMaps: LazyComponent<typeof import("../node_modules/@nuxt/scripts/dist/runtime/components/GoogleMaps/ScriptGoogleMaps.vue")['default']>

@@ -14,8 +14,10 @@ declare global {
   const cachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedEventHandler
   const cachedFunction: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedFunction
   const callNodeListener: typeof import('../../node_modules/h3/dist/index').callNodeListener
+  const clearAdminSession: typeof import('../../server/utils/admin').clearAdminSession
   const clearResponseHeaders: typeof import('../../node_modules/h3/dist/index').clearResponseHeaders
   const clearSession: typeof import('../../node_modules/h3/dist/index').clearSession
+  const createAdminSession: typeof import('../../server/utils/admin').createAdminSession
   const createApp: typeof import('../../node_modules/h3/dist/index').createApp
   const createAppEventHandler: typeof import('../../node_modules/h3/dist/index').createAppEventHandler
   const createError: typeof import('../../node_modules/h3/dist/index').createError
@@ -42,9 +44,11 @@ declare global {
   const defineWebSocket: typeof import('../../node_modules/h3/dist/index').defineWebSocket
   const defineWebSocketHandler: typeof import('../../node_modules/h3/dist/index').defineWebSocketHandler
   const deleteCookie: typeof import('../../node_modules/h3/dist/index').deleteCookie
+  const deleteWord: typeof import('../../server/utils/supabaseWords').deleteWord
   const dynamicEventHandler: typeof import('../../node_modules/h3/dist/index').dynamicEventHandler
   const eventHandler: typeof import('../../node_modules/h3/dist/index').eventHandler
   const fetchWithEvent: typeof import('../../node_modules/h3/dist/index').fetchWithEvent
+  const fetchWords: typeof import('../../server/utils/supabaseWords').fetchWords
   const fromNodeMiddleware: typeof import('../../node_modules/h3/dist/index').fromNodeMiddleware
   const fromPlainHandler: typeof import('../../node_modules/h3/dist/index').fromPlainHandler
   const fromWebHandler: typeof import('../../node_modules/h3/dist/index').fromWebHandler
@@ -98,9 +102,11 @@ declare global {
   const readRawBody: typeof import('../../node_modules/h3/dist/index').readRawBody
   const readValidatedBody: typeof import('../../node_modules/h3/dist/index').readValidatedBody
   const removeResponseHeader: typeof import('../../node_modules/h3/dist/index').removeResponseHeader
+  const requireAdminSession: typeof import('../../server/utils/admin').requireAdminSession
   const runTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').runTask
   const sanitizeStatusCode: typeof import('../../node_modules/h3/dist/index').sanitizeStatusCode
   const sanitizeStatusMessage: typeof import('../../node_modules/h3/dist/index').sanitizeStatusMessage
+  const sanitizeWord: typeof import('../../server/utils/supabaseWords').sanitizeWord
   const sealSession: typeof import('../../node_modules/h3/dist/index').sealSession
   const send: typeof import('../../node_modules/h3/dist/index').send
   const sendError: typeof import('../../node_modules/h3/dist/index').sendError
@@ -126,6 +132,7 @@ declare global {
   const unsealSession: typeof import('../../node_modules/h3/dist/index').unsealSession
   const updateSession: typeof import('../../node_modules/h3/dist/index').updateSession
   const updateSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/updateSiteConfig').updateSiteConfig
+  const updateWord: typeof import('../../server/utils/supabaseWords').updateWord
   const useAppConfig: typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/utils/app-config').useAppConfig
   const useBase: typeof import('../../node_modules/h3/dist/index').useBase
   const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context').useEvent
@@ -136,6 +143,7 @@ declare global {
   const useSession: typeof import('../../node_modules/h3/dist/index').useSession
   const useSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/useSiteConfig').useSiteConfig
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const verifyAdminCredentials: typeof import('../../server/utils/admin').verifyAdminCredentials
   const withSiteTrailingSlash: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils').withSiteTrailingSlash
   const withSiteUrl: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils').withSiteUrl
   const writeEarlyHints: typeof import('../../node_modules/h3/dist/index').writeEarlyHints
@@ -166,6 +174,9 @@ declare global {
   // @ts-ignore
   export type { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils'
   import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils')
+  // @ts-ignore
+  export type { WordRecord } from '../../server/utils/supabaseWords'
+  import('../../server/utils/supabaseWords')
 }
 export { H3Event, H3Error, appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
 export { useNitroApp } from 'nitropack/runtime/internal/app';
@@ -193,3 +204,5 @@ export { updateSiteConfig } from '/Users/mac/Desktop/wordsfromlife/node_modules/
 export { useNitroOrigin } from '/Users/mac/Desktop/wordsfromlife/node_modules/nuxt-site-config/dist/runtime/server/composables/useNitroOrigin';
 export { useSiteConfig } from '/Users/mac/Desktop/wordsfromlife/node_modules/nuxt-site-config/dist/runtime/server/composables/useSiteConfig';
 export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '/Users/mac/Desktop/wordsfromlife/node_modules/nuxt-site-config/dist/runtime/server/composables/utils';
+export { verifyAdminCredentials, createAdminSession, clearAdminSession, requireAdminSession } from '/Users/mac/Desktop/wordsfromlife/server/utils/admin';
+export { fetchWords, sanitizeWord, updateWord, deleteWord } from '/Users/mac/Desktop/wordsfromlife/server/utils/supabaseWords';

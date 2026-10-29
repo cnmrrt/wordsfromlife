@@ -10,6 +10,16 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       cdnURL: string,
    },
 
+   adminUsername: string,
+
+   adminPassword: string,
+
+   adminSessionSecret: string,
+
+   supabaseUrl: string,
+
+   supabaseServiceRoleKey: string,
+
    "nuxt-scripts": {
       version: string,
    },

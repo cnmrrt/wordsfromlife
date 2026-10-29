@@ -1,12 +1,13 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getRequestHost, getRequestProtocol, setHeader, getHeader, getQuery as getQuery$1, getRequestWebStream, getResponseStatus, lazyEventHandler, fromNodeMiddleware, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readBody, getResponseStatusText } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getRequestHost, getRequestProtocol, setHeader, getHeader, getQuery as getQuery$1, getRequestWebStream, getResponseStatus, setCookie, deleteCookie, getCookie, lazyEventHandler, fromNodeMiddleware, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readBody, getResponseStatusText } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve as resolve$1, dirname, join } from 'node:path';
-import nodeCrypto from 'node:crypto';
+import nodeCrypto, { timingSafeEqual, createHmac } from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
 import { escapeHtml } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/@vue/shared/dist/shared.cjs.js';
 import viteNodeEntry_mjs from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
 import { viteNodeFetch } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
+import sanitizeHtml from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/sanitize-html/index.js';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, hasProtocol, withHttps, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, withoutProtocol, withBase, parsePath, parseQuery, stringifyQuery, encodePath, stringifyParsedURL, joinRelativeURL } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/ufo/dist/index.mjs';
 import destr, { destr as destr$1 } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/destr/dist/index.mjs';
 import { createHooks } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/hookable/dist/index.mjs';
@@ -32,7 +33,7 @@ import { ansiFormatter } from 'file:///Users/mac/Desktop/wordsfromlife/node_modu
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { stringify, uneval } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/devalue/index.js';
 import { getContext as getContext$1 } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/@nuxt/nitro-server/node_modules/unctx/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'errx';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/errx/dist/index.mjs';
 import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/mac/Desktop/wordsfromlife/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -688,6 +689,11 @@ const _inlineRuntimeConfig = {
       }
     }
   },
+  "adminUsername": "",
+  "adminPassword": "",
+  "adminSessionSecret": "",
+  "supabaseUrl": "https://hyqlxashxveelitzuryz.supabase.co",
+  "supabaseServiceRoleKey": "",
   "nuxt-scripts": {
     "version": "0.12.1"
   },
@@ -731,12 +737,11 @@ const _inlineRuntimeConfig = {
         "sitemapName": "sitemap.xml",
         "route": "sitemap.xml",
         "defaults": {
-          "lastmod": "2026-10-29T22:27:58Z"
+          "lastmod": "2026-10-29T23:07:38Z"
         },
         "include": [],
         "exclude": [
           "/_**",
-          "/_nuxt/**",
           "/_nuxt/**"
         ],
         "includeAppSources": true
@@ -2412,7 +2417,22 @@ dev_server_logs_default,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"3d1a6-gzubcdphrDQMgR794QA5HamUND4\"",
+    "mtime": "2026-10-29T23:15:54.068Z",
+    "size": 250278,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"d0d2b-AMb650XSZxAzHniMbSc87s+b0pI\"",
+    "mtime": "2026-10-29T23:15:54.069Z",
+    "size": 855339,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -4982,6 +5002,221 @@ async function runTask(name, {
   }
 }
 
+const SESSION_COOKIE = "words_admin_session";
+const SESSION_TTL_SECONDS = 8 * 60 * 60;
+function safeEqual(left, right) {
+  const leftBuffer = Buffer.from(left);
+  const rightBuffer = Buffer.from(right);
+  return leftBuffer.length === rightBuffer.length && timingSafeEqual(leftBuffer, rightBuffer);
+}
+function getAdminConfig(event) {
+  const config = useRuntimeConfig(event);
+  const { adminUsername, adminPassword, adminSessionSecret } = config;
+  if (!adminUsername || !adminPassword || !adminSessionSecret) {
+    throw createError({ statusCode: 503, statusMessage: "Admin credentials are not configured" });
+  }
+  return { adminUsername, adminPassword, adminSessionSecret };
+}
+function sign(expiry, secret) {
+  return createHmac("sha256", secret).update(expiry).digest("hex");
+}
+function verifyAdminCredentials(event, username, password) {
+  const expected = getAdminConfig(event);
+  return safeEqual(username, expected.adminUsername) && safeEqual(password, expected.adminPassword);
+}
+function createAdminSession(event) {
+  const { adminSessionSecret } = getAdminConfig(event);
+  const expiry = String(Math.floor(Date.now() / 1e3) + SESSION_TTL_SECONDS);
+  setCookie(event, SESSION_COOKIE, `${expiry}.${sign(expiry, adminSessionSecret)}`, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
+    path: "/",
+    maxAge: SESSION_TTL_SECONDS
+  });
+}
+function clearAdminSession(event) {
+  deleteCookie(event, SESSION_COOKIE, { path: "/" });
+}
+function requireAdminSession(event) {
+  const { adminSessionSecret } = getAdminConfig(event);
+  const token = getCookie(event, SESSION_COOKIE);
+  const [expiry, signature, extra] = (token == null ? void 0 : token.split(".")) || [];
+  if (!expiry || !signature || extra || !/^\d+$/.test(expiry) || Number(expiry) <= Math.floor(Date.now() / 1e3) || !safeEqual(signature, sign(expiry, adminSessionSecret))) {
+    throw createError({ statusCode: 401, statusMessage: "Admin authentication required" });
+  }
+}
+
+const TABLE = "en_words";
+const PAGE_SIZE = 500;
+const editableTags = [
+  ...sanitizeHtml.defaults.allowedTags,
+  "article",
+  "header",
+  "section",
+  "table",
+  "thead",
+  "tbody",
+  "tr",
+  "th",
+  "td"
+];
+function supabaseConfig(event) {
+  const config = useRuntimeConfig(event);
+  const url = String(config.supabaseUrl || process.env.NUXT_SUPABASE_URL || "").replace(/\/+$/, "");
+  const key = config.supabaseServiceRoleKey || process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY;
+  if (!url) {
+    throw createError({ statusCode: 503, statusMessage: "NUXT_SUPABASE_URL is not configured" });
+  }
+  if (!key) {
+    throw createError({ statusCode: 503, statusMessage: "NUXT_SUPABASE_SERVICE_ROLE_KEY is not configured" });
+  }
+  return { url, key };
+}
+async function supabaseRequest(event, path, options = {}) {
+  const { url, key } = supabaseConfig(event);
+  let response;
+  try {
+    response = await fetch(`${url}/rest/v1/${TABLE}${path}`, {
+      ...options,
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        ...options.headers
+      }
+    });
+  } catch {
+    throw createError({ statusCode: 502, statusMessage: "Could not connect to Supabase" });
+  }
+  if (!response.ok) {
+    const detail = await response.text();
+    console.error(`Supabase ${options.method || "GET"} ${TABLE} failed (${response.status}): ${detail}`);
+    throw createError({
+      statusCode: response.status === 401 || response.status === 403 ? 502 : response.status,
+      statusMessage: "Supabase request failed; check the table, API key, and row-level security settings"
+    });
+  }
+  if (response.status === 204) return void 0;
+  return await response.json();
+}
+async function fetchWords(event) {
+  const words = [];
+  for (let offset = 0; ; offset += PAGE_SIZE) {
+    const page = await supabaseRequest(
+      event,
+      `?select=*&order=word.asc`,
+      { headers: { Range: `${offset}-${offset + PAGE_SIZE - 1}`, "Range-Unit": "items" } }
+    );
+    if (!Array.isArray(page)) {
+      throw createError({ statusCode: 502, statusMessage: "Supabase returned an invalid words response" });
+    }
+    words.push(...page);
+    if (page.length < PAGE_SIZE) return words;
+  }
+}
+function sanitizeHtmlContent(value) {
+  const safeStyles = [];
+  const content = value.replace(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi, (_match, css) => {
+    const safeRules = css.replace(/([^{}]+)\{([^{}]*)\}/g, (_rule, selector, declarations) => {
+      if (!/^\s*(?:\.[\w-]+\s*,?\s*)+$/.test(selector)) return "";
+      const safeDeclarations = declarations.split(";").flatMap((declaration) => {
+        const [property, ...parts] = declaration.split(":");
+        const name = property == null ? void 0 : property.trim().toLowerCase();
+        const value2 = parts.join(":").trim();
+        if (!name || !["background-color", "border", "border-left", "border-radius", "color", "font-weight", "margin", "margin-top", "padding"].includes(name) || !value2 || !/^[\w#(),.%\s-]+$/.test(value2) || /\b(?:url|expression|var)\s*\(/i.test(value2)) {
+          return [];
+        }
+        return [`${name}:${value2}`];
+      });
+      return safeDeclarations.length ? `${selector.trim()}{${safeDeclarations.join(";")}}` : "";
+    });
+    if (safeRules.trim()) safeStyles.push(`<style>${safeRules}</style>`);
+    return "";
+  });
+  const safeContent = sanitizeHtml(content, {
+    allowedTags: editableTags,
+    allowedAttributes: {
+      a: ["href", "name", "target", "rel"],
+      img: ["src", "alt", "title", "width", "height"],
+      "*": ["class"]
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+    transformTags: {
+      a: sanitizeHtml.simpleTransform("a", { rel: "noopener noreferrer" }, true)
+    }
+  });
+  return [safeContent, ...safeStyles].filter(Boolean).join("\n");
+}
+function sanitizeWord(record) {
+  const sanitized = { ...record };
+  for (const field of ["content", "en_meta_desc"]) {
+    if (typeof sanitized[field] === "string") {
+      sanitized[field] = sanitizeHtmlContent(sanitized[field]);
+    }
+  }
+  return sanitized;
+}
+async function updateWord(event, id, value) {
+  if (!id || id.length > 200) {
+    throw createError({ statusCode: 400, statusMessage: "Invalid word ID" });
+  }
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw createError({ statusCode: 400, statusMessage: "Word data must be an object" });
+  }
+  const currentWords = await fetchWords(event);
+  const current = currentWords.find((word) => String(word.id) === id);
+  if (!current) {
+    throw createError({ statusCode: 404, statusMessage: "Word not found" });
+  }
+  const submitted = value;
+  const changed = {};
+  for (const [field, fieldValue] of Object.entries(submitted)) {
+    if (field === "id") continue;
+    if (!(field in current)) {
+      throw createError({ statusCode: 400, statusMessage: `Unknown word field: ${field}` });
+    }
+    changed[field] = typeof fieldValue === "string" && ["content", "en_meta_desc"].includes(field) ? sanitizeHtmlContent(fieldValue) : fieldValue;
+  }
+  if (typeof submitted.word === "string" && !submitted.word.trim()) {
+    throw createError({ statusCode: 400, statusMessage: "Word cannot be empty" });
+  }
+  const query = new URLSearchParams({ id: `eq.${id}` });
+  const updated = await supabaseRequest(
+    event,
+    `?${query.toString()}`,
+    {
+      method: "PATCH",
+      headers: { Prefer: "return=representation" },
+      body: JSON.stringify(changed)
+    }
+  );
+  if (!Array.isArray(updated) || updated.length !== 1) {
+    throw createError({ statusCode: 409, statusMessage: "Word was not updated; verify its ID and Supabase policies" });
+  }
+}
+async function deleteWord(event, id) {
+  if (!id || id.length > 200) {
+    throw createError({ statusCode: 400, statusMessage: "Invalid word ID" });
+  }
+  const currentWords = await fetchWords(event);
+  if (!currentWords.some((word) => String(word.id) === id)) {
+    throw createError({ statusCode: 404, statusMessage: "Word not found" });
+  }
+  const query = new URLSearchParams({ id: `eq.${id}` });
+  const deleted = await supabaseRequest(
+    event,
+    `?${query.toString()}`,
+    {
+      method: "DELETE",
+      headers: { Prefer: "return=representation" }
+    }
+  );
+  if (!Array.isArray(deleted) || deleted.length !== 1) {
+    throw createError({ statusCode: 409, statusMessage: "Word was not deleted; verify its ID and Supabase policies" });
+  }
+}
+
 const _zUDl9v = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
@@ -5010,10 +5245,22 @@ const _zUDl9v = lazyEventHandler(() => {
   return fromNodeMiddleware(nodeHandler);
 });
 
+const _lazy_Q2Jn95 = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_AXzT7P = () => Promise.resolve().then(function () { return logout_post$1; });
+const _lazy_37GRof = () => Promise.resolve().then(function () { return session_get$1; });
+const _lazy_aTATSK = () => Promise.resolve().then(function () { return words_get$1; });
+const _lazy_Oe0pyg = () => Promise.resolve().then(function () { return _id__delete$1; });
+const _lazy_NFKVB6 = () => Promise.resolve().then(function () { return _id__put$1; });
 const _lazy_GmL4FV = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
   { route: '', handler: _TkplqV, lazy: false, middleware: true, method: undefined },
+  { route: '/api/admin/login', handler: _lazy_Q2Jn95, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/logout', handler: _lazy_AXzT7P, lazy: true, middleware: false, method: "post" },
+  { route: '/api/admin/session', handler: _lazy_37GRof, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/words', handler: _lazy_aTATSK, lazy: true, middleware: false, method: "get" },
+  { route: '/api/admin/words/:id', handler: _lazy_Oe0pyg, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/admin/words/:id', handler: _lazy_NFKVB6, lazy: true, middleware: false, method: "put" },
   { route: '/__nuxt_error', handler: _lazy_GmL4FV, lazy: true, middleware: false, method: undefined },
   { route: '', handler: _mLuyP3, lazy: false, middleware: true, method: undefined },
   { route: '/__site-config__/debug.json', handler: _HxE4FT, lazy: false, middleware: false, method: undefined },
@@ -6258,6 +6505,10 @@ const sources$1 = [
                 "lastmod": "2026-10-29T21:35:42.400Z"
             },
             {
+                "loc": "/admin",
+                "lastmod": "2026-10-29T23:15:50.091Z"
+            },
+            {
                 "loc": "/authors",
                 "lastmod": "2026-10-29T21:35:42.400Z"
             },
@@ -6275,11 +6526,11 @@ const sources$1 = [
             },
             {
                 "loc": "/authors/a/albert-camus-quotes",
-                "lastmod": "2026-10-29T21:50:53.071Z"
+                "lastmod": "2026-10-29T22:47:31.094Z"
             },
             {
                 "loc": "/author.php",
-                "lastmod": "2026-10-29T21:50:53.071Z"
+                "lastmod": "2026-10-29T22:47:31.094Z"
             }
         ],
         "sourceType": "app"
@@ -6571,6 +6822,79 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const login_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const username = typeof (body == null ? void 0 : body.username) === "string" ? body.username : "";
+  const password = typeof (body == null ? void 0 : body.password) === "string" ? body.password : "";
+  if (username.length > 128 || password.length > 1024 || !verifyAdminCredentials(event, username, password)) {
+    throw createError({ statusCode: 401, statusMessage: "Incorrect username or password" });
+  }
+  createAdminSession(event);
+  return { authenticated: true };
+});
+
+const login_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: login_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const logout_post = defineEventHandler((event) => {
+  clearAdminSession(event);
+  return { authenticated: false };
+});
+
+const logout_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: logout_post
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const session_get = defineEventHandler((event) => {
+  requireAdminSession(event);
+  return { authenticated: true };
+});
+
+const session_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: session_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const words_get = defineEventHandler(async (event) => {
+  requireAdminSession(event);
+  return (await fetchWords(event)).map(sanitizeWord);
+});
+
+const words_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: words_get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _id__delete = defineEventHandler(async (event) => {
+  requireAdminSession(event);
+  const id = getRouterParam(event, "id");
+  if (!id) throw createError({ statusCode: 400, statusMessage: "Word ID is required" });
+  await deleteWord(event, id);
+  return { deleted: true };
+});
+
+const _id__delete$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__delete
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _id__put = defineEventHandler(async (event) => {
+  requireAdminSession(event);
+  const id = getRouterParam(event, "id");
+  if (!id) throw createError({ statusCode: 400, statusMessage: "Word ID is required" });
+  const body = await readBody(event);
+  await updateWord(event, id, body);
+  return { saved: true };
+});
+
+const _id__put$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _id__put
 }, Symbol.toStringTag, { value: 'Module' }));
 
 //#region src/runtime/utils/renderer/payload.ts
