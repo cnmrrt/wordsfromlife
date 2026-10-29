@@ -81,7 +81,7 @@ const { data: authorsData } = await useAsyncData('authors', () =>
 )
 
 const { data: wordsData } = await useAsyncData('words', () =>
-  $fetch(useWordsDataPath())
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/words.json'))
 )
 
 const { data: preverbsData } = await useAsyncData('preverbs', () =>

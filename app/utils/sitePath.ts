@@ -11,10 +11,6 @@ export function usePublicDataPath(path: string): string {
   return useSitePath(path)
 }
 
-export function useWordsDataPath(): string {
-  return '/api/words'
-}
-
 export function useSiteHtml(html: string | null | undefined): string {
   if (!html) {
     return ''

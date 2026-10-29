@@ -28,7 +28,7 @@ const words = ref([])
 
 // Fetch words data (SSR-friendly)
 const { data: wordsData, pending, error } = await useFetch(
-  useWordsDataPath()
+  usePublicDataPath('https://wordsfromlife.com/static/data/words.json')
 )
 
 if (wordsData.value) {
