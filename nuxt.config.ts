@@ -11,11 +11,6 @@ const siteUrl = 'https://wordsfromlife.com'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  runtimeConfig: {
-    adminUsername: '',
-    adminPassword: '',
-    adminSessionSecret: ''
-  },
    router: {
         options: {
             strict: true // Rotaların katı bir şekilde eşleşmesini sağlar
