@@ -8,6 +8,12 @@ export function useSitePath(path: string | null | undefined): string {
 }
 
 export function usePublicDataPath(path: string): string {
+  const siteOrigin = 'https://wordsfromlife.com'
+
+  if (path.startsWith(`${siteOrigin}/`)) {
+    return useSitePath(path.slice(siteOrigin.length))
+  }
+
   return useSitePath(path)
 }
 
