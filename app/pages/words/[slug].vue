@@ -35,7 +35,7 @@ const route = useRoute()
 const slug = route.params.slug
 
 const { data: word } = await useAsyncData(`word-${slug}`, async () => {
-  const res = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/words.json'))
+  const res = await $fetch(useWordsDataPath())
   return res.find(item => item.id?.toLowerCase() === slug.toLowerCase())
 })
 
