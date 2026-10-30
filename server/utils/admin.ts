@@ -24,7 +24,15 @@ function getAdminConfig(event: H3Event) {
   const adminSessionSecret = getServerEnvironmentValue(event, config.adminSessionSecret, 'NUXT_ADMIN_SESSION_SECRET', 'ADMIN_SESSION_SECRET')
 
   if (!adminUsername || !adminPassword || !adminSessionSecret) {
-    throw createError({ statusCode: 503, statusMessage: 'Admin credentials are not configured' })
+    const missing = [
+      !adminUsername && 'NUXT_ADMIN_USERNAME',
+      !adminPassword && 'NUXT_ADMIN_PASSWORD',
+      !adminSessionSecret && 'NUXT_ADMIN_SESSION_SECRET'
+    ].filter(Boolean)
+    throw createError({
+      statusCode: 503,
+      statusMessage: `Admin credentials are not configured: missing ${missing.join(', ')}`
+    })
   }
 
   return { adminUsername, adminPassword, adminSessionSecret }
