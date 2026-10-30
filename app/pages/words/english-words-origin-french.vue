@@ -21,14 +21,9 @@
               No matching words found.
             </td>
           </tr>
-          <tr
-            v-for="item in filteredWords"
-            :key="item.id"
-            :id="item.id"
-          >
-            <td class="word-cell">
-              <strong>{{ item.word }}</strong>
-            </td>
+          <tr v-for="item in filteredWords" :key="item.id" :id="item.id">
+
+            <td class="word-cell" v-html="item.word"></td>
             <td class="french-cell">
               <em>{{ item.french_origin }}</em>
             </td>
@@ -79,7 +74,7 @@ const wordsData = [
   { id: "facade", word: "Facade", french_origin: "façade", meaning: "Front of a building / face" },
   { id: "ballet", word: "Ballet", french_origin: "ballet", meaning: "Form of dance" },
   { id: "entrepreneur", word: "Entrepreneur", french_origin: "entrepreneur", meaning: "Business founder ('one who undertakes')" },
-  { id: "deja-vu", word: "Déjà vu", french_origin: "déjà vu", meaning: "Sense of past occurrence ('already seen')" },
+  { id: "deja-vu", word: "<a href=\"https://wordsfromlife.com/words/deja-vu\">Déjà vu</a>", french_origin: "déjà vu", meaning: "Sense of past occurrence ('already seen')" },
   { id: "rendezvous", word: "Rendezvous", french_origin: "rendez-vous", meaning: "Scheduled meeting ('present yourselves')" },
   { id: "cliche", word: "Cliché", french_origin: "cliché", meaning: "Overused expression (originally a printing plate)" },
   { id: "faux-pas", word: "Faux pas", french_origin: "faux pas", meaning: "Social blunder ('false step')" },
@@ -150,7 +145,11 @@ useHead(createPageSeoHead({
   border-radius: 6px;
   outline: none;
 }
-table {margin: 0 !important;}
+
+table {
+  margin: 0 !important;
+}
+
 .table-wrapper {
   overflow-x: auto;
   background: #fff;
@@ -204,6 +203,7 @@ table {margin: 0 !important;}
 }
 
 @media (max-width: 640px) {
+
   .words-table th,
   .words-table td {
     padding: 0.6rem 0.8rem;
