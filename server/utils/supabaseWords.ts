@@ -9,6 +9,7 @@ const TABLE = 'en_words'
 const PAGE_SIZE = 500
 const editableTags = [
   ...sanitizeHtml.defaults.allowedTags,
+  'img',
   'article',
   'header',
   'section',
@@ -19,6 +20,34 @@ const editableTags = [
   'th',
   'td'
 ]
+const simpleCssSelector = '(?:\\*|[a-z][\\w-]*|[.#][\\w-]+)(?:[.#][\\w-]+)*'
+const cssSelectorPattern = new RegExp(`^${simpleCssSelector}(?:(?:\\s+|>\\s*|\\+\\s*|~\\s*)${simpleCssSelector})*$`, 'i')
+const editableCssProperties = [
+  'align-items',
+  'background-color',
+  'border',
+  'border-left',
+  'border-radius',
+  'color',
+  'display',
+  'font-size',
+  'font-style',
+  'font-weight',
+  'height',
+  'line-height',
+  'margin',
+  'margin-top',
+  'max-width',
+  'object-fit',
+  'padding',
+  'text-align',
+  'text-decoration',
+  'width'
+]
+const safeCssValue = /^(?!.*\b(?:url|expression|var)\s*\()[\w#(),.%\s-]+$/i
+const editableCssStyles = {
+  '*': Object.fromEntries(editableCssProperties.map(property => [property, [safeCssValue]]))
+}
 
 function supabaseConfig(event: H3Event) {
   const config = useRuntimeConfig(event)
@@ -128,7 +157,7 @@ function sanitizeHtmlContent(value: string): string {
   const safeStyles: string[] = []
   const content = value.replace(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi, (_match, css: string) => {
     const safeRules = css.replace(/([^{}]+)\{([^{}]*)\}/g, (_rule, selector: string, declarations: string) => {
-      if (!/^\s*(?:\.[\w-]+\s*,?\s*)+$/.test(selector)) return ''
+      if (!selector.split(',').every(item => cssSelectorPattern.test(item.trim()))) return ''
 
       const safeDeclarations = declarations.split(';').flatMap((declaration) => {
         const [property, ...parts] = declaration.split(':')
@@ -136,10 +165,9 @@ function sanitizeHtmlContent(value: string): string {
         const value = parts.join(':').trim()
         if (
           !name ||
-          !['background-color', 'border', 'border-left', 'border-radius', 'color', 'font-weight', 'margin', 'margin-top', 'padding'].includes(name) ||
+          !editableCssProperties.includes(name) ||
           !value ||
-          !/^[\w#(),.%\s-]+$/.test(value) ||
-          /\b(?:url|expression|var)\s*\(/i.test(value)
+          !safeCssValue.test(value)
         ) {
           return []
         }
@@ -159,8 +187,9 @@ function sanitizeHtmlContent(value: string): string {
     allowedAttributes: {
       a: ['href', 'name', 'target', 'rel'],
       img: ['src', 'alt', 'title', 'width', 'height'],
-      '*': ['class']
+      '*': ['class', 'style']
     },
+    allowedStyles: editableCssStyles,
     allowedSchemes: ['http', 'https', 'mailto'],
     transformTags: {
       a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }, true)
