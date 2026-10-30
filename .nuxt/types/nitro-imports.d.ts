@@ -48,6 +48,8 @@ declare global {
   const dynamicEventHandler: typeof import('../../node_modules/h3/dist/index').dynamicEventHandler
   const eventHandler: typeof import('../../node_modules/h3/dist/index').eventHandler
   const fetchWithEvent: typeof import('../../node_modules/h3/dist/index').fetchWithEvent
+  const fetchWordBySlug: typeof import('../../server/utils/supabaseWords').fetchWordBySlug
+  const fetchWordIndex: typeof import('../../server/utils/supabaseWords').fetchWordIndex
   const fetchWords: typeof import('../../server/utils/supabaseWords').fetchWords
   const fromNodeMiddleware: typeof import('../../node_modules/h3/dist/index').fromNodeMiddleware
   const fromPlainHandler: typeof import('../../node_modules/h3/dist/index').fromPlainHandler
@@ -205,4 +207,4 @@ export { useNitroOrigin } from '/Users/mac/Desktop/wordsfromlife/node_modules/nu
 export { useSiteConfig } from '/Users/mac/Desktop/wordsfromlife/node_modules/nuxt-site-config/dist/runtime/server/composables/useSiteConfig';
 export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '/Users/mac/Desktop/wordsfromlife/node_modules/nuxt-site-config/dist/runtime/server/composables/utils';
 export { verifyAdminCredentials, createAdminSession, clearAdminSession, requireAdminSession } from '/Users/mac/Desktop/wordsfromlife/server/utils/admin';
-export { fetchWords, sanitizeWord, updateWord, deleteWord } from '/Users/mac/Desktop/wordsfromlife/server/utils/supabaseWords';
+export { fetchWords, fetchWordIndex, fetchWordBySlug, sanitizeWord, updateWord, deleteWord } from '/Users/mac/Desktop/wordsfromlife/server/utils/supabaseWords';

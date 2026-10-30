@@ -4,6 +4,7 @@
     <h1>Words</h1> 
     <div class="home-container words-container">
       <section class="section" id="word-container">
+        <p v-if="wordsError" role="alert">Words are temporarily unavailable.</p>
         <ul>
           <li v-for="item in words" :key="item.id">
             <NuxtLink :to="`/words/${item.id}`">{{ item.word }}</NuxtLink>
@@ -19,30 +20,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useFetch } from '#imports'
 import Navbar from '~/components/Navbar.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
-const words = ref([])
-
-// Fetch words data (SSR-friendly)
-const { data: wordsData, pending, error } = await useFetch(
-  usePublicDataPath('https://wordsfromlife.com/static/data/words.json')
-)
-
-if (wordsData.value) {
-  // Convert object to array (if Firebase returns an object)
-  const arr = Array.isArray(wordsData.value)
-    ? wordsData.value
-    : Object.entries(wordsData.value).map(([id, item]) => ({
-        id,
-        ...item
-      }))
-
-  // Sort alphabetically by 'word'
-  words.value = arr.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }))
-}
+const { data: words, error: wordsError } = await useFetch('/api/words', {
+  default: () => []
+})
 
 useHead(createPageSeoHead({
   title: 'Words',

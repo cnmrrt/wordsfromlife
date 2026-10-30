@@ -2420,16 +2420,16 @@ _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"3d1a6-gzubcdphrDQMgR794QA5HamUND4\"",
-    "mtime": "2026-10-29T23:15:54.068Z",
-    "size": 250278,
+    "etag": "\"3d72b-pZwclAx2rsm97MlJuN4Pzp4VQ40\"",
+    "mtime": "2026-10-30T00:26:20.603Z",
+    "size": 251691,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"d0d2b-AMb650XSZxAzHniMbSc87s+b0pI\"",
-    "mtime": "2026-10-29T23:15:54.069Z",
-    "size": 855339,
+    "etag": "\"d1f4f-VCD7AfAT+I92rTZPov+zM1bEqbA\"",
+    "mtime": "2026-10-30T00:26:20.604Z",
+    "size": 859983,
     "path": "index.mjs.map"
   }
 };
@@ -5115,6 +5115,34 @@ async function fetchWords(event) {
     if (page.length < PAGE_SIZE) return words;
   }
 }
+async function fetchWordIndex(event) {
+  const words = [];
+  for (let offset = 0; ; offset += PAGE_SIZE) {
+    const page = await supabaseRequest(
+      event,
+      "?select=id,word&order=word.asc",
+      { headers: { Range: `${offset}-${offset + PAGE_SIZE - 1}`, "Range-Unit": "items" } }
+    );
+    if (!Array.isArray(page)) {
+      throw createError({ statusCode: 502, statusMessage: "Supabase returned an invalid words response" });
+    }
+    words.push(...page);
+    if (page.length < PAGE_SIZE) return words;
+  }
+}
+async function fetchWordBySlug(event, slug) {
+  if (!/^[\w-]{1,200}$/.test(slug)) return null;
+  const query = new URLSearchParams({
+    select: "id,word,content,en_meta_desc,img,img_width,img_height",
+    id: `ilike.${slug}`,
+    limit: "1"
+  });
+  const words = await supabaseRequest(event, `?${query.toString()}`);
+  if (!Array.isArray(words)) {
+    throw createError({ statusCode: 502, statusMessage: "Supabase returned an invalid word response" });
+  }
+  return words[0] ? sanitizeWord(words[0]) : null;
+}
 function sanitizeHtmlContent(value) {
   const safeStyles = [];
   const content = value.replace(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi, (_match, css) => {
@@ -5251,6 +5279,8 @@ const _lazy_37GRof = () => Promise.resolve().then(function () { return session_g
 const _lazy_aTATSK = () => Promise.resolve().then(function () { return words_get$1; });
 const _lazy_Oe0pyg = () => Promise.resolve().then(function () { return _id__delete$1; });
 const _lazy_NFKVB6 = () => Promise.resolve().then(function () { return _id__put$1; });
+const _lazy_NK7v_A = () => Promise.resolve().then(function () { return _slug__get$1; });
+const _lazy_4AQdR1 = () => Promise.resolve().then(function () { return index_get$1; });
 const _lazy_GmL4FV = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
@@ -5261,6 +5291,8 @@ const handlers = [
   { route: '/api/admin/words', handler: _lazy_aTATSK, lazy: true, middleware: false, method: "get" },
   { route: '/api/admin/words/:id', handler: _lazy_Oe0pyg, lazy: true, middleware: false, method: "delete" },
   { route: '/api/admin/words/:id', handler: _lazy_NFKVB6, lazy: true, middleware: false, method: "put" },
+  { route: '/api/words/:slug', handler: _lazy_NK7v_A, lazy: true, middleware: false, method: "get" },
+  { route: '/api/words', handler: _lazy_4AQdR1, lazy: true, middleware: false, method: "get" },
   { route: '/__nuxt_error', handler: _lazy_GmL4FV, lazy: true, middleware: false, method: undefined },
   { route: '', handler: _mLuyP3, lazy: false, middleware: true, method: undefined },
   { route: '/__site-config__/debug.json', handler: _HxE4FT, lazy: false, middleware: false, method: undefined },
@@ -6506,7 +6538,7 @@ const sources$1 = [
             },
             {
                 "loc": "/admin",
-                "lastmod": "2026-10-29T23:15:50.091Z"
+                "lastmod": "2026-10-29T23:45:42.356Z"
             },
             {
                 "loc": "/authors",
@@ -6895,6 +6927,23 @@ const _id__put = defineEventHandler(async (event) => {
 const _id__put$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: _id__put
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const _slug__get = defineEventHandler((event) => {
+  const slug = getRouterParam(event, "slug") || "";
+  return fetchWordBySlug(event, slug);
+});
+
+const _slug__get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: _slug__get
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const index_get = defineEventHandler((event) => fetchWordIndex(event));
+
+const index_get$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: index_get
 }, Symbol.toStringTag, { value: 'Module' }));
 
 //#region src/runtime/utils/renderer/payload.ts

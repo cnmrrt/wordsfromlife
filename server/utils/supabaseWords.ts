@@ -88,6 +88,41 @@ export async function fetchWords(event: H3Event): Promise<WordRecord[]> {
   }
 }
 
+export async function fetchWordIndex(event: H3Event): Promise<Pick<WordRecord, 'id' | 'word'>[]> {
+  const words: Pick<WordRecord, 'id' | 'word'>[] = []
+
+  for (let offset = 0; ; offset += PAGE_SIZE) {
+    const page = await supabaseRequest<Pick<WordRecord, 'id' | 'word'>[]>(
+      event,
+      '?select=id,word&order=word.asc',
+      { headers: { Range: `${offset}-${offset + PAGE_SIZE - 1}`, 'Range-Unit': 'items' } }
+    )
+
+    if (!Array.isArray(page)) {
+      throw createError({ statusCode: 502, statusMessage: 'Supabase returned an invalid words response' })
+    }
+
+    words.push(...page)
+    if (page.length < PAGE_SIZE) return words
+  }
+}
+
+export async function fetchWordBySlug(event: H3Event, slug: string): Promise<WordRecord | null> {
+  if (!/^[\w-]{1,200}$/.test(slug)) return null
+
+  const query = new URLSearchParams({
+    select: 'id,word,content,en_meta_desc,img,img_width,img_height',
+    id: `ilike.${slug}`,
+    limit: '1'
+  })
+  const words = await supabaseRequest<WordRecord[]>(event, `?${query.toString()}`)
+  if (!Array.isArray(words)) {
+    throw createError({ statusCode: 502, statusMessage: 'Supabase returned an invalid word response' })
+  }
+
+  return words[0] ? sanitizeWord(words[0]) : null
+}
+
 function sanitizeHtmlContent(value: string): string {
   const safeStyles: string[] = []
   const content = value.replace(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi, (_match, css: string) => {

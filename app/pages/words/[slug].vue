@@ -32,11 +32,10 @@ import { useRoute, useHead } from '#imports'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
-const slug = route.params.slug
+const slug = String(route.params.slug || '')
 
 const { data: word } = await useAsyncData(`word-${slug}`, async () => {
-  const res = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/words.json'))
-  return res.find(item => item.id?.toLowerCase() === slug.toLowerCase())
+  return await $fetch(`/api/words/${encodeURIComponent(slug)}`)
 })
 
 useHead(() => {

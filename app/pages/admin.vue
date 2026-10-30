@@ -365,7 +365,6 @@ onMounted(async () => {
 .word-sidebar label {
   display: grid;
   gap: 6px;
-  font-weight: 600;
 }
 
 .form-grid input:not([type='checkbox']),
