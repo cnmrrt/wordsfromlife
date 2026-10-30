@@ -73,13 +73,10 @@ export default defineNuxtConfig({
         'https://wordsfromlife.com/',
         '/about',
         '/authors',
-        '/words',
-        '/words/english-words-origin-french',
         '/preverbs',
         '/tr/kelimeler',
         '/tr/kisiler',
         '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
-        ...words.map((word) => `/words/${word.id}`),
         ...authors.map((author) => `/authors/${author.id}-quotes`),
         ...authorsWithTurkishQuotes.map((author) => `/tr/kisiler/${author.id}-sozleri`),
         ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
@@ -90,6 +87,8 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    '/words': { prerender: false },
+    '/words/**': { prerender: false },
     // Single page 301 redirects
     '/authors/a/albert-camus-quotes': { redirect: { to: '/authors/albert-camus-quotes', statusCode: 301 } },
     '/author.php': { redirect: { to: '/', statusCode: 301 } }
