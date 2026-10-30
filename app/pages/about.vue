@@ -9,7 +9,6 @@
           <p>
             Welcome to Words From Life, a collection of inspiring quotes, meaningful words, and timeless proverbs that capture the essence of human experience.
           </p>
-
           <h2>Our Mission</h2>
           <p>
             We believe that words have the power to inspire, motivate, and transform lives. Our platform brings together wisdom from authors, thinkers, and cultures around the world.
