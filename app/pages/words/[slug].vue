@@ -38,6 +38,7 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
   return await $fetch(`/api/words/${encodeURIComponent(slug)}`)
 })
 
+
 useHead(() => {
   if (!word.value) return {}
   const title = `Meaning of ${word.value.word}`
