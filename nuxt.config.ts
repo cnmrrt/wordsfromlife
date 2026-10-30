@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     adminUsername: '',
     adminPassword: '',
     adminSessionSecret: '',
-    supabaseUrl: 'https://hyqlxashxveelitzuryz.supabase.co',
+    supabaseUrl: '',
     supabaseServiceRoleKey: ''
   },
    router: {

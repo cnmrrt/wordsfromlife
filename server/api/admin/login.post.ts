@@ -10,6 +10,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: 'Incorrect username or password' })
   }
 
-  createAdminSession(event)
+  await createAdminSession(event)
   return { authenticated: true }
 })

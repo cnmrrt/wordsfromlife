@@ -3,7 +3,7 @@ import { requireAdminSession } from '../../../utils/admin'
 import { deleteWord } from '../../../utils/supabaseWords'
 
 export default defineEventHandler(async (event) => {
-  requireAdminSession(event)
+  await requireAdminSession(event)
   const id = getRouterParam(event, 'id')
   if (!id) throw createError({ statusCode: 400, statusMessage: 'Word ID is required' })
 

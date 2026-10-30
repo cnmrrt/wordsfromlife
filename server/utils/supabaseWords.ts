@@ -1,6 +1,7 @@
 import { createError } from 'h3'
 import type { H3Event } from 'h3'
 import sanitizeHtml from 'sanitize-html'
+import { getServerEnvironmentValue } from './environment'
 
 export type WordRecord = Record<string, unknown> & { id: string | number }
 
@@ -21,8 +22,8 @@ const editableTags = [
 
 function supabaseConfig(event: H3Event) {
   const config = useRuntimeConfig(event)
-  const url = String(config.supabaseUrl || process.env.NUXT_SUPABASE_URL || '').replace(/\/+$/, '')
-  const key = config.supabaseServiceRoleKey || process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY
+  const url = String(getServerEnvironmentValue(event, config.supabaseUrl, 'NUXT_SUPABASE_URL', 'SUPABASE_URL') || '').replace(/\/+$/, '')
+  const key = getServerEnvironmentValue(event, config.supabaseServiceRoleKey, 'NUXT_SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SERVICE_ROLE_KEY')
 
   if (!url) {
     throw createError({ statusCode: 503, statusMessage: 'NUXT_SUPABASE_URL is not configured' })
