@@ -1,7 +1,10 @@
 import type { H3Event } from 'h3'
 
 function getCloudflareBinding(event: H3Event, name: string): string | undefined {
-  const cloudflare = event.context.cloudflare
+  const platform = event.context._platform
+  const cloudflare = platform && typeof platform === 'object' && 'cloudflare' in platform
+    ? platform.cloudflare
+    : event.context.cloudflare
   if (!cloudflare || typeof cloudflare !== 'object' || !('env' in cloudflare)) return
 
   const bindings = cloudflare.env
