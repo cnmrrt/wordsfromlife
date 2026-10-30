@@ -30,6 +30,9 @@
 
       <div class="editor-layout">
         <aside class="word-sidebar">
+          <button class="primary-button" type="button" :disabled="busy" @click="startNewWord">
+            Add new word
+          </button>
           <label>
             Search words
             <input v-model="searchQuery" type="search" placeholder="Search by word or ID">
@@ -53,9 +56,9 @@
 
         <form v-if="formRecord" class="word-form form-grid" @submit.prevent="saveWord">
           <div class="word-form-header">
-            <h2>Edit {{ displayTitle(formRecord) }}</h2>
+            <h2>{{ creating ? 'Add new word' : `Edit ${displayTitle(formRecord)}` }}</h2>
             <button
-              v-if="!confirmDelete"
+              v-if="!creating && !confirmDelete"
               class="delete-button"
               type="button"
               :disabled="busy"
@@ -63,7 +66,7 @@
             >
               Delete word
             </button>
-            <div v-else class="delete-confirmation" role="group" aria-label="Confirm word deletion">
+            <div v-else-if="!creating && confirmDelete" class="delete-confirmation" role="group" aria-label="Confirm word deletion">
               <span>Delete this word permanently?</span>
               <button class="delete-button" type="button" :disabled="busy" @click="deleteWord">
                 {{ busy ? 'Deleting…' : 'Confirm delete' }}
@@ -73,6 +76,15 @@
               </button>
             </div>
           </div>
+          <label v-if="creating">
+            ID <span class="hint">(lowercase URL slug, e.g. new-word)</span>
+            <input
+              :value="String(formRecord.id)"
+              pattern="[a-z0-9]+(-[a-z0-9]+)*"
+              required
+              @input="updateField('id', ($event.target as HTMLInputElement).value)"
+            >
+          </label>
           <template v-for="([key, value]) in editableFields" :key="key">
             <label v-if="key === 'content' && typeof value === 'string'">
               Content
@@ -112,12 +124,13 @@
                 v-else
                 :type="typeof value === 'number' ? 'number' : 'text'"
                 :value="value == null ? '' : String(value)"
+                :required="creating && key === 'word'"
                 @input="updateField(key, ($event.target as HTMLInputElement).value)"
               >
             </label>
           </template>
           <button class="primary-button save-button" type="submit" :disabled="busy">
-            {{ busy ? 'Saving…' : 'Save changes' }}
+            {{ busy ? (creating ? 'Adding…' : 'Saving…') : (creating ? 'Add word' : 'Save changes') }}
           </button>
         </form>
         <div v-else class="empty-editor">
@@ -142,6 +155,7 @@ const searchQuery = ref('')
 const errorMessage = ref('')
 const successMessage = ref('')
 const confirmDelete = ref(false)
+const creating = ref(false)
 const jsonError = ref('')
 const jsonValues = reactive<Record<string, string>>({})
 const credentials = reactive({ username: '', password: '' })
@@ -225,16 +239,38 @@ async function logout() {
 function editWord(word: WordRecord) {
   clearMessages()
   clearJsonValues()
+  creating.value = false
   confirmDelete.value = false
   formRecord.value = structuredClone(toRaw(word))
+}
+
+function startNewWord() {
+  clearMessages()
+  clearJsonValues()
+  searchQuery.value = ''
+  creating.value = true
+  confirmDelete.value = false
+  formRecord.value = {
+    id: '',
+    word: '',
+    content: '',
+    en_meta_desc: '',
+    img: '',
+    img_height: null,
+    img_width: null
+  }
 }
 
 function updateField(key: string, value: string | number | boolean) {
   if (!formRecord.value) return
   const original = formRecord.value[key]
-  formRecord.value[key] = typeof original === 'number' && typeof value === 'string' && value !== ''
-    ? Number(value)
-    : value
+  if (key === 'img_height' || key === 'img_width') {
+    formRecord.value[key] = typeof value === 'string' && value !== '' ? Number(value) : null
+  } else {
+    formRecord.value[key] = typeof original === 'number' && typeof value === 'string' && value !== ''
+      ? Number(value)
+      : value
+  }
 }
 
 function updateArrayField(key: string, value: string) {
@@ -272,28 +308,41 @@ async function saveWord() {
   }
 
   const record = structuredClone(toRaw(formRecord.value))
-  const id = String(record.id)
-  delete record.id
   busy.value = true
 
   try {
-    await $fetch(`/api/admin/words/${encodeURIComponent(id)}`, {
-      method: 'PUT',
-      body: record
-    })
-    await loadWords()
-    const updatedWord = words.value.find(word => String(word.id) === id)
-    if (updatedWord) formRecord.value = structuredClone(toRaw(updatedWord))
-    successMessage.value = 'Word saved successfully.'
+    if (creating.value) {
+      const createdWord = await $fetch<WordRecord>('/api/admin/words', {
+        method: 'POST',
+        body: record
+      })
+      words.value = [...words.value, createdWord].sort((a, b) =>
+        displayTitle(a).localeCompare(displayTitle(b), 'en', { sensitivity: 'base' })
+      )
+      formRecord.value = structuredClone(createdWord)
+      creating.value = false
+      successMessage.value = 'Word added successfully.'
+    } else {
+      const id = String(record.id)
+      delete record.id
+      await $fetch(`/api/admin/words/${encodeURIComponent(id)}`, {
+        method: 'PUT',
+        body: record
+      })
+      await loadWords()
+      const updatedWord = words.value.find(word => String(word.id) === id)
+      if (updatedWord) formRecord.value = structuredClone(toRaw(updatedWord))
+      successMessage.value = 'Word saved successfully.'
+    }
   } catch (error) {
-    errorMessage.value = getErrorMessage(error, 'Could not save this word.')
+    errorMessage.value = getErrorMessage(error, creating.value ? 'Could not add this word.' : 'Could not save this word.')
   } finally {
     busy.value = false
   }
 }
 
 async function deleteWord() {
-  if (!formRecord.value) return
+  if (!formRecord.value || creating.value) return
 
   clearMessages()
   const id = String(formRecord.value.id)
@@ -303,6 +352,7 @@ async function deleteWord() {
     await $fetch(`/api/admin/words/${encodeURIComponent(id)}`, { method: 'DELETE' })
     words.value = words.value.filter(word => String(word.id) !== id)
     formRecord.value = null
+    creating.value = false
     confirmDelete.value = false
     successMessage.value = 'Word deleted successfully.'
   } catch (error) {

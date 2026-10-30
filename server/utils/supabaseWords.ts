@@ -233,6 +233,68 @@ export async function updateWord(
   }
 }
 
+export async function createWord(event: H3Event, value: unknown): Promise<WordRecord> {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw createError({ statusCode: 400, statusMessage: 'Word data must be an object' })
+  }
+
+  const submitted = value as Record<string, unknown>
+  const id = typeof submitted.id === 'string' ? submitted.id.trim().toLowerCase() : ''
+  const word = typeof submitted.word === 'string' ? submitted.word.trim() : ''
+
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id) || id.length > 200) {
+    throw createError({ statusCode: 400, statusMessage: 'ID must be a lowercase URL slug using letters, numbers, and hyphens' })
+  }
+  if (!word) {
+    throw createError({ statusCode: 400, statusMessage: 'Word cannot be empty' })
+  }
+
+  const allowedFields = new Set(['id', 'word', 'content', 'en_meta_desc', 'img', 'img_height', 'img_width'])
+  for (const field of Object.keys(submitted)) {
+    if (!allowedFields.has(field)) {
+      throw createError({ statusCode: 400, statusMessage: `Unknown word field: ${field}` })
+    }
+  }
+
+  const query = new URLSearchParams({ select: 'id' })
+  query.set('id', `eq.${id}`)
+  const existing = await supabaseRequest<WordRecord[]>(event, `?${query.toString()}`)
+  if (!Array.isArray(existing)) {
+    throw createError({ statusCode: 502, statusMessage: 'Supabase returned an invalid word response' })
+  }
+  if (existing.length) {
+    throw createError({ statusCode: 409, statusMessage: 'A word with this ID already exists' })
+  }
+
+  const record: Record<string, unknown> = {
+    id,
+    word,
+    content: typeof submitted.content === 'string' ? sanitizeHtmlContent(submitted.content) : '',
+    en_meta_desc: typeof submitted.en_meta_desc === 'string'
+      ? sanitizeHtmlContent(submitted.en_meta_desc)
+      : null,
+    img: typeof submitted.img === 'string' && submitted.img.trim() ? submitted.img.trim() : null,
+    img_height: submitted.img_height ?? null,
+    img_width: submitted.img_width ?? null
+  }
+
+  const created = await supabaseRequest<WordRecord[]>(
+    event,
+    '?select=*',
+    {
+      method: 'POST',
+      headers: { Prefer: 'return=representation' },
+      body: JSON.stringify(record)
+    }
+  )
+
+  if (!Array.isArray(created) || created.length !== 1) {
+    throw createError({ statusCode: 409, statusMessage: 'Word was not created; verify the Supabase table and policies' })
+  }
+
+  return sanitizeWord(created[0]!)
+}
+
 export async function deleteWord(event: H3Event, id: string): Promise<void> {
   if (!id || id.length > 200) {
     throw createError({ statusCode: 400, statusMessage: 'Invalid word ID' })
