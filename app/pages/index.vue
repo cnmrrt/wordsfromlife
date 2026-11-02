@@ -11,7 +11,7 @@
             :key="item.id"
             v-show="item.en_quotes !== '' && item.img != null"
             class="demo"
-          >
+          > 
             <NuxtLink :to="`/authors/${item.id}-quotes`">
               <!--<img
                 :src="useSitePath(item.img)"
