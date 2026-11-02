@@ -165,12 +165,12 @@ useHead({
       property: 'og:description',
       content: 'A comprehensive list of popular English words, their synonyms, and meanings to help broaden your vocabulary.'
     },
-    { property: 'og:url', content: 'https://wordsfromlife.com/english-synonym-words' }
+    { property: 'og:url', content: 'https://wordsfromlife.com/words/english-synonym-words' }
   ],
   link: [
     {
       rel: 'canonical',
-      href: 'https://wordsfromlife.com/english-synonym-words'
+      href: 'https://wordsfromlife.com/words/english-synonym-words'
     }
   ]
 })
