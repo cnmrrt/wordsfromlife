@@ -3,11 +3,7 @@
 
   <main class="spelling-container">
     <header class="page-header">
-      <p class="eyebrow">Türkçe yazım rehberi</p>
       <h1>Türkçede En Çok Yapılan Yazım Hataları</h1>
-      <p class="intro">
-        Günlük yazışmalarda sıkça karıştırılan kelime ve eklerin doğru yazımlarını örneklerle öğrenin.
-      </p>
     </header>
 
     <section class="examples" aria-label="Yanlış ve doğru yazım örnekleri">
