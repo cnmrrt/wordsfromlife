@@ -11,6 +11,8 @@
         </ul>
         <hr style="border-width: 1px 0px 0px; border-style: solid; border-left-color: currentcolor; border-right-color: currentcolor; color: rgb(211, 211, 211) !important; border-bottom-color: currentcolor; margin: 2rem 0px;">
         <p><NuxtLink to="/tr/kelimeler/fransizca-kokenli-turkce-kelimeler">Fransızca Kökenli Türkçe Kelimeler</NuxtLink></p>
+        <hr style="border-width: 1px 0px 0px; border-style: solid; border-left-color: currentcolor; border-right-color: currentcolor; color: rgb(211, 211, 211) !important; border-bottom-color: currentcolor; margin: 2rem 0px;">
+        <p><NuxtLink to="/tr/kelimeler/turkcede-en-cok-yapilan-yazim-hatalari">Türkçe'de En Çok Yapılan Yazım Hataları</NuxtLink></p>
       </section>
     </div>
   </main>
