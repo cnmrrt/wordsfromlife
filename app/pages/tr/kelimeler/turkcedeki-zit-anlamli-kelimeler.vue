@@ -3,11 +3,7 @@
 
   <main class="antonyms-container">
     <header class="page-header">
-      <p class="eyebrow">Türkçe kelime rehberi</p>
       <h1>Türkçedeki Zıt Anlamlı Kelimeler</h1>
-      <p class="intro">
-        Birbirinin karşıtı olan kelimeleri örneklerle keşfedin. Aradığınız kelimeyi veya zıt anlamlısını yazarak listeyi süzebilirsiniz.
-      </p>
       <label class="search-label" for="antonym-search">Kelime ara</label>
       <input
         id="antonym-search"

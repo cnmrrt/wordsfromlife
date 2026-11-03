@@ -3,7 +3,7 @@
 
   <main class="spelling-container">
     <header class="page-header">
-      <h1>Türkçede En Çok Yapılan Yazım Hataları</h1>
+      <h1>Türkçe'de En Çok Yapılan Yazım Hataları</h1>
     </header>
 
     <section class="examples" aria-label="Yanlış ve doğru yazım örnekleri">
