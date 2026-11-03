@@ -30,6 +30,19 @@
       </article>
     </section>
 
+    <section class="usage-note" aria-labelledby="yayinlamak-heading">
+      <h2 id="yayinlamak-heading">Yayımlamak mı, yayınlamak mı?</h2>
+      <p>
+        İkisi de doğru yazılan sözcüklerdir; kullanım tercihi anlatılana göre değişir. Geleneksel kullanım ayrımında
+        <strong>yayımlamak</strong>, kitap veya dergi gibi bir eseri yayımlama; <strong>yayınlamak</strong> ise
+        radyo, televizyon ya da başka bir iletişim aracıyla program veya içerik sunma anlamında kullanılır.
+      </p>
+      <ul>
+        <li>Yeni romanını gelecek ay <strong>yayımlayacak</strong>.</li>
+        <li>Maç bu akşam televizyonda <strong>yayınlanacak</strong>.</li>
+      </ul>
+    </section>
+
     <p class="closing-note">
       Yazım konusunda emin olmadığınız kelimeleri Türk Dil Kurumunun Güncel Türkçe Sözlük ve Yazım Kılavuzu'ndan kontrol edebilirsiniz.
     </p>
@@ -64,7 +77,7 @@ const spellingExamples = [
   {
     incorrect: 'Herşey / birşey',
     correct: 'Her şey / bir şey',
-    explanation: '“Her” ve “bir” sözcüklerinden sonra gelen “şey” ayrı yazılır.'
+    explanation: '“şey” kelimesi her zaman ayrı yazılır.'
   },
   {
     incorrect: 'Hiç bir şey',
@@ -255,6 +268,31 @@ useHead(createPageSeoHead({
   margin: 0.85rem 0 0;
   color: #475569;
   line-height: 1.6;
+}
+
+.usage-note {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.usage-note h2 {
+  margin: 0 0 0.5rem;
+  color: #1e293b;
+  font-size: 1.35rem;
+}
+
+.usage-note p {
+  margin: 0;
+}
+
+.usage-note ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
 }
 
 .closing-note {
