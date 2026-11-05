@@ -14,6 +14,7 @@
         <p><NuxtLink to="/tr/kelimeler/turkcede-en-cok-yapilan-yazim-hatalari">Türkçe'de En Çok Yapılan Yazım Hataları</NuxtLink></p>
         <p><NuxtLink to="/tr/kelimeler/turkcedeki-es-anlamli-kelimeler">Türkçedeki Eş Anlamlı Kelimeler</NuxtLink></p>
         <p><NuxtLink to="/tr/kelimeler/turkcedeki-zit-anlamli-kelimeler">Türkçedeki Zıt Anlamlı Kelimeler</NuxtLink></p>
+        <p><NuxtLink to="/tr/kelimeler/sivas-yoresel-kelimeler">Sivas Yöresel Kelimeleri</NuxtLink></p>
       </section>
     </div>
   </main>
