@@ -3,21 +3,7 @@
 
   <main class="sivas-container">
     <header class="page-header">
-      <p class="eyebrow">Yöresel Türkçe</p>
       <h1>Sivas Yöresine Ait Yöresel Kelimeler</h1>
-      <p class="intro">
-        Sivas ağzında kullanılan kelimeleri anlamları ve kısa açıklamalarıyla keşfedin.
-        Bir kelimenin kullanımı ilçeye ve konuşana göre farklılık gösterebilir.
-      </p>
-
-      <label class="search-label" for="word-search">Kelime veya anlam ara</label>
-      <input
-        id="word-search"
-        v-model="searchQuery"
-        class="search-input"
-        type="search"
-        placeholder="Örnek: cılk, bulgur, kaban..."
-      >
     </header>
 
     <section class="table-wrapper" aria-label="Sivas yöresel kelimeleri">
@@ -163,9 +149,6 @@ useHead(createPageSeoHead({
 }
 
 .table-wrapper {
-  overflow-x: auto;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
   background: #fff;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
 }
