@@ -1,19 +1,16 @@
 <template>
   <Navbar />
-  <main class="main" role="main"> 
+  <main class="main" role="main">
     <h1>Words From Life</h1>
     <NuxtLink to="/story/what-is-diderot-effect" class="story-feature">
-      <img
-        src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
-        alt="Denis Diderot writing at his desk"
-        width="1248"
-        height="832"
-      />
+      <img src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
+        alt="Denis Diderot writing at his desk" width="1248" height="832" />
       <span class="story-feature-copy">
-        <span class="story-feature-label">Featured story</span>
         <span class="story-feature-title">What Is the Diderot Effect?</span>
         <span class="story-feature-description">
-          The Diderot Effect is a psychological and socio-cultural phenomenon where acquiring a new possession sets off a spiral of consumption, leading you to purchase more and more items that match the upgraded status or aesthetic of the initial acquisition.
+          The Diderot Effect is a psychological and socio-cultural phenomenon where acquiring a new possession sets off
+          a spiral of consumption, leading you to purchase more and more items that match the upgraded status or
+          aesthetic of the initial acquisition.
         </span>
       </span>
     </NuxtLink>
@@ -21,12 +18,8 @@
       <!-- Authors Section -->
       <section class="section">
         <div id="macy-container">
-          <div
-            v-for="item in authorsData"
-            :key="item.id"
-            v-show="item.en_quotes !== '' && item.img != null"
-            class="demo"
-          > 
+          <div v-for="item in authorsData" :key="item.id" v-show="item.en_quotes !== '' && item.img != null"
+            class="demo">
             <NuxtLink :to="`/authors/${item.id}-quotes`">
               <!--<img
                 :src="useSitePath(item.img)"
@@ -34,10 +27,7 @@
                 :width="item.img_width"
                 :height="item.img_height"
               />-->
-              <img
-                :src="useSitePath(item.img)"
-                :alt="`${item.name} ${item.surname}`"
-              />
+              <img :src="useSitePath(item.img)" :alt="`${item.name} ${item.surname}`" />
               <span style="display: block; text-align: center; padding: .2rem 0">
                 {{ item.name }} {{ item.surname }}
               </span>
@@ -47,7 +37,83 @@
       </section>
 
       <!-- Words Section -->
-      <section class="section">
+      <section class="section" id="word-container"><!---->
+        <ul><!--[-->
+          <li><a href="/words/adversity" class="">Adversity</a></li>
+          <li><a href="/words/allegory" class="">Allegory</a></li>
+          <li><a href="/words/anemoia" class="">Anemoia</a></li>
+          <li><a href="/words/anthology" class="">Anthology</a></li>
+          <li><a href="/words/arena" class="">Arena</a></li>
+          <li><a href="/words/balkan" class="">Balkan</a></li>
+          <li><a href="/words/barbecue" class="">Barbecue</a></li>
+          <li><a href="/words/bibliophilia" class="">Bibliophilia</a></li>
+          <li><a href="/words/boycott" class="">Boycott</a></li>
+          <li><a href="/words/bucolic" class="">Bucolic</a></li>
+          <li><a href="/words/camouflage" class="">Camouflage</a></li>
+          <li><a href="/words/cappuccino" class="">Cappuccino</a></li>
+          <li><a href="/words/checkmate" class="">Checkmate</a></li>
+          <li><a href="/words/cinephile" class="">Cinephile</a></li>
+          <li><a href="/words/cittaslow" class="">Cittaslow</a></li>
+          <li><a href="/words/colorism" class="">Colorism</a></li>
+          <li><a href="/words/computer" class="">Computer</a></li>
+          <li><a href="/words/daisy" class="">Daisy</a></li>
+          <li><a href="/words/deja-vu" class="">Deja vu</a></li>
+          <li><a href="/words/disaster" class="">Disaster</a></li>
+          <li><a href="/words/ephemeral" class="">Ephemeral</a></li>
+          <li><a href="/words/epiphany" class="">Epiphany</a></li>
+          <li><a href="/words/epistemology" class="">Epistemology</a></li>
+          <li><a href="/words/essential" class="">Essential</a></li>
+          <li><a href="/words/eternal" class="">Eternal</a></li>
+          <li><a href="/words/ethereal" class="">Ethereal</a></li>
+          <li><a href="/words/fiasco" class="">Fiasco</a></li>
+          <li><a href="/words/fortuity" class="">Fortuity</a></li>
+          <li><a href="/words/governance" class="">Governance</a></li>
+          <li><a href="/words/honor" class="">Honor</a></li>
+          <li><a href="/words/hooligan" class="">Hooligan</a></li>
+          <li><a href="/words/judge" class="">Judge</a></li>
+          <li><a href="/words/jumbo" class="">Jumbo</a></li>
+          <li><a href="/words/luminous" class="">Luminous</a></li>
+          <li><a href="/words/magazine" class="">Magazine</a></li>
+          <li><a href="/words/malaria" class="">Malaria</a></li>
+          <li><a href="/words/marathon" class="">Marathon</a></li>
+          <li><a href="/words/marmalade" class="">Marmalade</a></li>
+          <li><a href="/words/mediocrity" class="">Mediocrity</a></li>
+          <li><a href="/words/mellifluous" class="">Mellifluous</a></li>
+          <li><a href="/words/memento" class="">Memento</a></li>
+          <li><a href="/words/monarchy" class="">Monarchy</a></li>
+          <li><a href="/words/mortgage" class="">Mortgage</a></li>
+          <li><a href="/words/muscle" class="">Muscle</a></li>
+          <li><a href="/words/nostalgia" class="">Nostalgia</a></li>
+          <li><a href="/words/overmorrow" class="">Overmorrow</a></li>
+          <li><a href="/words/paternal" class="">Paternal</a></li>
+          <li><a href="/words/peripheral" class="">Peripheral</a></li>
+          <li><a href="/words/petrichor" class="">Petrichor</a></li>
+          <li><a href="/words/quarantine" class="">Quarantine</a></li>
+          <li><a href="/words/robot" class="">Robot</a></li>
+          <li><a href="/words/sabotage" class="">Sabotage</a></li>
+          <li><a href="/words/salary" class="">Salary</a></li>
+          <li><a href="/words/serendipity" class="">Serendipity</a></li>
+          <li><a href="/words/shrinkflation" class="">Shrinkflation</a></li>
+          <li><a href="/words/sideburns" class="">Sideburns</a></li>
+          <li><a href="/words/silhouette" class="">Silhouette</a></li>
+          <li><a href="/words/soccer" class="">Soccer</a></li>
+          <li><a href="/words/sonder" class="">Sonder</a></li>
+          <li><a href="/words/spam" class="">Spam</a></li>
+          <li><a href="/words/state" class="">State</a></li>
+          <li><a href="/words/sumud" class="">Sumud</a></li>
+          <li><a href="/words/surprize" class="">Surprize</a></li>
+          <li><a href="/words/trivia" class="">Trivia</a></li>
+          <li><a href="/words/vellichor" class="">Vellichor</a></li>
+          <li><a href="/words/zenith" class="">Zenith</a></li><!--]-->
+        </ul>
+        <hr
+          style="border-left:0;border-right:0;color:#d3d3d3 !important;border-bottom:0;border-style:solid;border-top-width:1px;margin:2rem 0;">
+        <p><a href="/words/english-words-origin-french" class="">English Words of French Origin</a></p>
+        <hr
+          style="border-left:0;border-right:0;color:#d3d3d3 !important;border-bottom:0;border-style:solid;border-top-width:1px;margin:2rem 0;">
+        <p><a href="/words/english-synonym-words" class="">English Synonym Words</a></p>
+      </section>
+      <!-- <section class="section">
         <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Words</h2>
         <div id="word-container">
           <div v-for="item in wordsData" :key="item.id" class="demo">
@@ -57,7 +123,7 @@
             </NuxtLink>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- Proverbs Section -->
       <section class="section">
@@ -142,9 +208,8 @@ onMounted(async () => {
   margin: 0 auto 2rem;
   padding: 1rem;
   color: #202a33;
-  background: #f7f3ee;
   border: 1px solid #e8e3dc;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
@@ -230,13 +295,18 @@ onMounted(async () => {
 }
 
 #macy-container .demo,
-#word-container .demo,
+/*#word-container .demo, */
 #preverbs-container .demo {
   width: 100%;
   margin-bottom: 20px;
 }
 
-#word-container span {
+.words-container ul {
+    text-align: center;
+    padding: 0 !important;
+}
+
+/* #word-container span {
   display: block;
   width: 100%;
   text-align: center;
@@ -250,7 +320,7 @@ onMounted(async () => {
   margin: 0;
   text-align: center;
   color: #666;
-}
+} */
 
 #preverbs-container span {
   display: block;
