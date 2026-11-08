@@ -54,6 +54,7 @@ export default defineNuxtConfig({
       { loc: '/authors', priority: 0.8 },
       { loc: '/words', priority: 0.8 },
       { loc: '/preverbs', priority: 0.8 },
+      { loc: '/story/what-is-the-diderot-effect', priority: 0.8 },
       { loc: '/tr/kelimeler' },
       { loc: '/tr/kisiler' },
       { loc: '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler' },
@@ -73,10 +74,11 @@ export default defineNuxtConfig({
       // Set crawlLinks to true so Nuxt automatically discovers linked dynamic routes
       crawlLinks: true,
       routes: [
-        'https://wordsfromlife.com/',
+        '/',
         '/about',
         '/authors',
         '/preverbs',
+        '/story/what-is-the-diderot-effect',
         '/tr/kelimeler',
         '/tr/kisiler',
         '/tr/kelimeler/fransizca-kokenli-turkce-kelimeler',
@@ -96,6 +98,7 @@ export default defineNuxtConfig({
     '/words': { prerender: false },
     '/words/**': { prerender: false },
     // Single page 301 redirects
+    '/story/what-is-diderot-effect': { redirect: { to: '/story/what-is-the-diderot-effect', statusCode: 301 } },
     '/authors/a/albert-camus-quotes': { redirect: { to: '/authors/albert-camus-quotes', statusCode: 301 } },
     '/author.php': { redirect: { to: '/', statusCode: 301 } }
   },
