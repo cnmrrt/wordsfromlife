@@ -41,7 +41,7 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
 
 useHead(() => {
   if (!word.value) return {}
-  const title = `Meaning of ${word.value.word}`
+  const title = `${word.value.word} | Meaning & Definition`
   const path = `/words/${word.value.id}`
   return createPageSeoHead({
     title,
