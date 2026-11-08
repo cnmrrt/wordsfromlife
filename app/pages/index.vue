@@ -2,7 +2,7 @@
   <Navbar />
   <main class="main" role="main">
     <h1>Words From Life</h1>
-    <NuxtLink to="/story/what-is-the-diderot-effect" class="story-feature"> 
+    <a href="/story/what-is-the-diderot-effect" class="story-feature">
       <img src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
         alt="Denis Diderot writing at his desk" width="1248" height="832" />
       <span class="story-feature-copy">
@@ -13,7 +13,7 @@
           aesthetic of the initial acquisition.
         </span>
       </span>
-    </NuxtLink>
+    </a>
     <div class="home-container">
       <!-- Authors Section -->
       <section class="section">
@@ -302,8 +302,8 @@ onMounted(async () => {
 }
 
 .words-container ul {
-    text-align: center;
-    padding: 0 !important;
+  text-align: center;
+  padding: 0 !important;
 }
 
 /* #word-container span {
