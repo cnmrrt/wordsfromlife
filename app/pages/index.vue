@@ -2,7 +2,7 @@
   <Navbar />
   <main class="main" role="main">
     <h1>Words From Life</h1>
-    <a href="/story/what-is-the-diderot-effect" class="story-feature">
+    <a href="/story/what-is-the-diderot-effect" class="story-feature"> 
       <img src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
         alt="Denis Diderot writing at his desk" width="1248" height="832" />
       <span class="story-feature-copy">
