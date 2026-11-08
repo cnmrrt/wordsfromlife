@@ -14,9 +14,19 @@
         </span>
       </span>
     </a>
+    <a href="/story/how-did-months-get-their-names" class="story-feature">
+      <span class="story-feature-copy">
+        <span class="story-feature-title">How Did the Months Get Their Names?</span>
+        <span class="story-feature-description">
+          Explore the Roman gods, Latin numbers, festivals, and history behind
+          the names of all twelve months.
+        </span>
+      </span>
+    </a>
     <div class="home-container"> 
       <!-- Authors Section -->
       <section class="section">
+      <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Authors</h2>
         <div id="macy-container">
           <div v-for="item in authorsData" :key="item.id" v-show="item.en_quotes !== '' && item.img != null"
             class="demo">
