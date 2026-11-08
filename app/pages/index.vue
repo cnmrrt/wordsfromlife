@@ -38,7 +38,7 @@
 
       <!-- Words Section -->
       <section class="section" id="word-container"><!---->
-        <ul><!--[-->
+        <ul>
           <li><a href="/words/adversity" class="">Adversity</a></li>
           <li><a href="/words/allegory" class="">Allegory</a></li>
           <li><a href="/words/anemoia" class="">Anemoia</a></li>
@@ -305,7 +305,10 @@ onMounted(async () => {
   text-align: center;
   padding: 0 !important;
 }
-
+#words-container ul li {
+    margin: 10px 20px !important;
+    display: inline-block !important;
+}
 /* #word-container span {
   display: block;
   width: 100%;
