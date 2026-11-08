@@ -14,7 +14,7 @@
         </span>
       </span>
     </a>
-    <div class="home-container">
+    <div class="home-container"> 
       <!-- Authors Section -->
       <section class="section">
         <div id="macy-container">
