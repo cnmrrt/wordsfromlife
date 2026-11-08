@@ -145,13 +145,13 @@ import { createPageSeoHead } from '~/utils/pageSeo'
 useHead(createPageSeoHead({
   title: 'What Is the Diderot Effect? | Words From Life',
   description: 'Learn what the Diderot Effect is, how a new possession can trigger a cascade of consumption, and practical ways to break the cycle.',
-  path: '/story/what-is-diderot-effect',
+  path: '/story/what-is-the-diderot-effect',
   image: '/static/img/story/dennis-diderot-effect.webp',
   type: 'article',
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
-    { name: 'What Is the Diderot Effect?', path: '/story/what-is-diderot-effect' }
+    { name: 'What Is the Diderot Effect?', path: '/story/what-is-the-diderot-effect' }
   ]
 }))
 </script>
