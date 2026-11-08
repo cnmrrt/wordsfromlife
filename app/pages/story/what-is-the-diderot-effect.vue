@@ -17,12 +17,8 @@
       </header>
 
       <figure class="story-figure">
-        <img
-          src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
-          alt="Denis Diderot writing at his desk in a richly furnished room"
-          width="1248"
-          height="832"
-        />
+        <img src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
+          alt="Denis Diderot writing at his desk in a richly furnished room" width="1248" height="832" />
         <figcaption>Denis Diderot, whose dressing gown inspired the effect.</figcaption>
       </figure>
 
@@ -148,6 +144,11 @@ useHead(createPageSeoHead({
   path: '/story/what-is-the-diderot-effect',
   image: '/static/img/story/dennis-diderot-effect.webp',
   type: 'article',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/what-is-the-diderot-effect' },
+    { lang: 'tr', path: '/tr/hikaye/diderot-etkisi-nedir' },
+    { lang: 'x-default', path: '/story/what-is-the-diderot-effect' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
