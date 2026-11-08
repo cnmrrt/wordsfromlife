@@ -226,6 +226,11 @@ useHead(createPageSeoHead({
   description: 'Discover the Roman gods, Latin numbers, festivals, and history behind the names of all twelve months.',
   path: '/story/how-did-months-get-their-names',
   type: 'article',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/how-did-months-get-their-names' },
+    { lang: 'tr', path: '/tr/hikaye/aylar-isimlerini-nasil-aldi' },
+    { lang: 'x-default', path: '/story/how-did-months-get-their-names' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
