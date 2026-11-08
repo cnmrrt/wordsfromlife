@@ -190,7 +190,7 @@ const initMasonry = async (containerId, columns, breakAt, instanceRef) => {
 // Initialize Masonry after mounting
 onMounted(async () => {
   await initMasonry('#macy-container', 6, { 1200: 4, 940: 3, 520: 2 }, macyRef)
-  await initMasonry('#word-container', 4, { 1200: 3, 940: 2, 520: 1 }, wordsMacyRef)
+  // await initMasonry('#word-container', 4, { 1200: 3, 940: 2, 520: 1 }, wordsMacyRef)
   await initMasonry('#preverbs-container', 5, { 1200: 4, 940: 3, 520: 2 }, preverbsMacyRef)
 })
 </script>
