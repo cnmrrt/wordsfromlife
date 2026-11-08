@@ -2,6 +2,21 @@
   <Navbar />
   <main class="main" role="main"> 
     <h1>Words From Life</h1>
+    <NuxtLink to="/story/what-is-diderot-effect" class="story-feature">
+      <img
+        src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
+        alt="Denis Diderot writing at his desk"
+        width="1248"
+        height="832"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-label">Featured story</span>
+        <span class="story-feature-title">What Is the Diderot Effect?</span>
+        <span class="story-feature-description">
+          The Diderot Effect is a psychological and socio-cultural phenomenon where acquiring a new possession sets off a spiral of consumption, leading you to purchase more and more items that match the upgraded status or aesthetic of the initial acquisition.
+        </span>
+      </span>
+    </NuxtLink>
     <div class="home-container">
       <!-- Authors Section -->
       <section class="section">
@@ -119,6 +134,55 @@ onMounted(async () => {
   padding: 2rem 0;
 }
 
+.story-feature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  color: #202a33;
+  background: #f7f3ee;
+  border: 1px solid #e8e3dc;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.story-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.story-feature img {
+  width: 220px;
+  flex: 0 0 220px;
+  border-radius: 8px;
+}
+
+.story-feature-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.story-feature-label {
+  color: #9a643e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.story-feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.story-feature-description {
+  color: #4a5661;
+  line-height: 1.6;
+}
+
 .home-container {
   max-width: 100%;
   width: 1128px;
@@ -197,6 +261,18 @@ onMounted(async () => {
 }
 
 @media (max-width: 767px) {
+  .story-feature {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 1rem 2rem;
+  }
+
+  .story-feature img {
+    width: 100%;
+    flex-basis: auto;
+  }
+
   .home-container {
     max-width: 100%;
     padding: 0 1rem;
