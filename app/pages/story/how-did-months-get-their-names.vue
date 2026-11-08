@@ -10,7 +10,7 @@
           The names of our twelve months come primarily from ancient Roman
           history, religious festivals, and agricultural cycles. Because the
           ancient Roman calendar originally began in March and had only ten
-          months—with winter left unnumbered—the names reflect a blend of Roman
+          months with winter left unnumbered the names reflect a blend of Roman
           gods, numeric ordering, and political flattery.
         </p>
       </header>
@@ -23,7 +23,7 @@
         </p>
         <p>
           <strong>Origin:</strong> Janus is traditionally depicted with two
-          faces—one looking back into the past and the other forward into the
+          faces one looking back into the past and the other forward into the
           future. This makes him a fitting namesake for the first month, which
           bridges the old year and the new.
         </p>

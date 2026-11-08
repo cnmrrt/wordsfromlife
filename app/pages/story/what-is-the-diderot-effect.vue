@@ -92,7 +92,7 @@
           <li>
             <strong>Home Decor and Renovations:</strong> You buy a single modern
             accent chair for the living room. Suddenly, the coffee table looks
-            worn out, the rug clashes, and the wall color feels wrong—turning a
+            worn out, the rug clashes, and the wall color feels wrong turning a
             single purchase into a full room remodel.
           </li>
           <li>
