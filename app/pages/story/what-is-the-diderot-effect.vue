@@ -5,7 +5,7 @@
     <article class="story-article">
       <header class="story-header">
         <p class="eyebrow">Psychology &amp; Consumer Culture</p>
-        <h1>What Is the Diderot Effect?</h1>
+        <h1>What is the Diderot Effect?</h1>
         <p class="intro">
           The Diderot Effect is a psychological and socio-cultural phenomenon
           where acquiring a new possession sets off a spiral of consumption,
