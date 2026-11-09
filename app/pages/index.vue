@@ -23,11 +23,11 @@
         </span>
       </span>
     </a>
-    
-    <div class="home-container"> 
+
+    <div class="home-container">
       <!-- Authors Section -->
       <section class="section">
-      <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Authors</h2>
+        <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Authors</h2>
         <div id="macy-container">
           <div v-for="item in authorsData" :key="item.id" v-show="item.en_quotes !== '' && item.img != null"
             class="demo">
@@ -49,7 +49,7 @@
 
       <!-- Words Section -->
       <section class="section" id="word-container">
-      <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Words</h2>
+        <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Words</h2>
         <ul>
           <li><a href="/words/adversity" class="">Adversity</a></li>
           <li><a href="/words/allegory" class="">Allegory</a></li>
@@ -150,6 +150,8 @@
       </section>
     </div>
 
+    <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Stories</h2>
+
     <a href="/story/interesting-brand-names" class="story-feature">
       <span class="story-feature-copy">
         <span class="story-feature-title">Interesting Brand Names and Their Stories</span>
@@ -159,7 +161,7 @@
         </span>
       </span>
     </a>
-    
+
   </main>
 </template>
 
