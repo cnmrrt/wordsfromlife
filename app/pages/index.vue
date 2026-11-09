@@ -14,7 +14,19 @@
         </span>
       </span>
     </a>
-
+    <a href="/story/the-great-depression" class="story-feature">
+      <img
+        src="https://wordsfromlife.com/static/img/story/great-depression-people-lined-up.webp"
+        alt="People queue outside a free soup kitchen during the Great Depression"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-title">The Great Depression</span>
+        <span class="story-feature-description">
+          Explore the causes, global impact, and recovery from one of the
+          twentieth century’s most severe economic crises.
+        </span>
+      </span>
+    </a>
 
     <div class="home-container">
       <!-- Authors Section -->
