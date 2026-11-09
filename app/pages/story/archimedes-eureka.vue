@@ -127,6 +127,13 @@
           power of a good idea.
         </p>
       </section>
+
+      <section class="related-author">
+        <h2>Related Quotes</h2>
+        <NuxtLink to="/authors/domenico-fetti-archimedes-quotes">
+          Domenico-Fetti Archimedes Quotes
+        </NuxtLink>
+      </section>
     </article>
   </main>
 </template>
@@ -220,6 +227,13 @@ useHead(createPageSeoHead({
   color: #202a33;
   font-size: clamp(1.45rem, 3vw, 1.8rem);
   line-height: 1.3;
+}
+
+.related-author a {
+  color: #8a5633;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .story-article p,
