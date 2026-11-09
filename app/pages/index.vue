@@ -23,6 +23,7 @@
         </span>
       </span>
     </a>
+    
     <div class="home-container"> 
       <!-- Authors Section -->
       <section class="section">
@@ -148,6 +149,17 @@
         </div>
       </section>
     </div>
+
+    <a href="/story/interesting-brand-names" class="story-feature">
+      <span class="story-feature-copy">
+        <span class="story-feature-title">Interesting Brand Names and Their Stories</span>
+        <span class="story-feature-description">
+          Discover the surprising origins, linguistic twists, and histories
+          behind memorable names like Nike, Google, Starbucks, and Bluetooth.
+        </span>
+      </span>
+    </a>
+    
   </main>
 </template>
 
