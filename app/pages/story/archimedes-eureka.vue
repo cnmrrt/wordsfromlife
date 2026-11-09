@@ -61,7 +61,7 @@
         </p>
         <p>
           The story says that, overcome by excitement, he leapt from the bath
-          and ran through the streets of Syracuse shouting “Eureka! Eureka!”—
+          and ran through the streets of Syracuse shouting “Eureka! Eureka!” 
           Greek for “I have found it!”
         </p>
       </section>
@@ -123,7 +123,7 @@
           “Eureka” is still used as an exclamation when someone finds the
           answer to a difficult problem or makes a sudden discovery. Whether
           or not Archimedes ran through Syracuse as the legend says, the story
-          captures the excitement of recognizing a solution—and the lasting
+          captures the excitement of recognizing a solution and the lasting
           power of a good idea.
         </p>
       </section>
