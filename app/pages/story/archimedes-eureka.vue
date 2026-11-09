@@ -99,7 +99,7 @@
         <h2>History and Legend</h2>
         <p>
           Vitruvius is the source of the bath and crown story, writing centuries
-          after Archimedes lived. Later thinkers, including Galileo, questioned
+          after Archimedes lived. Later thinkers, including <a href="https://wordsfromlife.com/authors/galileo-galilei-quotes">Galileo</a>, questioned
           whether measuring a small difference in overflow from a heavy crown
           would have been precise enough with the equipment available at the
           time.
