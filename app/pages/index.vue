@@ -14,6 +14,19 @@
         </span>
       </span>
     </a>
+    <a href="/story/archimedes-eureka" class="story-feature">
+      <img
+        src="https://wordsfromlife.com/static/img/story/archimedes-eureka-story.webp"
+        alt="Archimedes and the famous Eureka moment"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-title">Archimedes and the “Eureka!” Moment</span>
+        <span class="story-feature-description">
+          Discover the story of King Hiero’s crown, Archimedes’ bath, and the
+          scientific idea behind the famous exclamation.
+        </span>
+      </span>
+    </a>
     <a href="/story/achilles-heel" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/achilles-heel.webp"
