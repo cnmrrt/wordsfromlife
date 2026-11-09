@@ -3,8 +3,11 @@
   <main class="main" role="main">
     <h1>Words From Life</h1>
     <a href="/story/what-is-the-diderot-effect" class="story-feature">
-      <img src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
-        alt="Denis Diderot writing at his desk" width="1248" height="832" />
+      <img 
+      src="https://wordsfromlife.com/static/img/story/dennis-diderot-effect.webp"
+        alt="Denis Diderot writing at his desk" 
+        width="1248" 
+        height="832" />
       <span class="story-feature-copy">
         <span class="story-feature-title">What is the Diderot Effect?</span>
         <span class="story-feature-description">
@@ -14,6 +17,7 @@
         </span>
       </span>
     </a>
+
     <a href="/story/archimedes-eureka" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/archimedes-eureka-story.webp"
@@ -27,6 +31,7 @@
         </span>
       </span>
     </a>
+
     <a href="/story/achilles-heel" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/achilles-heel.webp"
