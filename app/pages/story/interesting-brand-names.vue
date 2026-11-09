@@ -15,7 +15,7 @@
       </header>
 
       <section>
-        <h2><a href="https://wordsfromlife.com/words/serendipity">Serendipity</a> and Happy Accidents</a></h2>
+        <h2><a href="https://wordsfromlife.com/words/serendipity">Serendipity</a> and Happy Accidents</h2>
         <p>
           Some familiar brand names grew out of invented words, unexpected
           suggestions, or spellings that took on a life of their own.
