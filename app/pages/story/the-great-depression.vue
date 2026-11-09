@@ -27,8 +27,8 @@
           <li>
             <strong>The Wall Street Crash of 1929:</strong> After years of
             speculative investment and borrowing to buy stocks, the market
-            plunged in October 1929. The collapse—especially the panic of
-            October 29, known as Black Tuesday—destroyed enormous amounts of
+            plunged in October 1929. The collapse especially the panic of
+            October 29, known as Black Tuesday destroyed enormous amounts of
             paper wealth and shook confidence.
           </li>
           <li>
