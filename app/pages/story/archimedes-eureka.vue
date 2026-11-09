@@ -18,12 +18,12 @@
       <figure class="story-figure">
         <img
           src="https://wordsfromlife.com/static/img/story/archimedes-eureka-story.webp"
-          alt="Archimedes discovers the principle of buoyancy in a bath"
-          width="800"
-          height="1000"
+          alt="Archimedes shouting Eureka while standing in a bath"
+          width="1408"
+          height="1024"
         />
         <figcaption>
-          Archimedes, as imagined in a painting by Domenico Fetti.
+          The legendary bathhouse moment that inspired Archimedes’ “Eureka!”
         </figcaption>
       </figure>
 
@@ -139,7 +139,7 @@ useHead(createPageSeoHead({
   title: 'Archimedes and the “Eureka!” Moment | Words From Life',
   description: 'Discover the story of Archimedes, King Hiero’s crown, the famous bath, and the history behind the “Eureka!” legend.',
   path: '/story/archimedes-eureka',
-  image: '/static/img/authors/domenico-fetti-archimedes.jpeg',
+  image: '/static/img/story/archimedes-eureka-story.webp',
   type: 'article',
   articleSchema: true,
   breadcrumbs: [

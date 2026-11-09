@@ -14,7 +14,7 @@
         </span>
       </span>
     </a>
-    <a href="/story/archimedes-eureka" class="story-feature">
+    <!-- <a href="/story/archimedes-eureka" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/archimedes-eureka-story.webp"
         alt="Archimedes and the famous Eureka moment"
@@ -26,7 +26,7 @@
           scientific idea behind the famous exclamation.
         </span>
       </span>
-    </a>
+    </a> -->
     <a href="/story/achilles-heel" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/achilles-heel.webp"
