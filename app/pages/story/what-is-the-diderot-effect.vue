@@ -144,6 +144,7 @@ useHead(createPageSeoHead({
   path: '/story/what-is-the-diderot-effect',
   image: '/static/img/story/dennis-diderot-effect.webp',
   type: 'article',
+  articleSchema: true,
   alternateLanguages: [
     { lang: 'en', path: '/story/what-is-the-diderot-effect' },
     { lang: 'tr', path: '/tr/hikaye/diderot-etkisi-nedir' },

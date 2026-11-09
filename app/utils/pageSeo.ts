@@ -19,6 +19,7 @@ type PageSeoOptions = {
   alternateLanguages?: AlternateLanguage[]
   image?: string
   type?: 'article' | 'website'
+  articleSchema?: boolean
   lang?: string
   bodyAttrs?: { id?: string }
 }
@@ -31,6 +32,7 @@ export function createPageSeoHead({
   alternateLanguages = [],
   image,
   type = 'website',
+  articleSchema = false,
   lang,
   bodyAttrs
 }: PageSeoOptions) {
@@ -45,6 +47,25 @@ export function createPageSeoHead({
       item: new URL(breadcrumb.path, siteOrigin).href
     }))
   }
+  const articleStructuredData = articleSchema
+    ? [{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title.replace(/\s+\|\s+Words From Life$/, ''),
+        description,
+        image: new URL(image || defaultOgImage, siteOrigin).href,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Words From Life',
+          url: siteOrigin
+        },
+        inLanguage: lang || 'en'
+      }]
+    : []
 
   return {
     ...(lang ? { htmlAttrs: { lang } } : {}),
@@ -71,7 +92,11 @@ export function createPageSeoHead({
       {
         type: 'application/ld+json',
         innerHTML: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
-      }
+      },
+      ...articleStructuredData.map(schema => ({
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(schema).replace(/</g, '\\u003c')
+      }))
     ]
   }
 }

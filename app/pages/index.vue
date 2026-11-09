@@ -14,6 +14,21 @@
         </span>
       </span>
     </a>
+    <a href="/story/achilles-heel" class="story-feature">
+      <img
+        src="https://wordsfromlife.com/static/img/story/achilles-heel.webp"
+        alt="Achilles seated among his armor and weapons"
+        width="1024"
+        height="576"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-title">What Does “Achilles’ Heel” Mean?</span>
+        <span class="story-feature-description">
+          Discover how a later version of the Greek myth gave us an enduring
+          expression for a critical weakness.
+        </span>
+      </span>
+    </a>
     <a href="/story/the-great-depression" class="story-feature">
       <img
         src="https://wordsfromlife.com/static/img/story/great-depression-people-lined-up.webp"

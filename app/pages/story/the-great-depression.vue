@@ -163,6 +163,7 @@ useHead(createPageSeoHead({
   description: 'Learn what caused the Great Depression, how it affected people around the world, and how recovery reshaped economic policy.',
   path: '/story/the-great-depression',
   type: 'article',
+  articleSchema: true,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },

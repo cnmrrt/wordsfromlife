@@ -227,6 +227,7 @@ useHead(createPageSeoHead({
   description: 'İngilizce ay adlarının ardındaki Roma tanrılarını, Latince sayıları, festivalleri ve tarihi keşfedin.',
   path: '/tr/hikaye/aylar-isimlerini-nasil-aldi',
   type: 'article',
+  articleSchema: true,
   lang: 'tr',
   alternateLanguages: [
     { lang: 'en', path: '/story/how-did-months-get-their-names' },

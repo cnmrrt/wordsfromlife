@@ -187,6 +187,7 @@ useHead(createPageSeoHead({
   description: 'Explore the origins and stories behind brand names like Nike, Google, Starbucks, Bluetooth, Häagen-Dazs, and more.',
   path: '/story/interesting-brand-names',
   type: 'article',
+  articleSchema: true,
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },

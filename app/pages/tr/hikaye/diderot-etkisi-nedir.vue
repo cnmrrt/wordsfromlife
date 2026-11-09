@@ -153,6 +153,7 @@ useHead(createPageSeoHead({
   path: '/tr/hikaye/diderot-etkisi-nedir',
   image: '/static/img/story/dennis-diderot-effect.webp',
   type: 'article',
+  articleSchema: true,
   lang: 'tr',
   alternateLanguages: [
     { lang: 'en', path: '/story/what-is-the-diderot-effect' },
