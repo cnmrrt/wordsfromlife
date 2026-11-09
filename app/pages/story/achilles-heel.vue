@@ -49,7 +49,7 @@
         <p>
           The image is memorable: a nearly invincible hero brought down by one
           overlooked point. Today, an “Achilles’ heel” can be a person’s,
-          organization’s, plan’s, or system’s critical vulnerability—not
+          organization’s, plan’s, or system’s critical vulnerability not
           necessarily a physical flaw.
         </p>
         <p>
