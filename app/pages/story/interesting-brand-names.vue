@@ -8,7 +8,7 @@
         <h1>Interesting Brand Names and the Stories Behind Them</h1>
         <p class="intro">
           A memorable brand name can come from mythology, literature, a clever
-          linguistic blend—or a happy accident. These names do more than label
+          linguistic blend or a happy accident. These names do more than label
           a product: they carry histories, associations, and sometimes stories
           that are more surprising than the products themselves.
         </p>
