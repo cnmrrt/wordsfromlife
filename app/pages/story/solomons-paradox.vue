@@ -75,17 +75,6 @@
           reason through emotionally charged dilemmas.
         </p>
       </section>
-
-      <section>
-        <h2>How to Use the Insight for Your Own Decisions</h2>
-        <p>
-          One way to create useful distance is to imagine that a close friend
-          is facing the same situation. Ask what questions you would suggest
-          they consider, what information might be missing, and how the
-          decision could look a year from now. That perspective may help you
-          approach your own choice with greater balance.
-        </p>
-      </section>
     </article>
   </main>
 </template>
