@@ -17,6 +17,21 @@
         </span>
       </span>
     </a>
+    <a href="/story/solomons-paradox" class="story-feature">
+      <img
+        src="https://wordsfromlife.com/static/img/story/solomon-paradox.webp"
+        alt="King Solomon considering a difficult judgment"
+        width="1408"
+        height="1024"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-title">Solomon’s Paradox</span>
+        <span class="story-feature-description">
+          Find out why we can give wiser advice to others than we follow when
+          facing our own problems.
+        </span>
+      </span>
+    </a>
 
     <a href="/story/archimedes-eureka" class="story-feature">
       <img
