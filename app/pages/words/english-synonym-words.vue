@@ -97,7 +97,7 @@ const wordsData = [
   { id: "eloquent", word: "Eloquent", synonyms: "Articulate, Expressive, Fluent", meaning: "Fluent or persuasive in speaking or writing" },
   { id: "elusive", word: "Elusive", synonyms: "Evasive, Slippery, Hard-to-find", meaning: "Difficult to find, catch, or achieve" },
   { id: "eminent", word: "Eminent", synonyms: "Distinguished, Prominent, Renowned", meaning: "Famous and respected within a particular sphere" },
-  { id: "evaluate", word: "Evaluate", synonyms: "Assess, Appraise, Judge", meaning: "To form an idea of the amount, number, or value of something" },
+  { id: "evaluate", word: "Evaluate", synonyms: "Assess, Appraise, <a href=\"https://wordsfromlife.com/words/judge\">Judge</a>", meaning: "To form an idea of the amount, number, or value of something" },
   { id: "exemplary", word: "Exemplary", synonyms: "Model, Ideal, Commendable", meaning: "Serving as a desirable model; representing the best of its kind" },
   { id: "feasible", word: "Feasible", synonyms: "Possible, Practicable, Viable", meaning: "Possible to do easily or conveniently" },
   { id: "foster", word: "Foster", synonyms: "Nurture, Encourage, Promote", meaning: "To encourage the development or growth of something" },

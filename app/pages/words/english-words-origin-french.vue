@@ -63,7 +63,7 @@ const wordsData = [
   { id: "parliament", word: "Parliament", french_origin: "parlement", meaning: "Legislative body (from parler – to speak)" },
   { id: "crown", word: "Crown", french_origin: "couronne", meaning: "Crown" },
   { id: "court", word: "Court", french_origin: "cort", meaning: "Judicial assembly / royal court" },
-  { id: "judge", word: "Judge", french_origin: "juge", meaning: "Judge" },
+  { id: "judge", word: "<a href=\"https://wordsfromlife.com/words/judge\">Judge</a>", french_origin: "juge", meaning: "Judge" },
   { id: "jury", word: "Jury", french_origin: "juré", meaning: "Sworn body of people" },
   { id: "attorney", word: "Attorney", french_origin: "atorné", meaning: "Appointed legal representative" },
   { id: "verdict", word: "Verdict", french_origin: "verdit", meaning: "Final decision ('true statement')" },
