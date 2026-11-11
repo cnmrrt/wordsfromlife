@@ -204,6 +204,21 @@
 
     <h2 style="font-size: 40px; text-align: center; margin: 3rem 0 2rem 0">Stories</h2>
 
+    <a href="/story/ship-of-theseus" class="story-feature">
+      <img
+        src="/static/img/story/ship-of-theseus.webp"
+        alt="An ancient Greek ship sailing across the sea"
+        width="1024"
+        height="559"
+      />
+      <span class="story-feature-copy">
+        <span class="story-feature-title">The Ship of Theseus: A Paradox of Identity</span>
+        <span class="story-feature-description">
+          Explore the ancient thought experiment about whether a ship remains
+          the same after every plank has been replaced.
+        </span>
+      </span>
+    </a>
 
     <a href="/story/how-did-months-get-their-names" class="story-feature">
       <span class="story-feature-copy">
