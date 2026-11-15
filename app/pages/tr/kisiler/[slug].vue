@@ -11,7 +11,7 @@
 
 
 
-        <div v-if="route.path === '/tr/kisiler/saldador-dali-sozleri'">
+        <div v-if="route.path === '/tr/kisiler/salvador-dali-sozleri'">
           <br /><br />
           <p>Tam adı Salvador Domingo Felipe Jacinto Dalí i Domènech olan, kısaca Salvador Dali olarak bilinen Katalonya
             doğumlu İspanyol ressam gerçeküstü eserleriyle tanınmıştır.</p>
