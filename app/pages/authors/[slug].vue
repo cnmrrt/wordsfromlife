@@ -5,7 +5,7 @@
     <p>{{ error.message }}</p>
   </div>
 
-  
+
   <div v-else-if="authorData" class="backgroundImage" :style="{ '--bg-image': `url(${useSitePath(authorData.img)})` }">
     <main id="main-content" class="container position-relative mt-5">
       <h1>{{ authorData.name }} {{ authorData.surname }} Quotes</h1>
@@ -25,6 +25,16 @@
             Great Statue at North Macedonia / Skopje</a>
         </p>
       </div>
+
+      <div v-if="route.path === '/authors/salvador-dali-quotes'">
+        <p>Born in Catalonia, the Spanish painter whose full name was Salvador Domingo Felipe Jacinto Dalí i
+          Domènech—known simply as Salvador Dalí—is renowned for his surrealist works.</p>
+        <p>In addition to painting, Dalí also engaged in photography, sculpture, and filmmaking, gaining fame for the
+          bizarre and striking imagery found in his work.</p>
+        <p>Beyond his art, Salvador Dalí also drew attention through his attire, behavior, and statements; he even
+        acknowledged his own eccentricity in his own words.</p>
+      </div>
+
     </main>
   </div>
 </template>
@@ -62,12 +72,12 @@ if (authorData.value) {
     lang: 'en',
     ...(Array.isArray(authorData.value.tr_quotes) && authorData.value.tr_quotes.length > 0
       ? {
-          alternateLanguages: [
-            { lang: 'en', path: `/authors/${authorData.value.id}-quotes` },
-            { lang: 'tr', path: `/tr/kisiler/${authorData.value.id}-sozleri` },
-            { lang: 'x-default', path: `/authors/${authorData.value.id}-quotes` }
-          ]
-        }
+        alternateLanguages: [
+          { lang: 'en', path: `/authors/${authorData.value.id}-quotes` },
+          { lang: 'tr', path: `/tr/kisiler/${authorData.value.id}-sozleri` },
+          { lang: 'x-default', path: `/authors/${authorData.value.id}-quotes` }
+        ]
+      }
       : {}),
     image: authorData.value.img,
     type: 'article',
@@ -85,16 +95,23 @@ if (authorData.value) {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
 :global(body#author-page-body) {
-    background-color: black;
-    font-family: "Gochi Hand", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  background-color: black;
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-:global(body#author-page-body nav) { background: none !important; border: none !important; }
-:global(body#author-page-body nav ul li a ) { color: #fff !important; }
+:global(body#author-page-body nav) {
+  background: none !important;
+  border: none !important;
+}
+
+:global(body#author-page-body nav ul li a) {
+  color: #fff !important;
+}
 
 
 
@@ -152,8 +169,9 @@ if (authorData.value) {
     max-width: 1140px;
   }
 }
+
 @media (max-width: 576px) {
-  :global(body#author-page-body q) { 
+  :global(body#author-page-body q) {
     font-size: 20px !important;
   }
 }
@@ -173,7 +191,7 @@ nav ul li a {
   display: block !important;
 }
 
-:global(body#author-page-body q) { 
+:global(body#author-page-body q) {
   color: #fff;
   display: block;
   font-size: 40px;
@@ -181,13 +199,21 @@ nav ul li a {
   text-align: center;
 }
 
-:global(body#author-page-body q a), :global(body#author-page-body p a) {
+:global(body#author-page-body q a),
+:global(body#author-page-body p a) {
   color: #6495ed !important;
   text-decoration: underline !important;
 }
 
-.size {font-size: 30px;}
-.text-right {text-align: right; display: block; color:#fff !important;}
+.size {
+  font-size: 30px;
+}
+
+.text-right {
+  text-align: right;
+  display: block;
+  color: #fff !important;
+}
 
 .error {
   text-align: center;
