@@ -32,7 +32,14 @@
         <p>In addition to painting, Dalí also engaged in photography, sculpture, and filmmaking, gaining fame for the
           bizarre and striking imagery found in his work.</p>
         <p>Beyond his art, Salvador Dalí also drew attention through his attire, behavior, and statements; he even
-        acknowledged his own eccentricity in his own words.</p>
+          acknowledged his own eccentricity in his own words.</p>
+      </div>
+
+
+      <div v-if="route.path === '/authors/victor-hugo-quotes'">
+        <p>The French novelist, poet, and playwright, whose full name was Victor Marie Hugo, created his works within
+          the Romantic movement.</p>
+        <p>His most well-known works are Les Misérables and The Hunchback of Notre-Dame.</p>
       </div>
 
     </main>

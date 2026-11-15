@@ -21,6 +21,15 @@
             sözleriyle de belirtmiştir.</p>
         </div>
 
+        <div v-if="route.path === '/tr/kisiler/victor-hugo-sozleri'">
+          <br /><br />
+          <p> Tam adı Victor Marie Hugo olan Fransız romancı şair ve oyun yazarı eserlerini romantik akıma bağlı olarak
+            ortaya koymuştur.</p>
+          <p>En bilindik eserleri Sefiller ve Notre Dame'ın Kamburu'dur.</p>
+        </div>
+
+
+
       </main>
     </div>
 
