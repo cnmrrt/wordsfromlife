@@ -8,6 +8,19 @@
         <q v-for="(quote, index) in author.tr_quotes" :key="index" v-html="useSiteHtml(quote)" />
         <span class="author-name">{{ author.name }} {{ author.surname }}</span>
         <span class="author-dates">{{ author.born }} - {{ author.dead }}</span>
+
+
+
+        <div v-if="route.path === '/tr/kisiler/saldador-dali-sozleri'">
+          <br /><br />
+          <p>Tam adı Salvador Domingo Felipe Jacinto Dalí i Domènech olan, kısaca Salvador Dali olarak bilinen Katalonya
+            doğumlu İspanyol ressam gerçeküstü eserleriyle tanınmıştır.</p>
+          <p>Ressamlığıyla birlikte fotoğrafçılık, heykelcilik ve filmcilikle de uğraşan Dali eserlerindeki tuhaf ve
+            çarpıcı imgelerle ününe kavuşmuştur.</p>
+          <p>Sanatının dışında giyimi, davranışları ve sözleriyle de dikkat çeken Salvador Dali tuhaf olduğunu
+            sözleriyle de belirtmiştir.</p>
+        </div>
+
       </main>
     </div>
 

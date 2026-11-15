@@ -3,20 +3,12 @@
     <div class="footer-content">
       <p class="copyright">&copy; {{ currentYear }} Words From Life</p>
       <nav class="social-links" aria-label="Social media">
-        <a
-          href="https://www.facebook.com/wordsfromlifesocial/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Words From Life on Facebook (opens in a new tab)"
-        >
+        <a href="https://www.facebook.com/wordsfromlifesocial/" target="_blank" rel="noopener noreferrer"
+          aria-label="Words From Life on Facebook (opens in a new tab)">
           Facebook
         </a>
-        <a
-          href="https://x.com/wordsfromlife_"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Words From Life on X (opens in a new tab)"
-        >
+        <a href="https://x.com/wordsfromlife_" target="_blank" rel="noopener noreferrer"
+          aria-label="Words From Life on X (opens in a new tab)">
           X
         </a>
       </nav>
