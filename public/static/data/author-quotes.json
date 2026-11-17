@@ -866,7 +866,8 @@
             "Few men have virtue to withstand the highest bidder.",
             "Discipline is the soul of an army. It makes small numbers formidable; procures success to the weak, and esteem to all.",
             "We must consult our means rather than our wishes.",
-            "It is better to be alone than in bad company."
+            "It is better to be alone than in bad company.",
+            "Be courteous to all, but intimate with few; and let those be well-tried before you give them your confidence."
         ],
         "id": "george-washington",
         "img": "/static/img/authors/george-washington.jpeg",
@@ -937,7 +938,9 @@
             "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
             "Any customer can have a car painted any color that he wants so long as it is black.",
             "Nothing is particularly hard if you divide it into small jobs.",
-            "Coming together is the beginning. Keeping together is progress. Working together is success."
+            "Coming together is the beginning. Keeping together is progress. Working together is success.",
+            "If you always do what you've always done, you'll always get what you've always got.",
+            "Don't find fault, find a remedy; anybody can complain."
         ],
         "id": "henry-ford",
         "img": "/static/img/authors/henry-ford.jpeg",
@@ -945,7 +948,9 @@
         "img_width": 600,
         "name": "Henry",
         "related-person": [
-            "benjamin-franklin"
+            "benjamin-franklin",
+            "thomas-edison",
+            "nikola-tesla"
         ],
         "surname": "Ford",
         "tr_meta_desc": "",
