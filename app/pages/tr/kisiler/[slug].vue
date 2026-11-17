@@ -28,7 +28,27 @@
           <p>En bilindik eserleri Sefiller ve Notre Dame'ın Kamburu'dur.</p>
         </div>
 
-
+        <section v-if="relatedAuthors.length" class="related-authors" aria-labelledby="related-authors-heading">
+          <h2 id="related-authors-heading">İlgili Kişiler</h2>
+          <div class="related-authors-grid">
+            <NuxtLink
+              v-for="related in relatedAuthors"
+              :key="related.id"
+              :to="Array.isArray(related.tr_quotes) && related.tr_quotes.length
+                ? `/tr/kisiler/${related.id}-sozleri`
+                : `/authors/${related.id}-quotes`"
+              class="related-author-card"
+            >
+              <img
+                :src="useSitePath(related.img)"
+                :alt="`${related.name} ${related.surname}`.trim()"
+                :width="related.img_width"
+                :height="related.img_height"
+              />
+              <span>{{ related.name }} {{ related.surname }}</span>
+            </NuxtLink>
+          </div>
+        </section>
 
       </main>
     </div>
@@ -43,10 +63,15 @@
 <script setup>
 import Navbar_tr from '~/components/Navbar_tr.vue'
 import { useRoute } from '#imports'
+import { computed } from 'vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
 const route = useRoute()
 const slug = route.params.slug
+
+const { data: authorsData } = await useAsyncData(`tr-authors-related-${slug}`, () =>
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
+)
 
 const { data: author } = await useAsyncData(`tr-author-${slug}`, async () => {
   const allAuthors = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
@@ -55,6 +80,13 @@ const { data: author } = await useAsyncData(`tr-author-${slug}`, async () => {
     Array.isArray(item.tr_quotes) &&
     item.tr_quotes.length > 0
   )
+})
+
+const relatedAuthors = computed(() => {
+  if (!author.value) return []
+  const ids = author.value['related-authors'] || author.value['related-person'] || []
+  return (authorsData.value || [])
+    .filter(item => ids.includes(item.id) && item.img)
 })
 
 if (author.value) {
@@ -144,6 +176,48 @@ if (author.value) {
 
 .author-name {
   font-size: 30px;
+}
+
+.related-authors {
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.related-authors h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.related-authors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.related-author-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.related-author-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.related-author-card span {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-size: 20px;
 }
 
 .not-found {

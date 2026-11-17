@@ -42,12 +42,32 @@
         <p>His most well-known works are Les Misérables and The Hunchback of Notre-Dame.</p>
       </div>
 
+      <section v-if="relatedAuthors.length" class="related-authors" aria-labelledby="related-authors-heading">
+        <h2 id="related-authors-heading">Related Authors</h2>
+        <div class="related-authors-grid">
+          <NuxtLink
+            v-for="related in relatedAuthors"
+            :key="related.id"
+            :to="`/authors/${related.id}-quotes`"
+            class="related-author-card"
+          >
+            <img
+              :src="useSitePath(related.img)"
+              :alt="`${related.name} ${related.surname}`.trim()"
+              :width="related.img_width"
+              :height="related.img_height"
+            />
+            <span>{{ related.name }} {{ related.surname }}</span>
+          </NuxtLink>
+        </div>
+      </section>
+
     </main>
   </div>
 </template>
 
 <script setup>
-import { ref, nextTick } from "vue";
+import { ref, computed } from "vue";
 import { useRoute, useHead } from "#imports";
 
 import Navbar from "~/components/Navbar.vue";
@@ -60,6 +80,10 @@ const slug = route.params.slug;
 const macyRef = ref(null);
 
 // Fetch author data server-side
+const { data: authorsData } = await useAsyncData(`authors-related-${slug}`, () =>
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
+);
+
 const { data: authorData, error } = await useAsyncData(`author-${slug}`, async () => {
   const allAuthors = await $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'));
   const author = allAuthors.find(
@@ -67,6 +91,13 @@ const { data: authorData, error } = await useAsyncData(`author-${slug}`, async (
   );
   if (!author) throw new Error("Author not found");
   return author;
+});
+
+const relatedAuthors = computed(() => {
+  if (!authorData.value) return []
+  const ids = authorData.value['related-authors'] || authorData.value['related-person'] || []
+  return (authorsData.value || [])
+    .filter(author => ids.includes(author.id) && author.img)
 });
 
 // Set SEO meta tags server-side
@@ -220,6 +251,48 @@ nav ul li a {
   text-align: right;
   display: block;
   color: #fff !important;
+}
+
+.related-authors {
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.related-authors h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.related-authors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.related-author-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: #fff !important;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.related-author-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.related-author-card span {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-size: 20px;
 }
 
 .error {
