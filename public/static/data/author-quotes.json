@@ -2250,7 +2250,10 @@
             "Mezarlıktaki en zengin insan olmanın benim için bir anlamı yok. Gece harika bir iş çıkardığımı düşünerek uyumak; işte bunun bir anlamı var.",
             "Bazen hayat kafanıza bir tuğlayla vurur. Sakın inancınızı kaybetmeyin.",
             "Dünyayı değiştirebileceğini düşünecek kadar çılgın olan insanlar ancak dünyayı değiştirecek işler yapabilir.",
-            "Kalite nicelikten daha önemlidir."
+            "Kalite nicelikten daha önemlidir.",
+            "Küçük başlayın, büyük düşünün.",
+            "Bir şey yaptığınızda iyi bir sonuç alırsanız bir başka iyi şey daha yapın ve ona çok uzun süre takılıp kalmayın. Bir sonrakinin ne olacağını düşünün.",
+            "Odaklanmak tamamen hayır demeyi bilmekten geçer."
         ]
     },
     {
@@ -2521,7 +2524,9 @@
         "name": "Yahya Kemal",
         "surname": "Beyatlı",
         "tr_meta_desc": "Türk şair, yazar ve diplomat Yahya Kemal Beyatlı'nın en güzel sözleri Wordsfromlife.com'da. Yahya Kemal Beyatlı sözleri için tıklayın!",
-        "tr_quotes": ""
+        "tr_quotes": [
+            "Artık demir almak günü gelmişse zamandan, meçhule giden bir gemi kalkar bu limandan..."
+        ]
     },
     {
         "born": 1238,
