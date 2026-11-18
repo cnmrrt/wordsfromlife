@@ -1222,12 +1222,17 @@
         "born": 1902,
         "dead": 1968,
         "en_meta_desc": "American author John Steinbeck's all quotes at Wordsfromlife.com. Visit for John Steinbeck quotes!",
-        "en_quotes": "",
+        "en_quotes": [
+            "Somewhere in the world there is a defeat for everyone. Some are destroyed by defeat, and some made small and mean by victory. Greatness lives in one who triumphs equally over defeat and victory."
+        ],
         "id": "john-steinbeck",
+        "img": "/static/img/authors/john-steinbeck.webp",
         "name": "John",
         "surname": "Steinbeck",
         "tr_meta_desc": "Amerikalı yazar John Steinbeck sözleri Wordsfromlife.com'da. John Steinbeck sözleri için tıklayın!",
-        "tr_quotes": ""
+        "tr_quotes": [
+            "Dünyanın her yerinden herkesin yenileceği bir yer vardır. Kimileri yenilgi yıkar, kimileriyse zaferle küçülür, bayağılaşırlar. Büyüklük, hem yenilgiyi, hem de zaferi kabullenebilen kişilerde yaşar."
+        ]
     },
     {
         "born": 1878,
