@@ -28,7 +28,7 @@
 
       <div v-if="route.path === '/authors/salvador-dali-quotes'">
         <p>Born in Catalonia, the Spanish painter whose full name was Salvador Domingo Felipe Jacinto Dalí i
-          Domènech—known simply as Salvador Dalí—is renowned for his surrealist works.</p>
+          Domènech known simply as Salvador Dali is renowned for his surrealist works.</p>
         <p>In addition to painting, Dalí also engaged in photography, sculpture, and filmmaking, gaining fame for the
           bizarre and striking imagery found in his work.</p>
         <p>Beyond his art, Salvador Dalí also drew attention through his attire, behavior, and statements; he even
