@@ -3,6 +3,7 @@
     <ClientOnly>
       <Editor
         :model-value="modelValue"
+        license-key="gpl"
         :init="editorInit"
         @update:model-value="emit('update:modelValue', $event)"
       />
@@ -21,7 +22,6 @@ defineProps<{ modelValue: string }>()
 const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
 
 const editorInit = {
-  license_key: 'gpl',
   base_url: '/tinymce',
   suffix: '.min',
   skin: 'oxide',
