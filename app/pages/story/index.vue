@@ -12,10 +12,19 @@
       <div class="story-list">
         <article v-for="story in stories" :key="story.path" class="story-card">
           <NuxtLink :to="story.path" class="story-card-link">
-            <p class="story-category">{{ story.category }}</p>
-            <h2>{{ story.title }}</h2>
-            <p class="story-description">{{ story.description }}</p>
-            <span class="read-more">Read story <span aria-hidden="true">→</span></span>
+            <img
+              v-if="story.image"
+              class="story-image"
+              :src="story.image"
+              :alt="story.imageAlt"
+              loading="lazy"
+            >
+            <div class="story-card-copy">
+              <p class="story-category">{{ story.category }}</p>
+              <h2>{{ story.title }}</h2>
+              <p class="story-description">{{ story.description }}</p>
+              <span class="read-more">Read story <span aria-hidden="true">→</span></span>
+            </div>
           </NuxtLink>
         </article>
       </div>
@@ -32,42 +41,56 @@ const stories = [
     title: 'What the Placebo Effect Reveals About Perception and Medicine',
     category: 'Medicine & Psychology',
     description: 'Learn how expectation and conditioning shape the placebo effect, and why placebo controls help researchers evaluate medical treatments.',
+    image: '/static/img/story/placebo-effect.jpeg',
+    imageAlt: 'A man holds a small bottle of medicine as two other men observe',
     path: '/story/placebo-effect'
   },
   {
     title: 'What Is the Diderot Effect?',
     category: 'Psychology & Consumer Culture',
     description: 'How one new possession can trigger a cascade of purchases, and ways to make more intentional choices.',
+    image: '/static/img/story/dennis-diderot-effect.webp',
+    imageAlt: 'Denis Diderot writing at his desk in a richly furnished room',
     path: '/story/what-is-the-diderot-effect'
   },
   {
     title: 'Solomon’s Paradox: Why We Give Better Advice Than We Take',
     category: 'Psychology & Decision-Making',
     description: 'Explore why people may reason more wisely about other people’s problems than their own.',
+    image: '/static/img/story/solomon-paradox.webp',
+    imageAlt: 'King Solomon considering a difficult judgment',
     path: '/story/solomons-paradox'
   },
   {
     title: 'Archimedes and the “Eureka!” Moment',
     category: 'Science & Ancient History',
     description: 'Discover the story of Archimedes, King Hiero’s crown, and the history behind the famous “Eureka!” legend.',
+    image: '/static/img/story/archimedes-eureka-story.webp',
+    imageAlt: 'Archimedes and the famous Eureka moment',
     path: '/story/archimedes-eureka'
   },
   {
     title: 'What Does “Achilles’ Heel” Mean?',
     category: 'Mythology & Language',
     description: 'How a later version of the Greek myth gave us an enduring expression for a critical weakness.',
+    image: '/static/img/story/achilles-heel.webp',
+    imageAlt: 'Achilles seated among his armor and weapons',
     path: '/story/achilles-heel'
   },
   {
     title: 'The Great Depression: Causes, Impact, and Recovery',
     category: 'Economic History',
     description: 'Learn what caused the Great Depression, how it affected people around the world, and how recovery reshaped economic policy.',
+    image: '/static/img/story/great-depression-people-lined-up.webp',
+    imageAlt: 'People queue outside a free soup kitchen during the Great Depression',
     path: '/story/the-great-depression'
   },
   {
     title: 'The Ship of Theseus: A Paradox of Identity',
     category: 'Philosophy & Metaphysics',
     description: 'Explore the ancient thought experiment and the questions it raises about identity and change.',
+    image: '/static/img/story/ship-of-theseus.webp',
+    imageAlt: 'A ship at sea representing the Ship of Theseus paradox',
     path: '/story/ship-of-theseus'
   },
   {
@@ -153,9 +176,23 @@ useHead(createPageSeoHead({
   display: flex;
   height: 100%;
   flex-direction: column;
-  padding: 1.25rem;
   color: inherit;
   text-decoration: none;
+}
+
+.story-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.7rem 0.7rem 0 0;
+}
+
+.story-card-copy {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 1.25rem;
 }
 
 .story-card h2 {
