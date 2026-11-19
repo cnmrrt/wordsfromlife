@@ -42,9 +42,9 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
 let pageTitle;
 if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Sittin Sene Ne Demek? - Words From Life';
-} /*else if (currentUrl === 'https://example.com/def') {
-  pageTitle = 'DEF';
-}*/ else {
+} else if (route.path === '/tr/kelimeler/yali') {
+  pageTitle = 'Yalı Kelimesi Nereden Geliyor? | Words From Life';
+} else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
 
