@@ -2102,7 +2102,8 @@
         "dead": 1963,
         "en_meta_desc": "All inspirational and motivational quotes by famous poet Robert Frost at Wordsfromlife.com. Visit for Robert Frost quotes!",
         "en_quotes": [
-            "Half the world is composed of people who have something to say and can't, and the other half who have nothing to say and keep on saying it."
+            "Half the world is composed of people who have something to say and can't, and the other half who have nothing to say and keep on saying it.",
+            "Don't ever take a fence down until you know why it was put up."
         ],
         "id": "robert-frost",
         "img": "/static/img/authors/robert-frost.jpg",
@@ -2112,7 +2113,8 @@
         "surname": "Frost",
         "tr_meta_desc": "Amerikalı şair Robert Frost'un ilham verici ve motive edici sözleri Wordsfromlife.com'da. Robert Frost sözleri için tıklayın!",
         "tr_quotes": [
-            "Dünyanın yarısı söyleyecek şeyleri olan ama söylemeyen, öteki yarısı da söyleyecek bir şeyi olmayan ama durmadan konuşan insanlardan oluşur."
+            "Dünyanın yarısı söyleyecek şeyleri olan ama söylemeyen, öteki yarısı da söyleyecek bir şeyi olmayan ama durmadan konuşan insanlardan oluşur.",
+            "Önündeki çitin oraya neden konulduğunu öğrenmeden onu aşağı indirme."
         ]
     },
     {
