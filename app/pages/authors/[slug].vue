@@ -19,6 +19,23 @@
       <span class="size text-right">{{ authorData.name }} {{ authorData.surname }}</span>
       <span class="size text-right">{{ authorData.born }} - {{ authorData.dead }}</span>
 
+      <section
+        v-if="authorData.en_quotes_pics?.length"
+        class="quote-images"
+        aria-labelledby="quote-images-heading"
+      >
+        <h2 id="quote-images-heading">Quote Images</h2>
+        <ul class="quote-images-grid">
+          <li v-for="(image, index) in authorData.en_quotes_pics" :key="image">
+            <img
+              :src="useSitePath(image)"
+              :alt="`${authorData.name} ${authorData.surname} quote ${index + 1}`"
+              loading="lazy"
+            />
+          </li>
+        </ul>
+      </section>
+
       <div v-if="route.path === '/authors/alexander-the-greate-quotes'" id="alexander-the-great-statue">
         <p>
           <a href="https://musttoseeplaces.substack.com/p/alexander-the-great-statue" target="_blank">Alexander the
@@ -251,6 +268,33 @@ nav ul li a {
   text-align: right;
   display: block;
   color: #fff !important;
+}
+
+.quote-images {
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.quote-images h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.quote-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quote-images-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .related-authors {
