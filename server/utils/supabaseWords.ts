@@ -5,7 +5,7 @@ import { getServerEnvironmentValue } from './environment'
 
 export type WordRecord = Record<string, unknown> & { id: string | number }
 
-const TABLE = 'en_words'
+export type WordTable = 'en_words' | 'tr_words'
 const PAGE_SIZE = 500
 const editableTags = [
   ...sanitizeHtml.defaults.allowedTags,
@@ -66,6 +66,7 @@ function supabaseConfig(event: H3Event) {
 
 async function supabaseRequest<T>(
   event: H3Event,
+  table: WordTable,
   path: string,
   options: RequestInit = {}
 ): Promise<T> {
@@ -73,7 +74,7 @@ async function supabaseRequest<T>(
 
   let response: Response
   try {
-    response = await fetch(`${url}/rest/v1/${TABLE}${path}`, {
+    response = await fetch(`${url}/rest/v1/${table}${path}`, {
       ...options,
       headers: {
         apikey: key,
@@ -88,7 +89,7 @@ async function supabaseRequest<T>(
 
   if (!response.ok) {
     const detail = await response.text()
-    console.error(`Supabase ${options.method || 'GET'} ${TABLE} failed (${response.status}): ${detail}`)
+    console.error(`Supabase ${options.method || 'GET'} ${table} failed (${response.status}): ${detail}`)
     throw createError({
       statusCode: response.status === 401 || response.status === 403 ? 502 : response.status,
       statusMessage: 'Supabase request failed; check the table, API key, and row-level security settings'
@@ -99,12 +100,13 @@ async function supabaseRequest<T>(
   return await response.json() as T
 }
 
-export async function fetchWords(event: H3Event): Promise<WordRecord[]> {
+export async function fetchWords(event: H3Event, table: WordTable = 'en_words'): Promise<WordRecord[]> {
   const words: WordRecord[] = []
 
   for (let offset = 0; ; offset += PAGE_SIZE) {
     const page = await supabaseRequest<WordRecord[]>(
       event,
+      table,
       `?select=*&order=word.asc`,
       { headers: { Range: `${offset}-${offset + PAGE_SIZE - 1}`, 'Range-Unit': 'items' } }
     )
@@ -118,12 +120,13 @@ export async function fetchWords(event: H3Event): Promise<WordRecord[]> {
   }
 }
 
-export async function fetchWordIndex(event: H3Event): Promise<Pick<WordRecord, 'id' | 'word'>[]> {
+export async function fetchWordIndex(event: H3Event, table: WordTable = 'en_words'): Promise<Pick<WordRecord, 'id' | 'word'>[]> {
   const words: Pick<WordRecord, 'id' | 'word'>[] = []
 
   for (let offset = 0; ; offset += PAGE_SIZE) {
     const page = await supabaseRequest<Pick<WordRecord, 'id' | 'word'>[]>(
       event,
+      table,
       '?select=id,word&order=word.asc',
       { headers: { Range: `${offset}-${offset + PAGE_SIZE - 1}`, 'Range-Unit': 'items' } }
     )
@@ -137,7 +140,11 @@ export async function fetchWordIndex(event: H3Event): Promise<Pick<WordRecord, '
   }
 }
 
-export async function fetchWordBySlug(event: H3Event, slug: string): Promise<WordRecord | null> {
+export async function fetchWordBySlug(
+  event: H3Event,
+  slug: string,
+  table: WordTable = 'en_words'
+): Promise<WordRecord | null> {
   if (!/^[\w-]{1,200}$/.test(slug)) return null
 
   const query = new URLSearchParams({
@@ -145,7 +152,7 @@ export async function fetchWordBySlug(event: H3Event, slug: string): Promise<Wor
     id: `ilike.${slug}`,
     limit: '1'
   })
-  const words = await supabaseRequest<WordRecord[]>(event, `?${query.toString()}`)
+  const words = await supabaseRequest<WordRecord[]>(event, table, `?${query.toString()}`)
   if (!Array.isArray(words)) {
     throw createError({ statusCode: 502, statusMessage: 'Supabase returned an invalid word response' })
   }
@@ -214,7 +221,8 @@ export function sanitizeWord(record: WordRecord): WordRecord {
 export async function updateWord(
   event: H3Event,
   id: string,
-  value: unknown
+  value: unknown,
+  table: WordTable = 'en_words'
 ): Promise<void> {
   if (!id || id.length > 200) {
     throw createError({ statusCode: 400, statusMessage: 'Invalid word ID' })
@@ -223,7 +231,7 @@ export async function updateWord(
     throw createError({ statusCode: 400, statusMessage: 'Word data must be an object' })
   }
 
-  const currentWords = await fetchWords(event)
+  const currentWords = await fetchWords(event, table)
   const current = currentWords.find(word => String(word.id) === id)
   if (!current) {
     throw createError({ statusCode: 404, statusMessage: 'Word not found' })
@@ -249,6 +257,7 @@ export async function updateWord(
   const query = new URLSearchParams({ id: `eq.${id}` })
   const updated = await supabaseRequest<WordRecord[]>(
     event,
+    table,
     `?${query.toString()}`,
     {
       method: 'PATCH',
@@ -262,7 +271,11 @@ export async function updateWord(
   }
 }
 
-export async function createWord(event: H3Event, value: unknown): Promise<WordRecord> {
+export async function createWord(
+  event: H3Event,
+  value: unknown,
+  table: WordTable = 'en_words'
+): Promise<WordRecord> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
     throw createError({ statusCode: 400, statusMessage: 'Word data must be an object' })
   }
@@ -278,7 +291,16 @@ export async function createWord(event: H3Event, value: unknown): Promise<WordRe
     throw createError({ statusCode: 400, statusMessage: 'Word cannot be empty' })
   }
 
-  const allowedFields = new Set(['id', 'word', 'content', 'en_meta_desc', 'img', 'img_height', 'img_width'])
+  const allowedFields = new Set([
+    'id',
+    'word',
+    'content',
+    'en_meta_desc',
+    'img',
+    'img_height',
+    'img_width',
+    ...(table === 'tr_words' ? ['related-words', 'tag'] : [])
+  ])
   for (const field of Object.keys(submitted)) {
     if (!allowedFields.has(field)) {
       throw createError({ statusCode: 400, statusMessage: `Unknown word field: ${field}` })
@@ -287,7 +309,7 @@ export async function createWord(event: H3Event, value: unknown): Promise<WordRe
 
   const query = new URLSearchParams({ select: 'id' })
   query.set('id', `eq.${id}`)
-  const existing = await supabaseRequest<WordRecord[]>(event, `?${query.toString()}`)
+  const existing = await supabaseRequest<WordRecord[]>(event, table, `?${query.toString()}`)
   if (!Array.isArray(existing)) {
     throw createError({ statusCode: 502, statusMessage: 'Supabase returned an invalid word response' })
   }
@@ -304,11 +326,16 @@ export async function createWord(event: H3Event, value: unknown): Promise<WordRe
       : null,
     img: typeof submitted.img === 'string' && submitted.img.trim() ? submitted.img.trim() : null,
     img_height: submitted.img_height ?? null,
-    img_width: submitted.img_width ?? null
+    img_width: submitted.img_width ?? null,
+    ...(table === 'tr_words' && {
+      'related-words': typeof submitted['related-words'] === 'string' ? submitted['related-words'] : '',
+      tag: Array.isArray(submitted.tag) ? submitted.tag : []
+    })
   }
 
   const created = await supabaseRequest<WordRecord[]>(
     event,
+    table,
     '?select=*',
     {
       method: 'POST',
@@ -324,12 +351,12 @@ export async function createWord(event: H3Event, value: unknown): Promise<WordRe
   return sanitizeWord(created[0]!)
 }
 
-export async function deleteWord(event: H3Event, id: string): Promise<void> {
+export async function deleteWord(event: H3Event, id: string, table: WordTable = 'en_words'): Promise<void> {
   if (!id || id.length > 200) {
     throw createError({ statusCode: 400, statusMessage: 'Invalid word ID' })
   }
 
-  const currentWords = await fetchWords(event)
+  const currentWords = await fetchWords(event, table)
   if (!currentWords.some(word => String(word.id) === id)) {
     throw createError({ statusCode: 404, statusMessage: 'Word not found' })
   }
@@ -337,6 +364,7 @@ export async function deleteWord(event: H3Event, id: string): Promise<void> {
   const query = new URLSearchParams({ id: `eq.${id}` })
   const deleted = await supabaseRequest<WordRecord[]>(
     event,
+    table,
     `?${query.toString()}`,
     {
       method: 'DELETE',

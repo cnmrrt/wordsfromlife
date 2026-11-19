@@ -21,30 +21,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { useFetch } from '#imports'
 import Navbar_tr from '~/components/Navbar_tr.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
-const words = ref([])
-
-// Fetch words data (SSR-friendly)
-const { data: wordsData, pending, error } = await useFetch(
-  usePublicDataPath('https://wordsfromlife.com/static/data/tr/kelimeler.json')
-)
-
-if (wordsData.value) {
-  // Convert object to array (if Firebase returns an object)
-  const arr = Array.isArray(wordsData.value)
-    ? wordsData.value
-    : Object.entries(wordsData.value).map(([id, item]) => ({
-        id,
-        ...item
-      }))
-
-  // Sort alphabetically by 'word'
-  words.value = arr.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }))
-}
+const { data: wordsData } = await useFetch('/api/tr/words')
+const words = computed(() => wordsData.value || [])
 
 useHead(createPageSeoHead({
   title: 'Kelimeler',

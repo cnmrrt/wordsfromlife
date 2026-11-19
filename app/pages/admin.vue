@@ -20,7 +20,11 @@
       <header class="admin-header">
         <div>
           <h1>Words Admin</h1>
-          <p>Edit words in the Supabase <code>en_words</code> table.</p>
+          <p>
+            {{ collection === 'tr'
+              ? `Supabase ${tableName} tablosundaki Türkçe kelimeleri düzenle.`
+              : `Edit words in the Supabase ${tableName} table.` }}
+          </p>
         </div>
         <button class="secondary-button" type="button" @click="logout">Sign out</button>
       </header>
@@ -28,16 +32,41 @@
       <p v-if="errorMessage" class="error-message" role="alert">{{ errorMessage }}</p>
       <p v-if="successMessage" class="success-message" role="status">{{ successMessage }}</p>
 
+      <nav class="word-collections" aria-label="Word language">
+        <button
+          type="button"
+          :class="{ active: collection === 'en' }"
+          :aria-pressed="collection === 'en'"
+          :disabled="busy || loading"
+          @click="selectCollection('en')"
+        >
+          English words
+        </button>
+        <button
+          type="button"
+          :class="{ active: collection === 'tr' }"
+          :aria-pressed="collection === 'tr'"
+          :disabled="busy || loading"
+          @click="selectCollection('tr')"
+        >
+          Türkçe kelimeler
+        </button>
+      </nav>
+
       <div class="editor-layout">
         <aside class="word-sidebar">
-          <button class="primary-button" type="button" :disabled="busy" @click="startNewWord">
-            Add new word
+          <button class="primary-button" type="button" :disabled="busy || loading" @click="startNewWord">
+            {{ collection === 'tr' ? 'Türkçe kelime ekle' : 'Add new word' }}
           </button>
           <label>
-            Search words
-            <input v-model="searchQuery" type="search" placeholder="Search by word or ID">
+            {{ collection === 'tr' ? 'Kelime ara' : 'Search words' }}
+            <input
+              v-model="searchQuery"
+              type="search"
+              :placeholder="collection === 'tr' ? 'Kelime veya ID ara' : 'Search by word or ID'"
+            >
           </label>
-          <p v-if="!loading" class="word-count">{{ filteredWords.length }} of {{ words.length }} words</p>
+          <p v-if="!loading" class="word-count">{{ filteredWords.length }} of {{ words.length }} {{ collectionTitle.toLowerCase() }}</p>
           <div class="word-list">
             <button
               v-for="word in filteredWords"
@@ -50,13 +79,19 @@
               <strong>{{ displayTitle(word) }}</strong>
               <small>{{ word.id }}</small>
             </button>
-            <p v-if="!loading && filteredWords.length === 0" class="empty-list">No words found.</p>
+            <p v-if="!loading && filteredWords.length === 0" class="empty-list">
+              {{ collection === 'tr' ? 'Kelime bulunamadı.' : 'No words found.' }}
+            </p>
           </div>
         </aside>
 
         <form v-if="formRecord" class="word-form form-grid" @submit.prevent="saveWord">
           <div class="word-form-header">
-            <h2>{{ creating ? 'Add new word' : `Edit ${displayTitle(formRecord)}` }}</h2>
+            <h2>
+              {{ creating
+                ? (collection === 'tr' ? 'Türkçe kelime ekle' : 'Add new word')
+                : `${collection === 'tr' ? 'Düzenle' : 'Edit'} ${displayTitle(formRecord)}` }}
+            </h2>
             <button
               v-if="!creating && !confirmDelete"
               class="delete-button"
@@ -64,12 +99,12 @@
               :disabled="busy"
               @click="confirmDelete = true"
             >
-              Delete word
+              {{ collection === 'tr' ? 'Kelimeyi sil' : 'Delete word' }}
             </button>
             <div v-else-if="!creating && confirmDelete" class="delete-confirmation" role="group" aria-label="Confirm word deletion">
-              <span>Delete this word permanently?</span>
+              <span>{{ collection === 'tr' ? 'Bu kelime kalıcı olarak silinsin mi?' : 'Delete this word permanently?' }}</span>
               <button class="delete-button" type="button" :disabled="busy" @click="deleteWord">
-                {{ busy ? 'Deleting…' : 'Confirm delete' }}
+                {{ busy ? 'Deleting…' : (collection === 'tr' ? 'Silmeyi onayla' : 'Confirm delete') }}
               </button>
               <button class="secondary-button" type="button" :disabled="busy" @click="confirmDelete = false">
                 Cancel
@@ -130,11 +165,17 @@
             </label>
           </template>
           <button class="primary-button save-button" type="submit" :disabled="busy">
-            {{ busy ? (creating ? 'Adding…' : 'Saving…') : (creating ? 'Add word' : 'Save changes') }}
+            {{ busy
+              ? (creating ? 'Adding…' : 'Saving…')
+              : (creating
+                ? (collection === 'tr' ? 'Kelime ekle' : 'Add word')
+                : (collection === 'tr' ? 'Değişiklikleri kaydet' : 'Save changes')) }}
           </button>
         </form>
         <div v-else class="empty-editor">
-          {{ loading ? 'Loading words…' : 'Select a word to edit.' }}
+          {{ loading
+            ? (collection === 'tr' ? 'Kelimeler yükleniyor…' : 'Loading words…')
+            : (collection === 'tr' ? 'Düzenlemek için bir kelime seçin.' : 'Select a word to edit.') }}
         </div>
       </div>
     </section>
@@ -149,6 +190,7 @@ import AdminRichTextEditor from '~/components/AdminRichTextEditor.vue'
 const authenticated = ref(false)
 const busy = ref(false)
 const loading = ref(false)
+const collection = ref<'en' | 'tr'>('en')
 const words = ref<WordRecord[]>([])
 const formRecord = ref<WordRecord | null>(null)
 const searchQuery = ref('')
@@ -159,6 +201,9 @@ const creating = ref(false)
 const jsonError = ref('')
 const jsonValues = reactive<Record<string, string>>({})
 const credentials = reactive({ username: '', password: '' })
+const tableName = computed(() => collection.value === 'tr' ? 'tr_words' : 'en_words')
+const collectionTitle = computed(() => collection.value === 'tr' ? 'Türkçe kelimeleri' : 'English words')
+const adminApiBase = computed(() => collection.value === 'tr' ? '/api/admin/tr-words' : '/api/admin/words')
 const editableFields = computed(() => Object.entries(formRecord.value || {}).filter(([key]) => key !== 'id'))
 
 const filteredWords = computed(() => {
@@ -203,9 +248,26 @@ function clearJsonValues() {
 async function loadWords() {
   loading.value = true
   try {
-    words.value = await $fetch<WordRecord[]>('/api/admin/words')
+    words.value = await $fetch<WordRecord[]>(adminApiBase.value)
   } finally {
     loading.value = false
+  }
+}
+
+async function selectCollection(nextCollection: 'en' | 'tr') {
+  if (collection.value === nextCollection || busy.value || loading.value) return
+  collection.value = nextCollection
+  formRecord.value = null
+  words.value = []
+  creating.value = false
+  confirmDelete.value = false
+  searchQuery.value = ''
+  clearMessages()
+  clearJsonValues()
+  try {
+    await loadWords()
+  } catch (error) {
+    errorMessage.value = getErrorMessage(error, `Could not load ${collectionTitle.value}.`)
   }
 }
 
@@ -257,7 +319,8 @@ function startNewWord() {
     en_meta_desc: '',
     img: '',
     img_height: null,
-    img_width: null
+    img_width: null,
+    ...(collection.value === 'tr' ? { 'related-words': '', tag: [] } : {})
   }
 }
 
@@ -312,7 +375,7 @@ async function saveWord() {
 
   try {
     if (creating.value) {
-      const createdWord = await $fetch<WordRecord>('/api/admin/words', {
+      const createdWord = await $fetch<WordRecord>(adminApiBase.value, {
         method: 'POST',
         body: record
       })
@@ -321,21 +384,26 @@ async function saveWord() {
       )
       formRecord.value = structuredClone(createdWord)
       creating.value = false
-      successMessage.value = 'Word added successfully.'
+      successMessage.value = collection.value === 'tr' ? 'Kelime başarıyla eklendi.' : 'Word added successfully.'
     } else {
       const id = String(record.id)
       delete record.id
-      await $fetch(`/api/admin/words/${encodeURIComponent(id)}`, {
+      await $fetch(`${adminApiBase.value}/${encodeURIComponent(id)}`, {
         method: 'PUT',
         body: record
       })
       await loadWords()
       const updatedWord = words.value.find(word => String(word.id) === id)
       if (updatedWord) formRecord.value = structuredClone(toRaw(updatedWord))
-      successMessage.value = 'Word saved successfully.'
+      successMessage.value = collection.value === 'tr' ? 'Kelime başarıyla kaydedildi.' : 'Word saved successfully.'
     }
   } catch (error) {
-    errorMessage.value = getErrorMessage(error, creating.value ? 'Could not add this word.' : 'Could not save this word.')
+    errorMessage.value = getErrorMessage(
+      error,
+      creating.value
+        ? (collection.value === 'tr' ? 'Kelime eklenemedi.' : 'Could not add this word.')
+        : (collection.value === 'tr' ? 'Kelime kaydedilemedi.' : 'Could not save this word.')
+    )
   } finally {
     busy.value = false
   }
@@ -349,12 +417,12 @@ async function deleteWord() {
   busy.value = true
 
   try {
-    await $fetch(`/api/admin/words/${encodeURIComponent(id)}`, { method: 'DELETE' })
+    await $fetch(`${adminApiBase.value}/${encodeURIComponent(id)}`, { method: 'DELETE' })
     words.value = words.value.filter(word => String(word.id) !== id)
     formRecord.value = null
     creating.value = false
     confirmDelete.value = false
-    successMessage.value = 'Word deleted successfully.'
+    successMessage.value = collection.value === 'tr' ? 'Kelime başarıyla silindi.' : 'Word deleted successfully.'
   } catch (error) {
     errorMessage.value = getErrorMessage(error, 'Could not delete this word.')
   } finally {
@@ -478,6 +546,36 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: minmax(210px, 280px) minmax(0, 1fr);
   gap: 24px;
+}
+
+.word-collections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.word-collections button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  background: white;
+  color: #172033;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.word-collections button.active {
+  border-color: #1d4ed8;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.word-collections button:disabled {
+  cursor: wait;
+  opacity: .65;
 }
 
 .word-sidebar {
