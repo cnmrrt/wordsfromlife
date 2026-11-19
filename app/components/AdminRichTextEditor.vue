@@ -458,7 +458,6 @@ onMounted(async () => {
 
     editor = lexical.createEditor({
       namespace: 'WordsAdminContent',
-      editable: true,
       nodes: [
         richText.HeadingNode,
         richText.QuoteNode,
@@ -525,7 +524,6 @@ onMounted(async () => {
       lexical.COMMAND_PRIORITY_LOW
     ))
     editor.setRootElement(editorRoot.value)
-    editor.setEditable(!showHtml.value)
 
     editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {

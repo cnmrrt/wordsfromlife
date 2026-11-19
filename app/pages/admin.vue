@@ -86,13 +86,13 @@
             >
           </label>
           <template v-for="([key, value]) in editableFields" :key="key">
-            <div v-if="key === 'content' && typeof value === 'string'" class="editor-field">
-              <span>Content</span>
+            <label v-if="key === 'content' && typeof value === 'string'">
+              Content
               <AdminRichTextEditor
                 :model-value="value"
                 @update:model-value="updateField(key, $event)"
               />
-            </div>
+            </label>
             <label v-else-if="Array.isArray(value)">
               {{ fieldLabel(key) }} <span class="hint">(comma-separated)</span>
               <input
@@ -412,7 +412,6 @@ onMounted(async () => {
 }
 
 .form-grid label,
-.editor-field,
 .word-sidebar label {
   display: grid;
   gap: 6px;
