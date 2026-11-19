@@ -2,6 +2,7 @@
   <nav id="navbar">
     <ul>
       <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/story">Stories</router-link></li>
       <li><router-link to="/authors">Authors</router-link></li>
       <li><router-link to="/words">Words</router-link></li>
       <li><router-link to="/preverbs">Proverbs</router-link></li>
