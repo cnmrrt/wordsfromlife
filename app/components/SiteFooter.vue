@@ -11,6 +11,10 @@
           aria-label="Words From Life on X (opens in a new tab)">
           X
         </a>
+        <a href="https://www.instagram.com/wordsfromlifesocial" target="_blank" rel="noopener noreferrer"
+          aria-label="Words From Life on Instagram (opens in a new tab)">
+          Instagram
+        </a>
       </nav>
     </div>
   </footer>
