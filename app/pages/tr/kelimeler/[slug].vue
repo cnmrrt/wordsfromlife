@@ -6,17 +6,12 @@
       <h1>{{ word.word }}</h1>
 
       <div id="main-image" v-if="word.img">
-        <img
-          :src="useSitePath(word.img)"
-          :alt="word.word"
-          :width="word.img_width"
-          :height="word.img_height"
-        />
+        <img :src="useSitePath(word.img)" :alt="word.word" :width="word.img_width" :height="word.img_height" />
       </div>
 
       <!-- renders immediately after SSR -->
       <div v-html="useSiteHtml(word.content)"></div>
-      
+
     </main>
   </div>
 
@@ -44,6 +39,8 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Sittin Sene Ne Demek? - Words From Life';
 } else if (route.path === '/tr/kelimeler/yali') {
   pageTitle = 'Yalı Kelimesi Nereden Geliyor? | Words From Life';
+} else if (route.path === '/tr/kelimeler/tahayyul') {
+  pageTitle = 'Tahayyül Ne Demek? | Words From Life';
 } else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
@@ -74,31 +71,37 @@ useHead(() => {
   font-size: 1.2rem;
   color: #e74c3c;
 }
+
 .word-detail-container {
   max-width: 80%;
   margin: 0 auto;
   padding: 0;
 }
+
 .word-detail-main {
   max-width: 600px;
   margin: 0 auto;
 }
+
 .word-detail-main h1 {
   text-align: center;
   margin-bottom: 2rem;
   color: #333;
 }
+
 #main-image {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
 }
+
 #main-image img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .word-detail-main p {
   line-height: 1.6;
   margin: 1rem 0;
