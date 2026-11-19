@@ -1084,6 +1084,9 @@
         "img_height": 600,
         "img_width": 350,
         "name": "Immanuel",
+        "related-person": [
+            "rene-descartes"
+        ],
         "surname": "Kant",
         "tr_meta_desc": "Alman filozof Immanuel Kant'ın ilham verici ve motive edici sözleri Wordsfromlife.com'da.En güzel Immanuel Kant sözleri için tıklayın!",
         "tr_quotes": ""
@@ -2076,7 +2079,9 @@
         "en_meta_desc": "",
         "en_quotes": [
             "I think; therefore I am.",
-            "It is not enough to posses a good mind; the most important thing is to use it well."
+            "It is not enough to posses a good mind; the most important thing is to use it well.",
+            "To know what people really think, pay attention to what they do, rather than what they say.",
+            "The reading of all good books is like conversation with the finest men of past centuries."
         ],
         "id": "rene-descartes",
         "img": "/static/img/authors/rene-descartes.jpeg",
@@ -2086,7 +2091,10 @@
         "surname": "Descartes",
         "tr_meta_desc": "Fransız matematikçi, filozof ve yazar Rene Descartes'in ilham verici sözleri Wordsfromlife.com'da. Rene Descartes sözleri için tıklayın!",
         "tr_quotes": [
-            "Düşünüyorum o halde varım."
+            "Düşünüyorum o halde varım.",
+            "Önemli olan akıllı olmak değil, aklı yerinde ve zamanında kullanmaktır.",
+            "İnsanların gerçekten ne düşündüklerini öğrenmek için söylediklerinden çok, yaptıklarına dikkat edin.",
+            "İyi kitaplar okumak geçmiş yüzyılların en iyi insanlarıyla sohbet etmek gibidir."
         ]
     },
     {
@@ -2094,7 +2102,7 @@
         "dead": 1963,
         "en_meta_desc": "All inspirational and motivational quotes by famous poet Robert Frost at Wordsfromlife.com. Visit for Robert Frost quotes!",
         "en_quotes": [
-            ""
+            "Half the world is composed of people who have something to say and can't, and the other half who have nothing to say and keep on saying it."
         ],
         "id": "robert-frost",
         "img": "/static/img/authors/robert-frost.jpg",
@@ -2103,7 +2111,9 @@
         "name": "Robert",
         "surname": "Frost",
         "tr_meta_desc": "Amerikalı şair Robert Frost'un ilham verici ve motive edici sözleri Wordsfromlife.com'da. Robert Frost sözleri için tıklayın!",
-        "tr_quotes": ""
+        "tr_quotes": [
+            "Dünyanın yarısı söyleyecek şeyleri olan ama söylemeyen, öteki yarısı da söyleyecek bir şeyi olmayan ama durmadan konuşan insanlardan oluşur."
+        ]
     },
     {
         "born": 1904,
