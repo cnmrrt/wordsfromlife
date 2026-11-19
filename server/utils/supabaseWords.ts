@@ -90,9 +90,27 @@ async function supabaseRequest<T>(
   if (!response.ok) {
     const detail = await response.text()
     console.error(`Supabase ${options.method || 'GET'} ${table} failed (${response.status}): ${detail}`)
+
+    let errorCode = ''
+    try {
+      const error = JSON.parse(detail) as { code?: unknown }
+      if (typeof error.code === 'string') errorCode = error.code
+    } catch {
+      // Supabase may return a non-JSON error body.
+    }
+
+    let statusMessage = 'Supabase request failed; check the table, API key, and row-level security settings'
+    if (response.status === 401 || response.status === 403 || errorCode === '42501') {
+      statusMessage = `Supabase denied access to ${table}; check the server key and table permissions`
+    } else if (['PGRST205', '42P01'].includes(errorCode)) {
+      statusMessage = `Supabase table ${table} was not found or is not exposed in the Data API`
+    } else if (['PGRST204', '42703'].includes(errorCode)) {
+      statusMessage = `Supabase table ${table} is missing a column requested by this app`
+    }
+
     throw createError({
       statusCode: response.status === 401 || response.status === 403 ? 502 : response.status,
-      statusMessage: 'Supabase request failed; check the table, API key, and row-level security settings'
+      statusMessage
     })
   }
 
