@@ -117,7 +117,7 @@
           </li>
           <li>
             Placebo responses do not make an illness imaginary and do not
-            replace appropriate medical treatment.
+            replace appropriate medical treatment. 
           </li>
         </ul>
       </section>
