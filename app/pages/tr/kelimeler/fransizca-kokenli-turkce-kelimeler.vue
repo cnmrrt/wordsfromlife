@@ -98,7 +98,10 @@ const wordsData = [
   { id: "restoran", word: "Restoran", french_origin: "restaurant", meaning: "Yemek yenilen işletme" },
   { id: "sabotaj", word: "Sabotaj", french_origin: "sabotage", meaning: "Baltalama, bozgunculuk" },
   { id: "sopır", word: "Şoför", french_origin: "chauffeur", meaning: "Sürücü" },
-  { id: "televizyon", word: "Televizyon", french_origin: "télévision", meaning: "Uzakgörü, kitle iletişim aracı" }
+  { id: "televizyon", word: "Televizyon", french_origin: "télévision", meaning: "Uzakgörü, kitle iletişim aracı" },
+  { id: "absorbe", word: "Absorbe", french_origin: "absorbé", meaning: "emmek, içine çekmek, hapsolmak" },
+
+  
 ]
 
 const filteredWords = computed(() => {
