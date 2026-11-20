@@ -568,7 +568,8 @@
         "dead": 1870,
         "en_meta_desc": "All inspirational and motivational English writer and social critic Charles Dickens quotes at Wordsfromlife.com. Visit for Charles Dickens quotes!",
         "en_quotes": [
-            "No one is useless in this world who lightens the burdens of anotherm."
+            "No one is useless in this world who lightens the burdens of anotherm.",
+            "This is a world of action, and not for moping and droning in."
         ],
         "en_quotes_pics": [
             "https://wordsfromlife.com/static/img/authors/charles-dickens-quote-1.png"
@@ -1121,7 +1122,9 @@
         "name": "Isaac",
         "related-person": [
             "nikola-tesla",
-            "alexander-graham-bell"
+            "alexander-graham-bell",
+            "domenico-fetti-archimedes",
+            "thomas-edison"
         ],
         "surname": "Newton",
         "tr_meta_desc": "",
