@@ -1110,6 +1110,9 @@
             "We build too many walls, and not enough bridges.",
             "What we know is a drop, what we don't know is an ocean."
         ],
+        "en_quotes_pics": [
+            "https://wordsfromlife.com/static/img/authors/isaac-newton-quote-1.png"
+        ],
         "id": "isaac-newton",
         "img": "/static/img/authors/isaac-newton.jpeg",
         "img_height": 338,
