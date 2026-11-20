@@ -39,9 +39,8 @@
             :key="item.id"
             :id="item.id"
           >
-            <td class="word-cell">
-              <strong>{{ item.word }}</strong>
-            </td>
+            
+            <td class="word-cell"><strong v-html="item.word"></strong></td>
             <td class="french-cell">
               <em>{{ item.french_origin }}</em>
             </td>
@@ -99,7 +98,7 @@ const wordsData = [
   { id: "sabotaj", word: "Sabotaj", french_origin: "sabotage", meaning: "Baltalama, bozgunculuk" },
   { id: "sopır", word: "Şoför", french_origin: "chauffeur", meaning: "Sürücü" },
   { id: "televizyon", word: "Televizyon", french_origin: "télévision", meaning: "Uzakgörü, kitle iletişim aracı" },
-  { id: "absorbe", word: "Absorbe", french_origin: "absorbé", meaning: "emmek, içine çekmek, hapsolmak" },
+  { id: "absorbe", word: "<a href='/tr/kelimeler/absorbe'>Absorbe</a>", french_origin: "absorbé", meaning: "emmek, içine çekmek, hapsolmak" },
 
   
 ]
