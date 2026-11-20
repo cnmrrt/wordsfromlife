@@ -122,7 +122,7 @@ if (authorData.value) {
   const authorName = `${authorData.value.name} ${authorData.value.surname} Quotes`;
   useHead(createPageSeoHead({
     title: authorName,
-    description: authorData.value.en_meta_desc || `Inspirational quotes by ${authorName}.`,
+    description: authorData.value.en_meta_desc || `Inspirational and motivational quotes by ${authorName}. Visit Words From Life for more quotes and insights from famous authors.`,
     path: `/authors/${authorData.value.id}-quotes`,
     lang: 'en',
     ...(Array.isArray(authorData.value.tr_quotes) && authorData.value.tr_quotes.length > 0
