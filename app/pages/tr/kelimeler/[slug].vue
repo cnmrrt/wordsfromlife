@@ -42,6 +42,8 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Tahayyül Ne Demek? | Words From Life';
 } else if (route.path === '/tr/kelimeler/ahali') {
   pageTitle = 'Ahali Sözlük Anlamı | Words From Life';
+} else if (route.path === '/tr/kelimeler/aforizma') {
+  pageTitle = 'Aforizma Ne Demek? | Words From Life';
 } else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
