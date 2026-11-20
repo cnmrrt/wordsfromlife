@@ -148,7 +148,7 @@ import Navbar_tr from '~/components/Navbar_tr.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
 useHead(createPageSeoHead({
-  title: 'Diderot Etkisi Nedir? | Words From Life',
+  title: 'Diderot Etkisi Nedir? (Kırmızı Sabahlık Sendromu) | Words From Life',
   description: 'Diderot Etkisi’nin ne olduğunu, yeni bir eşyanın nasıl tüketim zinciri başlatabildiğini ve bu döngüyü kırmanın yollarını öğrenin.',
   path: '/tr/hikaye/diderot-etkisi-nedir',
   image: '/static/img/story/dennis-diderot-effect.webp',
