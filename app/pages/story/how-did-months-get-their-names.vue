@@ -99,7 +99,7 @@
       <section>
         <h2>7. July</h2>
         <p>
-          <strong>Meaning:</strong> Named in honor of Julius Caesar in 44 BCE.
+          <strong>Meaning:</strong> Named in <a href="https://wordsfromlife.com/words/honor">honor</a> of Julius Caesar in 44 BCE.
         </p>
         <p>
           <strong>Origin:</strong> Originally called <em>Quintilis</em>,
