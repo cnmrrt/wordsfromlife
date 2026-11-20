@@ -69,6 +69,7 @@ const wordsData = [
   { id: "balkon", word: "Balkon", french_origin: "balcon", meaning: "Dışarıya doğru çıkıntılı üst kat platformu" },
   { id: "banliyoe", word: "Banliyö", french_origin: "banlieue", meaning: "Şehir çevresindeki yerleşim bölgesi" },
   { id: "bizon", word: "Bizon", french_origin: "bison", meaning: "Kuzey Amerika yaban öküzü" },
+  { id: "bohem", word: "<a href='/tr/kelimeler/bohem'>Bohem</a>", french_origin: "bohème", meaning: "Geleneksel kurallara bağlı kalmadan, özgür ve sanatçı ruhlu bir yaşam süren kimse veya bu yaşam tarzı." },
   { id: "bonkör", word: "Bonkör", french_origin: "bon cœur", meaning: "Eli açık, cömert ('iyi yürekli')" },
   { id: "buro", word: "Büro", french_origin: "bureau", meaning: "Çalışma odası, yazı masası veya danışma birimi" },
   { id: "dekor", word: "Dekor", french_origin: "décor", meaning: "Tiyatro, sinema veya mekân süslemesi" },
