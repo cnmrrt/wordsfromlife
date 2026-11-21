@@ -4,6 +4,7 @@ const words = JSON.parse(readFileSync(new URL('./public/static/data/words.json',
 const authors = JSON.parse(readFileSync(new URL('./public/static/data/author-quotes.json', import.meta.url), 'utf8')) as { id: string; tr_quotes?: unknown }[]
 const proverbs = JSON.parse(readFileSync(new URL('./public/static/data/preverbs.json', import.meta.url), 'utf8')) as { id: string }[]
 const turkishWords = JSON.parse(readFileSync(new URL('./public/static/data/tr/kelimeler.json', import.meta.url), 'utf8')) as { id: string }[]
+const idioms = JSON.parse(readFileSync(new URL('./public/static/data/tr/deyimler.json', import.meta.url), 'utf8')) as { id: string }[]
 const authorsWithTurkishQuotes = authors.filter((author) => Array.isArray(author.tr_quotes) && author.tr_quotes.length > 0)
 
 const siteUrl = 'https://wordsfromlife.com'
@@ -74,6 +75,8 @@ export default defineNuxtConfig({
       { loc: '/tr/kelimeler/turkcedeki-zit-anlamli-kelimeler' },
       { loc: '/tr/kelimeler/osmanlica-kelimeler' },
       { loc: '/tr/kelimeler/bilim-dallari-isimleri' },
+      { loc: '/tr/deyimler', priority: 0.8 },
+      ...idioms.map((idiom) => ({ loc: `/tr/deyimler/${idiom.id}`, changefreq: 'monthly' as const })),
       ...words.map((word) => ({ loc: `/words/${word.id}`, changefreq: 'weekly' as const })),
       ...authors.map((author) => ({ loc: `/authors/${author.id}-quotes`, changefreq: 'monthly' as const })),
       ...authorsWithTurkishQuotes.map((author) => ({ loc: `/tr/kisiler/${author.id}-sozleri`, changefreq: 'monthly' as const })),
@@ -111,6 +114,8 @@ export default defineNuxtConfig({
         '/tr/kelimeler/turkcedeki-zit-anlamli-kelimeler',
         '/tr/kelimeler/osmanlica-kelimeler',
         '/tr/kelimeler/bilim-dallari-isimleri',
+        '/tr/deyimler',
+        ...idioms.map((idiom) => `/tr/deyimler/${idiom.id}`),
         ...authors.map((author) => `/authors/${author.id}-quotes`),
         ...authorsWithTurkishQuotes.map((author) => `/tr/kisiler/${author.id}-sozleri`),
         ...proverbs.map((proverb) => `/preverbs/${proverb.id}`),
