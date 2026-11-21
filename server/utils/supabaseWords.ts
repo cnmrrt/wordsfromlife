@@ -158,6 +158,33 @@ export async function fetchWordIndex(event: H3Event, table: WordTable = 'en_word
   }
 }
 
+export async function fetchWordsByTag(
+  event: H3Event,
+  tag: string,
+  table: WordTable = 'en_words'
+): Promise<Pick<WordRecord, 'id' | 'word' | 'tag'>[]> {
+  const words = await fetchWords(event, table)
+
+  return words
+    .filter((word) => {
+      const tags = word.tag
+      if (Array.isArray(tags)) return tags.includes(tag)
+      if (typeof tags === 'string') {
+        return tags
+          .split(',')
+          .map(value => value.trim())
+          .includes(tag)
+      }
+      return false
+    })
+    .map(word => ({
+      id: word.id,
+      word: word.word,
+      tag: word.tag
+    }))
+    .sort((a, b) => String(a.word || '').localeCompare(String(b.word || ''), 'tr', { sensitivity: 'base' }))
+}
+
 export async function fetchWordBySlug(
   event: H3Event,
   slug: string,

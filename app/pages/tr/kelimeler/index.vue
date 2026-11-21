@@ -17,6 +17,7 @@
           <p><NuxtLink to="/tr/kelimeler/turkcedeki-zit-anlamli-kelimeler">Türkçedeki Zıt Anlamlı Kelimeler</NuxtLink></p>
           <p><NuxtLink to="/tr/kelimeler/sivas-yoresel-kelimeler">Sivas Yöresel Kelimeleri</NuxtLink></p>
           <p><NuxtLink to="/tr/kelimeler/osmanlica-kelimeler">Osmanlıca Kelimeler ve Anlamları</NuxtLink></p>
+          <p><NuxtLink to="/tr/kelimeler/bilim-dallari-isimleri">Bilim Dalları İsimleri</NuxtLink></p>
         </section>
       </div>
     </main>
