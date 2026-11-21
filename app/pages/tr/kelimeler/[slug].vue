@@ -46,6 +46,8 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Aforizma Ne Demek? | Words From Life';
 } else if (route.path === '/tr/kelimeler/bohem') {
   pageTitle = 'Bohem Ne Demek? | Words From Life';
+} else if (route.path === '/tr/kelimeler/alelade') {
+  pageTitle = 'Alelade Ne Demek? | Words From Life';
 } else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
