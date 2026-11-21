@@ -1,22 +1,30 @@
 <template>
-  <Navbar_tr />
+  <div>
+    <Navbar_tr />
 
-  <div v-if="word" class="word-detail-container">
-    <main class="word-detail-main">
-      <h1>{{ word.word }}</h1>
+    <div v-if="word" class="word-detail-container">
+      <main class="word-detail-main">
+        <h1>{{ word.word }}</h1>
 
-      <div id="main-image" v-if="word.img">
-        <img :src="useSitePath(word.img)" :alt="word.word" :width="word.img_width" :height="word.img_height" />
-      </div>
+        <div v-if="word.img" id="main-image">
+          <img :src="useSitePath(word.img)" :alt="word.word" :width="word.img_width" :height="word.img_height" >
+        </div>
 
-      <!-- renders immediately after SSR -->
-      <div v-html="useSiteHtml(word.content)"></div>
+        <div v-html="useSiteHtml(word.content)" />
 
-    </main>
-  </div>
+        <nav class="breadcrumb" aria-label="Sayfa yolu">
+          <ol>
+            <li><NuxtLink to="/tr">Ana Sayfa</NuxtLink></li>
+            <li><NuxtLink to="/tr/kelimeler">Kelimeler</NuxtLink></li>
+            <li aria-current="page">{{ word.word }}</li>
+          </ol>
+        </nav>
+      </main>
+    </div>
 
-  <div v-else class="error">
-    Word not found.
+    <div v-else class="error">
+      Word not found.
+    </div>
   </div>
 </template>
 
@@ -73,7 +81,7 @@ useHead(() => {
     type: 'article',
     lang: 'tr',
     breadcrumbs: [
-      { name: 'Ana Sayfa', path: '/' },
+      { name: 'Ana Sayfa', path: '/tr' },
       { name: 'Kelimeler', path: '/tr/kelimeler' },
       { name: word.value.word, path }
     ]
@@ -122,5 +130,48 @@ useHead(() => {
 .word-detail-main p {
   line-height: 1.6;
   margin: 1rem 0;
+}
+
+.breadcrumb {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e8e3dc;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  color: #94a3b8;
+}
+
+.breadcrumb a {
+  color: #9a643e;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: #29323b;
+  font-weight: 600;
 }
 </style>
