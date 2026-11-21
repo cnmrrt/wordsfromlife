@@ -11,6 +11,14 @@
       <article class="idiom-content" v-html="useSiteHtml(idiom.icerik)" />
 
       <NuxtLink to="/tr/deyimler" class="back-link">Tüm deyimleri görüntüle</NuxtLink>
+
+      <nav class="breadcrumb" aria-label="Sayfa yolu">
+        <ol>
+          <li><NuxtLink to="/tr">Ana Sayfa</NuxtLink></li>
+          <li><NuxtLink to="/tr/deyimler">Deyimler</NuxtLink></li>
+          <li aria-current="page">{{ idiom.deyim }}</li>
+        </ol>
+      </nav>
     </main>
 
     <main v-else class="not-found">
@@ -120,6 +128,49 @@ useHead(() => {
 
 .back-link:hover {
   text-decoration: underline;
+}
+
+.breadcrumb {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e8e3dc;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  color: #94a3b8;
+}
+
+.breadcrumb a {
+  color: #9a643e;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: #29323b;
+  font-weight: 600;
 }
 
 .not-found {
