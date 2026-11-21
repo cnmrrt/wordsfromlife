@@ -9,6 +9,7 @@
           src="/static/img/story/dennis-diderot-effect.webp"
           alt="Denis Diderot zengin eşyalarla döşenmiş odasında yazı yazarken"
           width="1248"
+          height="832"
         >
         <span class="story-feature-copy">
           <span class="story-feature-title">Diderot Etkisi Nedir?</span>
