@@ -48,6 +48,10 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Bohem Ne Demek? | Words From Life';
 } else if (route.path === '/tr/kelimeler/alelade') {
   pageTitle = 'Alelade Ne Demek? | Words From Life';
+} else if (route.path === '/tr/kelimeler/filoloji') {
+  pageTitle = 'Filoloji Ne Demek? | Words From Life';
+} else if (route.path === '/tr/kelimeler/antropoloji') {
+  pageTitle = 'Antropoloji Ne Demek? | Words From Life';
 } else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
