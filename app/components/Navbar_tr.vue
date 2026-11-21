@@ -1,6 +1,7 @@
 <template>
   <nav id="navbar">
     <ul>
+      <li><router-link to="/tr">Ana Sayfa</router-link></li>
       <li><router-link to="/tr/kelimeler">Kelimeler</router-link></li>
       <li><router-link to="/tr/kisiler">Kişiler</router-link></li>
     </ul>
