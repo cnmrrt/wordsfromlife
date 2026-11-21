@@ -4,5 +4,11 @@
         "tr_meta_desc": "Çam devirmek deyimi, farkında olmadan, pot kırarak, patavatsızlık ederek veya yanlış/kırıcı bir söz söyleyerek karşısındakini gücendirmek ya da zor durumda bırakmak anlamına gelir.",
         "id": "cam-devirmek",
         "deyim": "Çam Devirmek"
+    },
+    {
+        "icerik": "<p>Kantarın topuzunu kaçırmak deyimi, bir şeyde ölçüyü, sınırı ve dengeyi bozmak; aşırılığa, abartıya veya taşkınlığa kaçmak anlamına gelir.</p><h2>Kullanım Özellikleri ve Örnekler</h2> <ul> <li> <strong>Denge kaybı vurgusu:</strong> Şaka, eleştiri, övgü, harcama ya da tepki gibi pek çok alanda ölçünün yitirilmesi durumunu anlatır. </li> <li> <strong>Sıklıkla birlikte kullanılan fiiller:</strong> <em>Kantarın topuzunu kaçırmak</em>, <em>kantarın topuzunu iyice kaçırmak</em>. </li> </ul><h3>Örnek cümleler</h3> <ul> <li><q>Şakanın dozunu fazla abartarak yine kantarın topuzunu kaçırdı.</q></li> <li><q>İndirim görünce alışverişte kantarın topuzunu kaçırmamak lazım.</q></li> </ul><h3>Kökeni ve İmgesi</h3> <p> Deyim, eski tartı araçlarından <strong>kantardaki topuzun (veya ayar parçasının)</strong> dengesini şaşırması imgesine dayanır. Kantarda denge ve ayar noktası bozulduğunda tartım şaşar ve kontrol elden çıkar; dilde de bu fiziksel dengesizlik, sözün veya davranışın makul sınırın dışına taşmasına aktarılmıştır.<h3>Yakın Anlamlı Deyimler</h3> <ul> <li><strong>Ölçüyü kaçırmak:</strong> Uygun sınırın dışına çıkmak.</li> <li><strong>Cılkını çıkarmak:</strong> Bir şeyin tadını, ayarını veya doğallığını aşırı zorlayarak bozmak.</li> </ul></p>",
+        "tr_meta_desc": "Kantarın topuzunu kaçırmak deyimi, bir şeyde ölçüyü, sınırı ve dengeyi bozmak; aşırılığa, abartıya veya taşkınlığa kaçmak anlamına gelir.",
+        "id": "kantarin-topuzunu-kacirmak",
+        "deyim": "Kantarın Topuzunu Kaçırmak"
     }
 ]
