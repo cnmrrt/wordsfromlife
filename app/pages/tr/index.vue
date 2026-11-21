@@ -1,170 +1,251 @@
 <template>
   <div>
     <Navbar_tr />
+    <main class="main" role="main">
+      <h1>Words From Life</h1>
 
-    <main class="turkish-home">
-      <header class="hero">
-        <p class="eyebrow">Words From Life</p>
-        <h1>Türkçe Dil ve Kültür İçerikleri</h1>
-        <p class="hero-description">
-          Kelimelerin anlamlarını, kökenlerini ve kullanımlarını; ünlü kişilerin
-          sözlerini ve hikâyeleri keşfedin.
-        </p>
-      </header>
+      <NuxtLink to="/tr/hikaye/diderot-etkisi-nedir" class="story-feature">
+        <img
+          src="/static/img/story/dennis-diderot-effect.webp"
+          alt="Denis Diderot zengin eşyalarla döşenmiş odasında yazı yazarken"
+          width="1248"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Diderot Etkisi Nedir?</span>
+          <span class="story-feature-description">
+            Yeni bir eşya edinmenin tüketim sarmalı başlatabileceğini ve bunun
+            kişinin yaşam tarzını nasıl değiştirebileceğini keşfedin.
+          </span>
+        </span>
+      </NuxtLink>
 
-      <section class="section-grid" aria-label="Türkçe içerikler">
-        <NuxtLink to="/tr/kelimeler" class="section-card">
-          <span class="card-label">Sözlük</span>
-          <h2>Kelimeler</h2>
-          <p>
-            Türkçe kelimelerin anlamlarını, kökenlerini ve özel kelime listelerini inceleyin.
-          </p>
-          <span class="card-link">Kelimelere göz at <span aria-hidden="true">→</span></span>
-        </NuxtLink>
+      <NuxtLink to="/tr/hikaye/aylar-isimlerini-nasil-aldi" class="story-feature">
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Aylar İsimlerini Nasıl Aldı?</span>
+          <span class="story-feature-description">
+            On iki ayın isimlerinin Roma tanrıları, Latin sayıları, festivaller
+            ve tarihten gelen kökenlerini inceleyin.
+          </span>
+        </span>
+      </NuxtLink>
 
-        <NuxtLink to="/tr/kisiler" class="section-card">
-          <span class="card-label">Sözler</span>
+      <div class="home-container">
+        <section class="section">
           <h2>Kişiler</h2>
-          <p>
-            Yazar, düşünür, sanatçı ve liderlere ait Türkçe alıntılar ve hayatları.
-          </p>
-          <span class="card-link">Kişilere göz at <span aria-hidden="true">→</span></span>
-        </NuxtLink>
+          <div id="turkish-authors-masonry">
+            <div
+              v-for="author in authors"
+              :key="author.id"
+              class="demo"
+            >
+              <NuxtLink :to="`/tr/kisiler/${author.id}-sozleri`">
+                <img
+                  v-if="author.img"
+                  :src="useSitePath(author.img)"
+                  :alt="`${author.name} ${author.surname}`"
+                  :width="author.img_width"
+                  :height="author.img_height"
+                >
+                <span class="author-name">
+                  {{ author.name }} {{ author.surname }}
+                </span>
+              </NuxtLink>
+            </div>
+          </div>
+        </section>
 
-        <NuxtLink to="/tr/hikaye/diderot-etkisi-nedir" class="section-card">
-          <span class="card-label">Hikâyeler</span>
-          <h2>Diderot Etkisi</h2>
+        <section id="word-container" class="section">
+          <h2>Kelimeler</h2>
+          <ul>
+            <li v-for="word in words" :key="String(word.id)">
+              <NuxtLink :to="`/tr/kelimeler/${word.id}`">{{ word.word }}</NuxtLink>
+            </li>
+          </ul>
+          <hr class="section-divider">
           <p>
-            Yeni bir eşyanın ardından başlayan tüketim ve yaşam tarzı döngüsünü keşfedin.
+            <NuxtLink to="/tr/kelimeler/fransizca-kokenli-turkce-kelimeler">
+              Fransızca Kökenli Türkçe Kelimeler
+            </NuxtLink>
           </p>
-          <span class="card-link">Hikâyeyi oku <span aria-hidden="true">→</span></span>
-        </NuxtLink>
+          <p>
+            <NuxtLink to="/tr/kelimeler/turkcede-en-cok-yapilan-yazim-hatalari">
+              Türkçe'de En Çok Yapılan Yazım Hataları
+            </NuxtLink>
+          </p>
+          <p>
+            <NuxtLink to="/tr/kelimeler/turkcedeki-es-anlamli-kelimeler">
+              Türkçedeki Eş Anlamlı Kelimeler
+            </NuxtLink>
+          </p>
+          <p>
+            <NuxtLink to="/tr/kelimeler/turkcedeki-zit-anlamli-kelimeler">
+              Türkçedeki Zıt Anlamlı Kelimeler
+            </NuxtLink>
+          </p>
+          <p>
+            <NuxtLink to="/tr/kelimeler/sivas-yoresel-kelimeler">
+              Sivas Yöresel Kelimeleri
+            </NuxtLink>
+          </p>
+          <p>
+            <NuxtLink to="/tr/kelimeler/osmanlica-kelimeler">
+              Osmanlıca Kelimeler ve Anlamları
+            </NuxtLink>
+          </p>
+          <p>
+            <NuxtLink to="/tr/kelimeler/bilim-dallari-isimleri">
+              Bilim Dalları İsimleri
+            </NuxtLink>
+          </p>
+        </section>
+      </div>
 
-        <NuxtLink to="/tr/hikaye/aylar-isimlerini-nasil-aldi" class="section-card">
-          <span class="card-label">Hikâyeler</span>
-          <h2>Aylar İsimlerini Nasıl Aldı?</h2>
-          <p>
-            On iki ayın isimlerinin Roma mitolojisi, Latin kökenleri ve tarihten gelen hikâyesi.
-          </p>
-          <span class="card-link">Hikâyeyi oku <span aria-hidden="true">→</span></span>
-        </NuxtLink>
-      </section>
+      <h2 class="stories-heading">Hikâyeler</h2>
+
+      <NuxtLink to="/tr/hikaye/diderot-etkisi-nedir" class="story-feature">
+        <img
+          src="/static/img/story/dennis-diderot-effect.webp"
+          alt="Denis Diderot zengin eşyalarla döşenmiş odasında yazı yazarken"
+          width="1248"
+          height="832"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Diderot Etkisi Nedir?</span>
+          <span class="story-feature-description">
+            Yeni bir eşyanın daha fazla tüketimi tetikleyebileceği tüketim
+            döngüsünü ve bunun kimliğe nasıl dokunduğunu inceleyin.
+          </span>
+        </span>
+      </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/aylar-isimlerini-nasil-aldi" class="story-feature">
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Aylar İsimlerini Nasıl Aldı?</span>
+          <span class="story-feature-description">
+            Roma tanrıları, Latin sayıları, festivaller ve siyasi tarih;
+            ayların isimlerinin ardındaki hikâyeyi açıklıyor.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>
 
 <script setup>
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import Navbar_tr from '~/components/Navbar_tr.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
+const { data: authorsData } = await useAsyncData('turkish-authors-home', () =>
+  $fetch(usePublicDataPath('https://wordsfromlife.com/static/data/author-quotes.json'))
+)
+
+const { data: wordsData } = await useFetch('/api/tr/words')
+
+const authors = computed(() => (authorsData.value || [])
+  .filter(author => Array.isArray(author.tr_quotes) && author.tr_quotes.length > 0 && author.img)
+  .sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`, 'tr')))
+
+const words = computed(() => (wordsData.value || [])
+  .slice()
+  .sort((a, b) => String(a.word || '').localeCompare(String(b.word || ''), 'tr', { sensitivity: 'base' })))
+
+const masonryInstance = ref(null)
+
+onMounted(async () => {
+  await nextTick()
+  if (masonryInstance.value) masonryInstance.value.destroy()
+  const Macy = (await import('macy')).default
+  masonryInstance.value = Macy({
+    container: '#turkish-authors-masonry',
+    trueOrder: false,
+    waitForImages: false,
+    margin: 15,
+    columns: 6,
+    breakAt: { 1200: 4, 940: 3, 520: 2 }
+  })
+})
+
+onBeforeUnmount(() => {
+  masonryInstance.value?.destroy()
+})
+
 useHead(createPageSeoHead({
-  title: 'Türkçe İçerikler | Words From Life',
-  description: 'Kelimeler, ünlü kişilerin sözleri ve Türkçe hikâyeler.',
+  title: 'Words From Life - Türkçe Sözler, Kelimeler ve Hikâyeler',
+  description: 'İlham veren sözler, Türkçe kelimeler ve hikâyeler.',
   path: '/tr',
   lang: 'tr',
+  alternateLanguages: [
+    { lang: 'en', path: '/' },
+    { lang: 'tr', path: '/tr' },
+    { lang: 'x-default', path: '/' }
+  ],
   breadcrumbs: [
     { name: 'Ana Sayfa', path: '/tr' }
   ]
 }))
 </script>
 
+<style scoped src="~/assets/css/home.css"></style>
+
 <style scoped>
-.turkish-home {
-  width: min(1120px, 100%);
-  margin: 0 auto;
-  padding: 3rem 1.25rem 5rem;
-}
-
-.hero {
-  max-width: 760px;
-  margin: 0 auto 3rem;
+.main h1 {
   text-align: center;
+  font-size: 40px;
+  margin: 2rem 0;
 }
 
-.eyebrow,
-.card-label {
-  color: #9a643e;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.section h2,
+.stories-heading {
+  margin: 3rem 0 2rem;
+  text-align: center;
+  font-size: 40px;
 }
 
-.eyebrow {
-  margin: 0 0 0.75rem;
+#turkish-authors-masonry {
+  padding: 1rem 0;
 }
 
-.hero h1 {
-  margin: 0 0 1rem;
-  color: #202a33;
-  font-size: clamp(2.25rem, 6vw, 3.5rem);
-  line-height: 1.12;
+#turkish-authors-masonry .demo {
+  width: 100%;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.hero-description {
-  margin: 0;
-  color: #4a5661;
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
-.section-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.section-card {
-  display: flex;
-  min-height: 230px;
-  flex-direction: column;
-  padding: 1.5rem;
-  border: 1px solid #e8e3dc;
-  border-radius: 0.75rem;
-  background: #fff;
-  color: inherit;
+#turkish-authors-masonry .demo a {
+  display: block;
+  color: #222;
   text-decoration: none;
-  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.section-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgb(32 42 51 / 10%);
+#turkish-authors-masonry .demo img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
-.card-label {
-  margin-bottom: 0.5rem;
+.author-name {
+  display: block;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  font-weight: 600;
 }
 
-.section-card h2 {
-  margin: 0 0 0.75rem;
-  color: #202a33;
-  font-size: 1.5rem;
+.section-divider {
+  margin: 2rem 0;
+  border-width: 1px 0 0;
+  border-style: solid;
+  color: #d3d3d3;
 }
 
-.section-card p {
-  margin: 0 0 1.25rem;
-  color: #4a5661;
-  line-height: 1.7;
-}
-
-.card-link {
-  margin-top: auto;
-  color: #9a643e;
-  font-weight: 700;
-}
-
-@media (max-width: 700px) {
-  .turkish-home {
-    padding: 2rem 1rem 3.5rem;
-  }
-
-  .section-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-card {
-    min-height: 200px;
+@media (max-width: 767px) {
+  .main h1,
+  .section h2,
+  .stories-heading {
+    font-size: 32px;
   }
 }
 </style>
