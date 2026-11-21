@@ -56,6 +56,8 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Etnoloji Nedir ve Neyi Araştırır? | Words From Life';
 } else if (route.path === '/tr/kelimeler/sosyoloji') {
   pageTitle = 'Sosyoloji Nedir ve Neyi Araştırır? | Words From Life';
+} else if (route.path === '/tr/kelimeler/ekoloji') {
+  pageTitle = 'Ekoloji Nedir ve Neyi Araştırır? | Words From Life';
 } else {
   pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
 }
