@@ -27,16 +27,18 @@
           <thead>
             <tr>
               <th scope="col">Kelime</th>
+              <th scope="col">Açıklama</th>
             </tr>
           </thead>
           <tbody>
             <tr v-if="filteredWords.length === 0">
-              <td class="no-results">Aramanızla eşleşen kelime bulunamadı.</td>
+              <td colspan="2" class="no-results">Aramanızla eşleşen kelime bulunamadı.</td>
             </tr>
             <tr v-for="item in filteredWords" :key="String(item.id)">
               <th scope="row" class="word-cell">
                 <NuxtLink :to="`/tr/kelimeler/${item.id}`">{{ item.word }}</NuxtLink>
               </th>
+              <td class="word-description">{{ item.description || 'Açıklama bulunamadı.' }}</td>
             </tr>
           </tbody>
         </table>
@@ -161,7 +163,13 @@ useHead(createPageSeoHead({
 
 .word-cell {
   color: #1e293b;
+  min-width: 180px;
   font-weight: 700;
+}
+
+.word-description {
+  color: #475569;
+  line-height: 1.7;
 }
 
 .word-cell a {

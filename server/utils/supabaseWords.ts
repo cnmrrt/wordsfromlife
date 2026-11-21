@@ -162,7 +162,7 @@ export async function fetchWordsByTag(
   event: H3Event,
   tag: string,
   table: WordTable = 'en_words'
-): Promise<Pick<WordRecord, 'id' | 'word' | 'tag'>[]> {
+): Promise<Array<{ id: WordRecord['id']; word: unknown; tag: unknown; description: string }>> {
   const words = await fetchWords(event, table)
 
   return words
@@ -180,9 +180,29 @@ export async function fetchWordsByTag(
     .map(word => ({
       id: word.id,
       word: word.word,
-      tag: word.tag
+      tag: word.tag,
+      description: extractFirstParagraph(word.content)
     }))
     .sort((a, b) => String(a.word || '').localeCompare(String(b.word || ''), 'tr', { sensitivity: 'base' }))
+}
+
+function extractFirstParagraph(content: unknown): string {
+  if (typeof content !== 'string') return ''
+
+  const match = content.match(/<p\b[^>]*>([\s\S]*?)<\/p\s*>/i)
+  if (!match?.[1]) return ''
+
+  return match[1]
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 export async function fetchWordBySlug(
