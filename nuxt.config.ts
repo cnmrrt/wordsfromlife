@@ -145,7 +145,8 @@ export default defineNuxtConfig({
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       meta: [
-        { name: 'yandex-verification', content: '10b4378c743b2c01' }
+        { name: 'yandex-verification', content: '10b4378c743b2c01' },
+        { name: 'p:domain_verify', content: '511be749fd53ed36b168cc8c8d743065' }
       ],
       script: [
         {
