@@ -41,7 +41,7 @@ const { data: word } = await useAsyncData(`word-${slug}`, async () => {
 })
 
 
-let pageTitle;
+let pageTitle; 
 if (route.path === '/tr/kelimeler/sittin-sene') {
   pageTitle = 'Sittin Sene Ne Demek? - Words From Life';
 } else if (route.path === '/tr/kelimeler/yali') {
