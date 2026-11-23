@@ -108,7 +108,7 @@ const abbreviations = [
 
 const filteredAbbreviations = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
-  if (!query) return abbreviations
+  if (!query) return abbreviations 
 
   return abbreviations.filter(({ short, full, meaning }) =>
     `${short} ${full} ${meaning}`.toLowerCase().includes(query)
