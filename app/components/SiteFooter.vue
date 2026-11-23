@@ -2,6 +2,9 @@
   <footer class="site-footer">
     <div class="footer-content">
       <p class="copyright">&copy; {{ currentYear }} Words From Life</p>
+      <nav class="footer-navigation" aria-label="Footer navigation">
+        <NuxtLink to="/words/texting-dictionary">Texting & Chat Dictionary</NuxtLink>
+      </nav>
       <nav class="social-links" aria-label="Social media">
         <a href="https://www.facebook.com/wordsfromlifesocial/" target="_blank" rel="noopener noreferrer"
           aria-label="Words From Life on Facebook (opens in a new tab)">
@@ -50,6 +53,18 @@ const currentYear = new Date().getFullYear()
 .social-links {
   display: flex;
   gap: 1.25rem;
+}
+
+.footer-navigation a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-navigation a:hover {
+  color: #202a33;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .social-links a {

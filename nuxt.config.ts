@@ -54,6 +54,7 @@ export default defineNuxtConfig({
       { loc: '/about' },
       { loc: '/authors', priority: 0.8 },
       { loc: '/words', priority: 0.8 },
+      { loc: '/words/texting-dictionary', priority: 0.8 },
       { loc: '/preverbs', priority: 0.8 },
       { loc: '/story', priority: 0.8 },
       { loc: '/story/what-is-the-diderot-effect', priority: 0.8 },
@@ -93,6 +94,7 @@ export default defineNuxtConfig({
         '/',
         '/about',
         '/authors',
+        '/words/texting-dictionary',
         '/preverbs',
         '/story',
         '/story/what-is-the-diderot-effect',
@@ -128,6 +130,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/words': { prerender: false },
     '/words/**': { prerender: false },
+    '/words/texting-dictionary': { prerender: true },
     // Single page 301 redirects
     '/story/what-is-diderot-effect': { redirect: { to: '/story/what-is-the-diderot-effect', statusCode: 301 } },
     '/authors/a/albert-camus-quotes': { redirect: { to: '/authors/albert-camus-quotes', statusCode: 301 } },
