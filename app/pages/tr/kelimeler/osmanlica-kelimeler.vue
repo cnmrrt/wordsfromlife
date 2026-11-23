@@ -33,7 +33,7 @@
               <td colspan="3" class="no-results">Aramanızla eşleşen kelime bulunamadı.</td>
             </tr>
             <tr v-for="item in filteredWords" :key="item.word">
-              <th scope="row" class="word-cell">{{ item.word }}</th>
+              <th scope="row" class="word-cell" v-html="item.word"></th>
               <td>{{ item.origin }}</td>
               <td>{{ item.meaning }}</td>
             </tr>
@@ -62,7 +62,7 @@ const words = [
   { word: 'Hamiyet', origin: 'Arapça', meaning: 'Koruyuculuk, vatan, millet veya değerler uğruna özveride bulunma duygusu.' },
   { word: 'Hazer', origin: 'Arapça', meaning: 'Sakınma, çekinme, ihtiyatlı davranma.' },
   { word: 'İhtişam', origin: 'Arapça', meaning: 'Görkem, büyüklük, göz dolduran parlaklık.' },
-  { word: 'İnziva', origin: 'Arapça', meaning: 'Bir köşeye çekilip kendi iç dünyasına yönelme, yalnız kalma.' },
+  { word: '<a href="/tr/kelimeler/inziva">İnziva</a>', origin: 'Arapça', meaning: 'Bir köşeye çekilip kendi iç dünyasına yönelme, yalnız kalma.' },
   { word: 'Kemal', origin: 'Arapça', meaning: 'Olgunluk, yetkinlik, eksiksizlik.' },
   { word: 'Mahcubiyet', origin: 'Arapça', meaning: 'Utangaçlık, sıkılganlık, mahcup olma durumu.' },
   { word: 'Münzevi', origin: 'Arapça', meaning: 'Köşesine çekilmiş, insanlardan uzak, yalnız yaşamayı seçen kimse.' },
