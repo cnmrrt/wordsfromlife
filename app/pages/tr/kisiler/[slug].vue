@@ -82,7 +82,6 @@ const relatedAuthors = computed(() => {
 
 
 
-
 if (author.value) {
   const authorName = `${author.value.name} ${author.value.surname}`.trim()
   const path = `/tr/kisiler/${author.value.id}-sozleri`
