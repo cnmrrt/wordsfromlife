@@ -90,6 +90,7 @@ const abbreviations = [
   { short: 'NVM', full: 'Never mind', meaning: 'Asks someone to disregard a previous message or request.' },
   { short: 'OMG', full: 'Oh my God', meaning: 'Expresses surprise, excitement, or disbelief.' },
   { short: 'OMW', full: 'On my way', meaning: 'I am travelling to the place we discussed.' },
+  { short: 'OOO', full: 'Out of office', meaning: 'Indicates that someone is not in the office.' },
   { short: 'OTOH', full: 'On the other hand', meaning: 'Introduces a contrasting point or alternative view.' },
   { short: 'RN', full: 'Right now', meaning: 'At this moment.' },
   { short: 'ROFL', full: 'Rolling on the floor laughing', meaning: 'A playful way to say something is extremely funny.' },
