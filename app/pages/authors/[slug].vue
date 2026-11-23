@@ -19,19 +19,12 @@
       <span class="size text-right">{{ authorData.name }} {{ authorData.surname }}</span>
       <span class="size text-right">{{ authorData.born }} - {{ authorData.dead }}</span>
 
-      <section
-        v-if="authorData.en_quotes_pics?.length"
-        class="quote-images"
-        aria-labelledby="quote-images-heading"
-      >
+      <section v-if="authorData.en_quotes_pics?.length" class="quote-images" aria-labelledby="quote-images-heading">
         <h2 id="quote-images-heading">Quote Images</h2>
         <ul class="quote-images-grid">
           <li v-for="(image, index) in authorData.en_quotes_pics" :key="image">
-            <img
-              :src="useSitePath(image)"
-              :alt="`${authorData.name} ${authorData.surname} quote ${index + 1}`"
-              loading="lazy"
-            />
+            <img :src="useSitePath(image)" :alt="`${authorData.name} ${authorData.surname} quote ${index + 1}`"
+              loading="lazy" />
           </li>
         </ul>
       </section>
@@ -62,18 +55,10 @@
       <section v-if="relatedAuthors.length" class="related-authors" aria-labelledby="related-authors-heading">
         <h2 id="related-authors-heading">Related Authors</h2>
         <div class="related-authors-grid">
-          <NuxtLink
-            v-for="related in relatedAuthors"
-            :key="related.id"
-            :to="`/authors/${related.id}-quotes`"
-            class="related-author-card"
-          >
-            <img
-              :src="useSitePath(related.img)"
-              :alt="`${related.name} ${related.surname}`.trim()"
-              :width="related.img_width"
-              :height="related.img_height"
-            />
+          <NuxtLink v-for="related in relatedAuthors" :key="related.id" :to="`/authors/${related.id}-quotes`"
+            class="related-author-card">
+            <img :src="useSitePath(related.img)" :alt="`${related.name} ${related.surname}`.trim()"
+              :width="related.img_width" :height="related.img_height" />
             <span>{{ related.name }} {{ related.surname }}</span>
           </NuxtLink>
         </div>
@@ -120,8 +105,11 @@ const relatedAuthors = computed(() => {
 // Set SEO meta tags server-side
 if (authorData.value) {
   const authorName = `${authorData.value.name} ${authorData.value.surname} Quotes`;
+  const pageTitle = slug.toLowerCase() === 'george-orwell-quotes'
+    ? 'George Orwell Quotes (Author of 1984)'
+    : authorName;
   useHead(createPageSeoHead({
-    title: authorName,
+    title: pageTitle,
     description: authorData.value.en_meta_desc || `Inspirational and motivational quotes by ${authorName}. Visit Words From Life for more quotes and insights from famous authors.`,
     path: `/authors/${authorData.value.id}-quotes`,
     lang: 'en',
