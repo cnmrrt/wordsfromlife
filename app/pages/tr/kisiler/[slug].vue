@@ -86,18 +86,13 @@ const relatedAuthors = computed(() => {
 if (author.value) {
   const authorName = `${author.value.name} ${author.value.surname}`.trim()
   const path = `/tr/kisiler/${author.value.id}-sozleri`
-
-
-
-  if (route.path === '/tr/kisiler/napoleon-bonaparte-sozleri') {
-    const pageTitle = 'Napolyon Bonapart Sözleri | Words From Life';
-  } else {
-    const pageTitle = authorName ? `${authorName} Sözleri | Words From Life` : 'Yazar Bulunamadı | Words From Life';
-  }
-
+  const pageTitle = route.path === '/tr/kisiler/napoleon-bonaparte-sozleri'
+    ? 'Napolyon Bonapart Sözleri | Words From Life'
+    : authorName
+      ? `${authorName} Sözleri | Words From Life`
+      : 'Yazar Bulunamadı | Words From Life'
 
   useHead(createPageSeoHead({
-
     title: pageTitle,
     description: author.value.tr_meta_desc || `${authorName} tarafından söylenmiş ilham verici sözler.`,
     path,
