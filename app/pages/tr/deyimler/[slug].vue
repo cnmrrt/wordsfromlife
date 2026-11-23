@@ -67,6 +67,7 @@ useHead(() => {
 </script>
 
 <style scoped>
+article p:first-child { background-color: #f5f5f5; padding: 20px; border-left: 5px solid #d3d3d3;}
 .idiom-detail {
   max-width: 760px;
   margin: 0 auto;
