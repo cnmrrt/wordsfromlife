@@ -69,7 +69,7 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
 } else if (route.path === '/tr/kelimeler/ekoloji') {
   pageTitle = 'Ekoloji Nedir ve Neyi Araştırır? | Words From Life';
 } else {
-  pageTitle = word.value ? `${word.value.word} Anlamı | Words From Life` : 'Word Not Found | Words From Life';
+  pageTitle = word.value ? `${word.value.word} Ne Demek? | Words From Life` : 'Word Not Found | Words From Life';
 }
 
 useHead(() => {
