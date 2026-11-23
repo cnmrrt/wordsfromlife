@@ -107,7 +107,9 @@ if (authorData.value) {
   const authorName = `${authorData.value.name} ${authorData.value.surname} Quotes`;
   const pageTitle = slug.toLowerCase() === 'george-orwell-quotes'
     ? 'George Orwell Quotes (Author of 1984)'
-    : authorName;
+    : slug.toLowerCase() === 'henry-ford-quotes'
+      ? 'Henry Ford Quotes (Founder of Ford Motor Company)'
+      : authorName;
   useHead(createPageSeoHead({
     title: pageTitle,
     description: authorData.value.en_meta_desc || `Inspirational and motivational quotes by ${authorName}. Visit Words From Life for more quotes and insights from famous authors.`,
