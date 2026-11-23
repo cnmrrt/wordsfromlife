@@ -12,8 +12,6 @@
           :height="word.img_height"
         />
       </div>
-
-      <!-- renders immediately after SSR -->
       <div v-html="useSiteHtml(word.content)"></div>
       
     </main>
@@ -91,6 +89,9 @@ useHead(() => {
 }
 .word-detail-main p {
   line-height: 1.6;
+  margin: 1rem 0;
+}
+:global(.word-detail-main li) {
   margin: 1rem 0;
 }
 :global(.word-detail-main h3), :global(.word-detail-main h2) {margin-top: 2rem;}
