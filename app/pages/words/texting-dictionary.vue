@@ -119,6 +119,7 @@ useHead(createPageSeoHead({
   title: 'Texting Dictionary: Text and Chat Abbreviations',
   description: 'Look up common texting and chat abbreviations, what they stand for, and how they are used.',
   path: '/words/texting-dictionary',
+  lang: 'en',
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Words', path: '/words' },
