@@ -31,20 +31,11 @@
         <section v-if="relatedAuthors.length" class="related-authors" aria-labelledby="related-authors-heading">
           <h2 id="related-authors-heading">İlgili Kişiler</h2>
           <div class="related-authors-grid">
-            <NuxtLink
-              v-for="related in relatedAuthors"
-              :key="related.id"
-              :to="Array.isArray(related.tr_quotes) && related.tr_quotes.length
-                ? `/tr/kisiler/${related.id}-sozleri`
-                : `/authors/${related.id}-quotes`"
-              class="related-author-card"
-            >
-              <img
-                :src="useSitePath(related.img)"
-                :alt="`${related.name} ${related.surname}`.trim()"
-                :width="related.img_width"
-                :height="related.img_height"
-              />
+            <NuxtLink v-for="related in relatedAuthors" :key="related.id" :to="Array.isArray(related.tr_quotes) && related.tr_quotes.length
+              ? `/tr/kisiler/${related.id}-sozleri`
+              : `/authors/${related.id}-quotes`" class="related-author-card">
+              <img :src="useSitePath(related.img)" :alt="`${related.name} ${related.surname}`.trim()"
+                :width="related.img_width" :height="related.img_height" />
               <span>{{ related.name }} {{ related.surname }}</span>
             </NuxtLink>
           </div>
@@ -89,12 +80,25 @@ const relatedAuthors = computed(() => {
     .filter(item => ids.includes(item.id) && item.img)
 })
 
+
+
+
 if (author.value) {
   const authorName = `${author.value.name} ${author.value.surname}`.trim()
   const path = `/tr/kisiler/${author.value.id}-sozleri`
 
+
+
+  if (route.path === '/tr/kisiler/napoleon-bonaparte-sozleri') {
+    const pageTitle = 'Napolyon Bonapart Sözleri | Words From Life';
+  } else {
+    const pageTitle = authorName ? `${authorName} Sözleri | Words From Life` : 'Yazar Bulunamadı | Words From Life';
+  }
+
+
   useHead(createPageSeoHead({
-    title: `${authorName} Sözleri`,
+
+    title: pageTitle,
     description: author.value.tr_meta_desc || `${authorName} tarafından söylenmiş ilham verici sözler.`,
     path,
     alternateLanguages: [
