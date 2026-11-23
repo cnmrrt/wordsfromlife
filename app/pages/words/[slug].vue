@@ -87,9 +87,15 @@ useHead(() => {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.word-detail-main p {
+:global(.word-detail-main p) {
   line-height: 1.6;
   margin: 1rem 0;
+}
+:global(.word-detail-main > div:last-child > p:first-of-type) {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-left: 5px solid #d3d3d3;
+  margin: 20px 0;
 }
 :global(.word-detail-main li) {
   margin: 1rem 0;
