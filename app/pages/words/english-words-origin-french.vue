@@ -27,9 +27,7 @@
             <td class="french-cell">
               <em>{{ item.french_origin }}</em>
             </td>
-            <td class="meaning-cell">
-              {{ item.meaning }}
-            </td>
+            <td class="meaning-cell" v-html="item.meaning"></td>
           </tr>
         </tbody>
       </table>
@@ -59,7 +57,7 @@ const wordsData = [
   { id: "chef", word: "Chef", french_origin: "chef", meaning: "Chief / head cook" },
   { id: "restaurant", word: "Restaurant", french_origin: "restaurant", meaning: "Food establishment (restorative)" },
   { id: "dessert", word: "Dessert", french_origin: "desservir", meaning: "Final course (from 'to clear the table')" },
-  { id: "government", word: "Government", french_origin: "gouvernement", meaning: "Governance" },
+  { id: "government", word: "Government", french_origin: "gouvernement", meaning: "<a href=\"https://wordsfromlife.com/words/governance\">Governance</a>" },
   { id: "parliament", word: "Parliament", french_origin: "parlement", meaning: "Legislative body (from parler – to speak)" },
   { id: "crown", word: "Crown", french_origin: "couronne", meaning: "Crown" },
   { id: "court", word: "Court", french_origin: "cort", meaning: "Judicial assembly / royal court" },
