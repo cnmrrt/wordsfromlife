@@ -6,8 +6,6 @@
       <header class="idioms-header">
         <h1>Türkçe Deyimler</h1>
         <p>Türkçedeki deyimlerin anlamlarını, kullanım özelliklerini ve örneklerini keşfedin.</p>
-
-        <label for="idiom-search">Deyim ara</label>
         <input
           id="idiom-search"
           v-model="searchQuery"
