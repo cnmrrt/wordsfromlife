@@ -9,7 +9,6 @@
           Osmanlı Türkçesinde kullanılan Arapça ve Farsça kökenli kelimeleri,
           kökenleri ve günümüz Türkçesindeki anlamlarıyla keşfedin.
         </p>
-        <label class="search-label" for="word-search">Kelime ara</label>
         <input id="word-search" v-model="searchQuery" class="search-input" type="search"
           placeholder="Kelime, köken veya anlam yazın">
       </header>
@@ -120,7 +119,7 @@ useHead(createPageSeoHead({
 }
 
 .intro {
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto 1.5rem;
   color: #64748b;
   font-size: 1.05rem;
