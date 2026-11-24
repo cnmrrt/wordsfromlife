@@ -4,26 +4,23 @@
 
     <main class="words-container">
       <header class="page-header">
-      <h1>Osmanlıca Kelimeler ve Anlamları</h1>
-      <p class="intro">
-        Osmanlı Türkçesinde kullanılan Arapça ve Farsça kökenli kelimeleri,
-        kökenleri ve günümüz Türkçesindeki anlamlarıyla keşfedin.
-      </p>
-      <label class="search-label" for="word-search">Kelime ara</label>
-      <input
-        id="word-search"
-        v-model="searchQuery"
-        class="search-input"
-        type="search"
-        placeholder="Kelime, köken veya anlam yazın"
-      >
+        <h1>Osmanlıca Kelimeler ve Anlamları</h1>
+        <p class="intro">
+          Osmanlı Türkçesinde kullanılan Arapça ve Farsça kökenli kelimeleri,
+          kökenleri ve günümüz Türkçesindeki anlamlarıyla keşfedin.
+        </p>
+        <label class="search-label" for="word-search">Kelime ara</label>
+        <input id="word-search" v-model="searchQuery" class="search-input" type="search"
+          placeholder="Kelime, köken veya anlam yazın">
       </header>
 
       <section class="table-wrapper" aria-label="Osmanlıca kelimeler ve anlamları">
-      <h2 v-html="item.word"></h2>
-      <p v-html="item.origin"></p>
-      <p>Köken: {{ item.meaning }}</p>
-        <table class="words-table">
+        <div v-for="item in filteredWords" :key="item.word">
+          <h2 v-html="item.word"></h2>
+          <p v-html="item.origin"></p>
+          <p>Köken: {{ item.meaning }}</p>
+        </div>
+        <!-- <table class="words-table">
           <thead>
             <tr>
               <th scope="col">Kelime</th>
@@ -41,7 +38,7 @@
               <td>{{ item.meaning }}</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </section>
     </main>
   </div>
