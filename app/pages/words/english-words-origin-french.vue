@@ -96,6 +96,7 @@ useHead(createPageSeoHead({
   title: 'Popular English Words of French Origin',
   description: 'A comprehensive table of popular English words derived from French, including culinary, legal, political, and daily vocabulary.',
   path: '/words/english-words-origin-french',
+  lang: 'en',
   type: 'article',
   breadcrumbs: [
     { name: 'Home', path: '/' },

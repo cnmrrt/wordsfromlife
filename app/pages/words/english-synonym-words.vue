@@ -153,8 +153,10 @@ const filteredWords = computed(() => {
 })
 
 useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
   title: 'English Synonym Words List',
-  lang: 'en',
   meta: [
     {
       name: 'description',
