@@ -240,7 +240,7 @@ nav ul li a {
   color: #fff;
   display: block;
   font-size: 40px;
-  margin: 30px 0;
+  margin: 60px 0;
   text-align: center;
 }
 
