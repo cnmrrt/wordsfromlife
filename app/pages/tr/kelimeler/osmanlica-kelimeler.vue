@@ -20,6 +20,9 @@
       </header>
 
       <section class="table-wrapper" aria-label="Osmanlıca kelimeler ve anlamları">
+      <h2 v-html="item.word"></h2>
+      <p v-html="item.origin"></p>
+      <p>Köken: {{ item.meaning }}</p>
         <table class="words-table">
           <thead>
             <tr>
