@@ -13,32 +13,15 @@
           placeholder="Kelime, köken veya anlam yazın">
       </header>
 
-      <section class="table-wrapper" aria-label="Osmanlıca kelimeler ve anlamları">
-        <div v-for="item in filteredWords" :key="item.word">
+      <p v-if="filteredWords.length === 0" class="no-results">
+        Aramanızla eşleşen kelime bulunamadı.
+      </p>
+      <section v-else class="word-grid" aria-label="Osmanlıca kelimeler ve anlamları">
+        <article v-for="item in filteredWords" :key="item.word" class="word-card">
           <h2 v-html="item.word"></h2>
-          <p v-html="item.meaning"></p>
-          <p>Köken: {{ item.origin }}</p>
-          <hr>
-        </div>
-        <!-- <table class="words-table">
-          <thead>
-            <tr>
-              <th scope="col">Kelime</th>
-              <th scope="col">Köken</th>
-              <th scope="col">Anlamı</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-if="filteredWords.length === 0">
-              <td colspan="3" class="no-results">Aramanızla eşleşen kelime bulunamadı.</td>
-            </tr>
-            <tr v-for="item in filteredWords" :key="item.word">
-              <th scope="row" class="word-cell" v-html="item.word"></th>
-              <td>{{ item.origin }}</td>
-              <td>{{ item.meaning }}</td>
-            </tr>
-          </tbody>
-        </table> -->
+          <p class="word-origin">{{ item.origin }}</p>
+          <p class="word-meaning" v-html="item.meaning"></p>
+        </article>
       </section>
     </main>
   </div>
@@ -175,55 +158,48 @@ useHead(createPageSeoHead({
   outline-offset: 2px;
 }
 
-hr {
-  border-width: 1px 0 0;
-  border-style: solid;
-  border-left-color: #d3d3d3;
-  border-right-color: #d3d3d3;
-  color: #d3d3d3 !important;
-  border-bottom-color: #d3d3d3;
-  margin: 2rem 0;
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
-/* .table-wrapper {
-  overflow-x: auto;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-} */
-
-.words-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+.word-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.06);
 }
 
-.words-table th,
-.words-table td {
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  line-height: 1.6;
-  vertical-align: top;
-}
-
-.words-table thead th {
-  background: #f8fafc;
-  color: #334155;
-  font-size: 0.9rem;
-}
-
-.words-table tbody tr:last-child th,
-.words-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.word-cell {
-  min-width: 130px;
+.word-card h2 {
+  margin: 0 0 0.5rem;
   color: #1e293b;
-  font-weight: 700;
+  font-size: 1.35rem;
 }
 
-.words-table td:nth-child(2) {
-  min-width: 110px;
+.word-card h2 a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.word-origin {
+  margin: 0 0 0.9rem;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.word-meaning {
+  margin: 0;
+  color: #334155;
+  line-height: 1.65;
 }
 
 .no-results {
@@ -232,14 +208,19 @@ hr {
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .word-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 600px) {
   .words-container {
     padding-top: 1.5rem;
   }
 
-  .words-table th,
-  .words-table td {
-    padding: 0.7rem;
+  .word-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
