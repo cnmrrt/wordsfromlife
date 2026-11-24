@@ -149,6 +149,16 @@ useHead(createPageSeoHead({
   outline-offset: 2px;
 }
 
+hr {
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-left-color: #d3d3d3;
+  border-right-color: #d3d3d3;
+  color: #d3d3d3 !important;
+  border-bottom-color: #d3d3d3;
+  margin: 2rem 0;
+}
+
 /* .table-wrapper {
   overflow-x: auto;
   border: 1px solid #e2e8f0;
