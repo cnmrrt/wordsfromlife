@@ -8,7 +8,16 @@
         <h1>{{ idiom.deyim }}</h1>
       </header>
 
-      <article class="idiom-content" v-html="useSiteHtml(idiom.icerik)" />
+      <article class="idiom-content">
+        <img
+          v-if="idiom.img"
+          :src="useSitePath(idiom.img)"
+          :alt="idiom.deyim"
+          width="1000"
+          height="1000"
+        >
+        <div v-html="useSiteHtml(idiom.icerik)" />
+      </article>
 
       <NuxtLink to="/tr/deyimler" class="back-link">Tüm deyimleri görüntüle</NuxtLink>
 
@@ -105,6 +114,13 @@ useHead(() => {
 
 :deep(.idiom-content p) {
   margin: 0 0 1.25rem;
+}
+
+.idiom-content > img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
 }
 
 :deep(.idiom-content p:first-child) {
