@@ -148,7 +148,7 @@ const filteredWords = computed(() => {
   return wordsData.filter(item =>
     item.word.toLowerCase().includes(query) ||
     item.synonyms.toLowerCase().includes(query) ||
-    item.meaning.toLowerCase().includes(query)
+    item.meaning.toLowerCase().includes(query) 
   )
 })
 
