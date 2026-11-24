@@ -17,8 +17,9 @@
       <section class="table-wrapper" aria-label="Osmanlıca kelimeler ve anlamları">
         <div v-for="item in filteredWords" :key="item.word">
           <h2 v-html="item.word"></h2>
-          <p v-html="item.origin"></p>
-          <p>Köken: {{ item.meaning }}</p>
+          <p v-html="item.meaning"></p>
+          <p>Köken: {{ item.origin }}</p>
+          <hr>
         </div>
         <!-- <table class="words-table">
           <thead>
@@ -148,11 +149,11 @@ useHead(createPageSeoHead({
   outline-offset: 2px;
 }
 
-.table-wrapper {
+/* .table-wrapper {
   overflow-x: auto;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-}
+} */
 
 .words-table {
   width: 100%;
