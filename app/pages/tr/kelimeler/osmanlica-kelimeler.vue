@@ -39,7 +39,7 @@ const words = [
   { word: 'Ahenk', origin: 'Farsça', meaning: 'Uyum, düzen, kulağa hoş gelen ses dizisi.' },
   { word: 'Asude', origin: 'Farsça', meaning: 'Sakin, huzurlu, rahat ve sıkıntısız olan.' },
   { word: 'Beyan', origin: 'Arapça', meaning: 'Açıklama, anlatma, ifade; açık ve anlaşılır söyleyiş.' },
-  { word: '<a href="/tr/kelimeler/inziva">Berceste</a>', origin: 'Farsça', meaning: 'Seçkin, seçme; göze çarpan, üstün ve kıymetli.' },
+  { word: '<a href="/tr/kelimeler/berceste">Berceste</a>', origin: 'Farsça', meaning: 'Seçkin, seçme; göze çarpan, üstün ve kıymetli.' },
   { word: 'Bîtap', origin: 'Farsça', meaning: 'Halsiz, yorgun, bitkin, takatsiz.' },
   { word: 'Cefa', origin: 'Arapça', meaning: 'Eziyet, sıkıntı, haksızlık; vefanın zıddı.' },
   { word: 'Cevher', origin: 'Arapça', meaning: 'Bir şeyin özünü oluşturan temel özellik veya değerli taş.' },
