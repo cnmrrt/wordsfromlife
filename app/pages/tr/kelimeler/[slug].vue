@@ -53,7 +53,7 @@ if (route.path === '/tr/kelimeler/sittin-sene') {
 } else if (route.path === '/tr/kelimeler/aforizma') {
   pageTitle = 'Aforizma Ne Demek? | Words From Life';
 } else if (route.path === '/tr/kelimeler/bohem') {
-  pageTitle = 'Bohem Ne Demek? | Words From Life';
+  pageTitle = 'Bohem Ne Demek? Kökeni ve Tarihsel Arka Planı | Words From Life';
 } else if (route.path === '/tr/kelimeler/payidar') {
   pageTitle = 'Payidar Ne Demek? | Words From Life';
 } else if (route.path === '/tr/kelimeler/alelade') {
