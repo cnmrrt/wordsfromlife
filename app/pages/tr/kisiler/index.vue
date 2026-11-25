@@ -57,7 +57,7 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   masonryInstance.value?.destroy()
-})
+}) 
 
 useHead(createPageSeoHead({
   title: 'Yazarlar',
