@@ -190,6 +190,22 @@
           </span>
         </span>
       </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/arsimet-eureka" class="story-feature">
+        <img
+          src="/static/img/story/archimedes-eureka-story.webp"
+          alt="Arşimet hamamda dururken Eureka diye haykırıyor"
+          width="1408"
+          height="1024"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Arşimet ve “Eureka!” Anı</span>
+          <span class="story-feature-description">
+            Kral Hiero'nun tacının sırrından ünlü hamam sahnesine uzanan
+            Arşimet hikâyesini ve Eureka efsanesinin ardındaki bilimi keşfedin.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>

@@ -149,6 +149,12 @@ useHead(createPageSeoHead({
   image: '/static/img/story/archimedes-eureka-story.webp',
   type: 'article',
   articleSchema: true,
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/archimedes-eureka' },
+    { lang: 'tr', path: '/tr/hikaye/arsimet-eureka' },
+    { lang: 'x-default', path: '/story/archimedes-eureka' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
