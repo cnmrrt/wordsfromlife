@@ -128,6 +128,17 @@
           </span>
         </span>
       </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/ilgin-markalarin-isimleri" class="story-feature">
+        <span class="story-feature-copy">
+          <span class="story-feature-title">İlginç Marka İsimleri ve Arkalarındaki Hikâyeler</span>
+          <span class="story-feature-description">
+            Nike, Google, Starbucks ve Bluetooth gibi markaların isimlerinin
+            mitoloji, edebiyat, bilim ve beklenmedik rastlantılarla dolu
+            hikâyelerini keşfedin.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>

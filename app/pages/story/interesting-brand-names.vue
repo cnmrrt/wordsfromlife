@@ -188,6 +188,12 @@ useHead(createPageSeoHead({
   path: '/story/interesting-brand-names',
   type: 'article',
   articleSchema: true,
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/interesting-brand-names' },
+    { lang: 'tr', path: '/tr/hikaye/ilgin-markalarin-isimleri' },
+    { lang: 'x-default', path: '/story/interesting-brand-names' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
