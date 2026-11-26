@@ -156,6 +156,23 @@
           </span>
         </span>
       </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/theseus-gemisi" class="story-feature">
+        <img
+          src="/static/img/story/ship-of-theseus.webp"
+          alt="Antik Yunan döneminden bir gemi denizde ilerliyor"
+          width="1408"
+          height="1024"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Theseus’un Gemisi: Kimlik Üzerine Bir Paradoks</span>
+          <span class="story-feature-description">
+            Tüm parçaları zamanla değiştirilen bir gemi aynı gemi olarak kalır
+            mı? Antik Yunan’dan günümüze uzanan bu felsefi düşünce deneyini
+            inceleyin.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>

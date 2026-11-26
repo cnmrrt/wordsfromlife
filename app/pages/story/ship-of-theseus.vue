@@ -149,6 +149,12 @@ useHead(createPageSeoHead({
   image: '/static/img/story/ship-of-theseus.webp',
   type: 'article',
   articleSchema: true,
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/ship-of-theseus' },
+    { lang: 'tr', path: '/tr/hikaye/theseus-gemisi' },
+    { lang: 'x-default', path: '/story/ship-of-theseus' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
