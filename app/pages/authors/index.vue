@@ -1,7 +1,7 @@
 <template>
     <Navbar />
   <main class="main" role="main">
-    <h1>Authors</h1>
+    <h1>Quotes by Authors</h1>
     <div class="home-container">
       <section class="section">
         <div id="macy-container">
@@ -35,7 +35,7 @@ import { createPageSeoHead } from '~/utils/pageSeo'
 import { ref, nextTick, onMounted } from 'vue'
 
 useHead(createPageSeoHead({
-  title: 'Authors',
+  title: 'Inspirational and Motivational Quotes by Authors',
   description: 'Explore inspiring quotes from renowned authors and thinkers.',
   path: '/authors',
   lang: 'en',
