@@ -90,6 +90,12 @@ useHead(createPageSeoHead({
   image: '/static/img/story/solomon-paradox.webp',
   type: 'article',
   articleSchema: true,
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/solomons-paradox' },
+    { lang: 'tr', path: '/tr/hikaye/suleyman-paradoksu' },
+    { lang: 'x-default', path: '/story/solomons-paradox' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },

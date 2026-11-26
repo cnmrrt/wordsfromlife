@@ -173,6 +173,23 @@
           </span>
         </span>
       </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/suleyman-paradoksu" class="story-feature">
+        <img
+          src="/static/img/story/solomon-paradox.webp"
+          alt="Kral Süleyman zor bir hüküm üzerinde düşünürken"
+          width="1408"
+          height="1024"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Süleyman Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz?</span>
+          <span class="story-feature-description">
+            Kendi sorunlarımız yerine başkalarının sorunlarına daha sağduyulu
+            yaklaşmamıza yol açabilen psikolojik mesafeyi ve bu paradoksun
+            ardındaki araştırmaları keşfedin.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>
