@@ -70,7 +70,7 @@ export default defineNuxtConfig({
       { loc: '/tr/hikaye/ilgin-markalarin-isimleri', priority: 0.8 },
       { loc: '/tr/hikaye/buyuk-buhran', priority: 0.8 },
       { loc: '/tr/hikaye/theseus-gemisi', priority: 0.8 },
-      { loc: '/tr/hikaye/suleyman-paradoksu', priority: 0.8 },
+      { loc: '/tr/hikaye/solomon-paradoksu', priority: 0.8 },
       { loc: '/tr', priority: 0.9 },
       { loc: '/tr/kelimeler' },
       { loc: '/tr/kisiler' },
@@ -114,7 +114,7 @@ export default defineNuxtConfig({
         '/tr/hikaye/ilgin-markalarin-isimleri',
         '/tr/hikaye/buyuk-buhran',
         '/tr/hikaye/theseus-gemisi',
-        '/tr/hikaye/suleyman-paradoksu',
+        '/tr/hikaye/solomon-paradoksu',
         '/tr',
         '/tr/kelimeler',
         '/tr/kisiler',
@@ -138,6 +138,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/words': { prerender: false },
     '/words/**': { prerender: false },
+    '/tr/hikaye/suleyman-paradoksu': { redirect: { to: '/tr/hikaye/solomon-paradoksu', statusCode: 301 } },
     '/words/texting-dictionary': { prerender: true },
     // Single page 301 redirects
     '/story/what-is-diderot-effect': { redirect: { to: '/story/what-is-the-diderot-effect', statusCode: 301 } },

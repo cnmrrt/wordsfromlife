@@ -6,9 +6,9 @@
       <article class="story-article">
         <header class="story-header">
           <p class="eyebrow">Psikoloji ve Karar Verme</p>
-          <h1>Süleyman Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz?</h1>
+          <h1>Solomon Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz?</h1>
           <p class="intro">
-            Süleyman Paradoksu, yargılarımızda sık görülen bir farkı anlatır:
+            Solomon Paradoksu, yargılarımızda sık görülen bir farkı anlatır:
             İnsanlar başkalarının sorunları hakkında, kendi sorunlarına kıyasla
             daha sağduyulu düşünebilir. Kişisel bir ikilemi başka birinin
             başına gelmiş gibi hayal etmek, duygusal mesafe yaratarak durumu
@@ -19,26 +19,26 @@
         <figure class="story-figure">
           <img
             src="/static/img/story/solomon-paradox.webp"
-            alt="Kral Süleyman zor bir hüküm üzerinde düşünürken"
+            alt="Kral Solomon zor bir hüküm üzerinde düşünürken"
             width="1408"
             height="1024"
           >
           <figcaption>
-            Kral Süleyman geleneksel anlatılarda bilgeliği ve adil hükümleriyle hatırlanır.
+            Kral Solomon geleneksel anlatılarda bilgeliği ve adil hükümleriyle hatırlanır.
           </figcaption>
         </figure>
 
         <section>
-          <h2>Neden Süleyman Paradoksu Deniyor?</h2>
+          <h2>Neden Solomon Paradoksu Deniyor?</h2>
           <p>
             Adını bilgeliğiyle ün kazanmış, İncil'de anlatılan Kral
-            Süleyman'dan alır. “Süleyman'ın Hükmü” olarak bilinen öyküde,
-            iki kadın aynı bebeğin annesi olduğunu iddia eder. Süleyman
+            Solomon'dan alır. “Solomon'un Hükmü” olarak bilinen öyküde,
+            iki kadın aynı bebeğin annesi olduğunu iddia eder. Solomon
             çocuğun ikiye bölünmesini önerince, gerçek anne bebeğin zarar
             görmesini önlemek için kendi iddiasından vazgeçer.
           </p>
           <p>
-            Kamusal bir anlaşmazlıkta verilen bilge hüküm ile Süleyman'ın
+            Kamusal bir anlaşmazlıkta verilen bilge hüküm ile Solomon'un
             kişisel ve siyasi kararlarına ilişkin anlatılar arasındaki
             karşıtlık, psikolojik paradoksa adını vermiştir. Kutsal Kitap
             anlatıları onun servetini, ilişkilerini ve kararlarını karmaşık,
@@ -91,22 +91,22 @@ import Navbar_tr from '~/components/Navbar_tr.vue'
 import { createPageSeoHead } from '~/utils/pageSeo'
 
 useHead(createPageSeoHead({
-  title: 'Süleyman Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz? | Words From Life',
-  description: 'Süleyman Paradoksu’nu, psikolojik mesafeye ilişkin araştırmaları ve başkalarının sorunlarında neden daha sağduyulu düşünebildiğimizi keşfedin.',
-  path: '/tr/hikaye/suleyman-paradoksu',
+  title: 'Solomon Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz? | Words From Life',
+  description: 'Solomon Paradoksu’nu, psikolojik mesafeye ilişkin araştırmaları ve başkalarının sorunlarında neden daha sağduyulu düşünebildiğimizi keşfedin.',
+  path: '/tr/hikaye/solomon-paradoksu',
   image: '/static/img/story/solomon-paradox.webp',
   type: 'article',
   articleSchema: true,
   lang: 'tr',
   alternateLanguages: [
     { lang: 'en', path: '/story/solomons-paradox' },
-    { lang: 'tr', path: '/tr/hikaye/suleyman-paradoksu' },
+    { lang: 'tr', path: '/tr/hikaye/solomon-paradoksu' },
     { lang: 'x-default', path: '/story/solomons-paradox' }
   ],
   breadcrumbs: [
     { name: 'Ana Sayfa', path: '/tr' },
     { name: 'Hikâyeler', path: '/tr' },
-    { name: 'Süleyman Paradoksu', path: '/tr/hikaye/suleyman-paradoksu' }
+    { name: 'Solomon Paradoksu', path: '/tr/hikaye/solomon-paradoksu' }
   ]
 }))
 </script>

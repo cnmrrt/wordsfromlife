@@ -174,15 +174,15 @@
         </span>
       </NuxtLink>
 
-      <NuxtLink to="/tr/hikaye/suleyman-paradoksu" class="story-feature">
+      <NuxtLink to="/tr/hikaye/solomon-paradoksu" class="story-feature">
         <img
           src="/static/img/story/solomon-paradox.webp"
-          alt="Kral Süleyman zor bir hüküm üzerinde düşünürken"
+          alt="Kral Solomon zor bir hüküm üzerinde düşünürken"
           width="1408"
           height="1024"
         >
         <span class="story-feature-copy">
-          <span class="story-feature-title">Süleyman Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz?</span>
+          <span class="story-feature-title">Solomon Paradoksu: Neden Başkalarına Daha İyi Öğüt Veririz?</span>
           <span class="story-feature-description">
             Kendi sorunlarımız yerine başkalarının sorunlarına daha sağduyulu
             yaklaşmamıza yol açabilen psikolojik mesafeyi ve bu paradoksun
