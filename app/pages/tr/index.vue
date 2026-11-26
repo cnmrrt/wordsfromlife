@@ -139,6 +139,23 @@
           </span>
         </span>
       </NuxtLink>
+
+      <NuxtLink to="/tr/hikaye/buyuk-buhran" class="story-feature">
+        <img
+          src="/static/img/story/great-depression-people-lined-up.webp"
+          alt="Büyük Buhran sırasında ücretsiz bir aşevinin önünde sıraya giren insanlar"
+          width="1408"
+          height="1024"
+        >
+        <span class="story-feature-copy">
+          <span class="story-feature-title">Büyük Buhran: Nedenleri, Etkileri ve Toparlanma Süreci</span>
+          <span class="story-feature-description">
+            1929'da başlayan ekonomik krizin nedenlerini, insanların yaşamı
+            üzerindeki etkilerini ve dünyayı değiştiren toparlanma sürecini
+            keşfedin.
+          </span>
+        </span>
+      </NuxtLink>
     </main>
   </div>
 </template>

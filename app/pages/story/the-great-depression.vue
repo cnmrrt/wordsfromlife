@@ -164,6 +164,12 @@ useHead(createPageSeoHead({
   path: '/story/the-great-depression',
   type: 'article',
   articleSchema: true,
+  lang: 'en',
+  alternateLanguages: [
+    { lang: 'en', path: '/story/the-great-depression' },
+    { lang: 'tr', path: '/tr/hikaye/buyuk-buhran' },
+    { lang: 'x-default', path: '/story/the-great-depression' }
+  ],
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Stories', path: '/story' },
