@@ -63,7 +63,7 @@ const words = [
   { word: 'Leva', origin: 'Arapça', meaning: 'Bayrak, sancak; eski yüzyıllarda idarî bölge anlamında kullanılan tabir.' },
   { word: 'Lütuf', origin: 'Arapça', meaning: 'İyilik, yardım, hoş davranış; ince ve bağışlayıcı ilgi.' },
   { word: 'Mahcubiyet', origin: 'Arapça', meaning: 'Utangaçlık, sıkılganlık, mahcup olma durumu.' },
-  { word: 'Mecal', origin: 'Arapça', meaning: 'Güç, takat, dayanma ve işi yapabilme yetisi.' },
+  { word: '<a href="https://wordsfromlife.com/tr/kelimeler/mecal">Mecal</a>', origin: 'Arapça', meaning: 'Güç, takat, dayanma ve işi yapabilme yetisi.' },
   { word: 'Medar', origin: 'Arapça', meaning: 'Dönme ekseni; vesile veya sebep.' },
   { word: 'Meftun', origin: 'Arapça', meaning: 'Vurulmuş, âşık olmuş, büyülenmiş, hayran kalmış.' },
   { word: 'Mihnet', origin: 'Arapça', meaning: 'Çile, sıkıntı, zahmet ve zorluk.' },
