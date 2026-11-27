@@ -351,7 +351,7 @@ function updateJsonField(key: string, value: string) {
     jsonError.value = `${fieldLabel(key)} must contain valid JSON.`
   }
 }
-
+ 
 function getErrorMessage(error: unknown, fallback: string): string {
   if (error && typeof error === 'object' && 'data' in error) {
     const data = error.data
